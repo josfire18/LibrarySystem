@@ -11,4 +11,16 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete login;
+}
+
+void MainWindow::on_Login_clicked()
+{
+    login=new Login(this);
+    login->show();
+}
+
+void MainWindow::on_Search_clicked()
+{
+
 }
