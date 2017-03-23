@@ -12,11 +12,13 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete login;
+    delete Search;
 }
 
 void MainWindow::on_Search_clicked()
 {
-
+    Search = new SearchWindow(this);
+    Search->show();
 }
 
 void MainWindow::on_Login_clicked()
