@@ -17,12 +17,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Search_clicked()
 {
-    Search = new SearchWindow(this);
+    Search = new SearchWindow();
     Search->show();
 }
 
 void MainWindow::on_Login_clicked()
 {
-    login = new LoginPage(this);
+    login = new LoginPage();
     login->show();
 }
