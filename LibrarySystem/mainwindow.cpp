@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    Search=NULL;
+    login=NULL;
 }
 
 MainWindow::~MainWindow()
@@ -17,12 +19,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Search_clicked()
 {
-    Search = new SearchWindow();
+    if(Search==NULL){
+        Search = new SearchWindow();
+    }
     Search->show();
 }
 
 void MainWindow::on_Login_clicked()
 {
-    login = new LoginPage();
+    if(login==NULL){
+        login = new LoginPage();
+    }
     login->show();
 }
