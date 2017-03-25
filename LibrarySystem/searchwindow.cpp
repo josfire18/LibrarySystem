@@ -4,6 +4,8 @@
 #include "string"
 #include "QFile"
 #include "QDebug"
+#include <QDir>
+#include <QCoreApplication>
 using namespace std;
 
 

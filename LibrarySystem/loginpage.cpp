@@ -13,6 +13,7 @@ LoginPage::LoginPage(QWidget *parent) :
     ui(new Ui::LoginPage)
 {
     ui->setupUi(this);
+    loginSuccessful=false;
 }
 
 LoginPage::~LoginPage()
