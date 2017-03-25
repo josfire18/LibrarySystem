@@ -1,0 +1,200 @@
+Ora Ione|494 N. Woodland Pvt.|HOUSTON|Texas|77302|
+Janessa Philbrick|932 S. South Rd. #189|KIRKLAND|Arizona|86332|
+Merv Eiford|3541 E. Church Ave. #779|STAMFORD|Arizona|86321|
+Fair Bash|1574 S. Maple Ln.|LUCAS|Kentucky|42156|
+Katherine Williamson|9753 Sachtjen Junction|Birmingham|Alabama|35231|
+William Lewis|40 Fuller Way|Portland|Oregon|97211|
+Andrea Howell|7 Kipling Lane|Phoenix|Arizona|85062|
+Martha Scott|14 Atwood Road|Saginaw|Michigan|48604|
+Janice Fisher|44442 Iowa Lane|Riverside|California|92513|
+Carolyn Bradley|02645 Luster Avenue|Charleston|South Carolina|29411|
+Rose Jones|80440 Thompson Plaza|South Bend|Indiana|46699|
+Nicole Mccoy|08 Stuart Terrace|Pueblo|Colorado|81015|
+Jeremy Carroll|930 Surrey Junction|Oklahoma City|Oklahoma|73135|
+Gregory Lane|760 Graceland Hill|Chicago|Illinois|60624|
+Brian Williams|9 Caliangt Circle|Syracuse|New York|13224|
+Susan Mccoy|8324 Fairfield Hill|New Orleans|Louisiana|70174|
+Nicole Sims|2271 Fieldstone Trail|Winter Haven|Florida|33884|
+Willie Mason|841 Russell Alley|San Antonio|Texas|78210|
+Lisa Dixon|356 Butterfield Park|Los Angeles|California|90005|
+Craig Carpenter|0 Comanche Drive|Huntsville|Texas|77343|
+Lori Diaz|0 Russell Court|Charleston|West Virginia|25305|
+Catherine Stevens|4 Bobwhite Center|Anderson|South Carolina|29625|
+Amy Kennedy|9857 Bultman Parkway|Cleveland|Ohio|44105|
+Louise Butler|2144 Oneill Court|El Paso|Texas|88546|
+Norma Rogers|604 Huxley Crossing|Syracuse|New York|13205|
+Angela Reid|44 Havey Crossing|Paterson|New Jersey|07522|
+Mary Mason|8 Haas Hill|Las Vegas|Nevada|89160|
+Brenda Murray|00197 Sherman Point|Newark|Delaware|19714|
+Helen Hughes|13 Maple Court|Charlotte|North Carolina|28278|
+Donald Mills|19894 Veith Pass|Fort Worth|Texas|76134|
+Richard Barnes|64 Claremont Circle|Arlington|Texas|76096|
+Walter Snyder|160 Mcguire Avenue|Seattle|Washington|98185|
+Christina Allen|61417 Cherokee Way|Waltham|Massachusetts|02453|
+Patricia Ramos|54359 Bay Park|Columbus|Ohio|43210|
+Juan Payne|03 Longview Park|Washington|District of Columbia|20319|
+Jeremy Coleman|5799 Forest Dale Point|Dayton|Ohio|45454|
+Billy Spencer|56 Gerald Lane|Mesa|Arizona|85210|
+Julia Long|837 Johnson Street|El Paso|Texas|79999|
+Carlos Smith|965 Cottonwood Alley|Odessa|Texas|79769|
+Ruth Mcdonald|0 Dakota Terrace|Dallas|Texas|75387|
+Michelle Thompson|724 Sachs Alley|Naples|Florida|34108|
+Evelyn Medina|201 Pond Road|San Diego|California|92121|
+Kevin Jones|1 Fremont Drive|Los Angeles|California|90094|
+Philip Gardner|3 Stang Plaza|New Orleans|Louisiana|70129|
+Pamela Carpenter|449 Artisan Drive|Lexington|Kentucky|40596|
+Marie Anderson|1 Northport Crossing|Little Rock|Arkansas|72231|
+Patricia Sanders|54 Westport Pass|Waco|Texas|76705|
+Kathy Hanson|6410 Merrick Road|New Orleans|Louisiana|70142|
+William Sanders|28913 Fairview Court|Evansville|Indiana|47712|
+Eric Barnes|87344 Larry Drive|Miami|Florida|33261|
+Brandon Fowler|7354 Granby Hill|Houston|Texas|77060|
+Earl Walker|260 Elgar Place|Colorado Springs|Colorado|80905|
+Frances Rice|55 Gina Street|Seattle|Washington|98195|
+Martha King|19238 Randy Park|Portsmouth|New Hampshire|00214|
+Tina Murphy|095 Anzinger Place|Utica|New York|13505|
+Ruth Gray|2 Transport Place|Tampa|Florida|33647|
+Carl Thompson|520 Hudson Crossing|Boston|Massachusetts|02104|
+Pamela Wells|2805 Mesta Lane|Norfolk|Virginia|23520|
+Kathryn Foster|6376 Thompson Park|Louisville|Kentucky|40280|
+Aaron Ortiz|4476 Petterle Lane|Metairie|Louisiana|70033|
+David Lewis|027 Park Meadow Court|Memphis|Tennessee|38150|
+Roy Edwards|13 Shasta Plaza|San Jose|California|95123|
+Lois Johnson|86263 Northfield Pass|Colorado Springs|Colorado|80910|
+Ernest Clark|68 New Castle Pass|Topeka|Kansas|66699|
+Gregory Pierce|310 Meadow Vale Center|Austin|Texas|78754|
+Jimmy White|603 Sachs Hill|Tulsa|Oklahoma|74141|
+Brenda Rice|1 Calypso Circle|Van Nuys|California|91411|
+Judith Scott|789 New Castle Plaza|Fresno|California|93762|
+Irene Tucker|70 Warrior Trail|Washington|District of Columbia|20599|
+Lillian Dunn|5778 Eliot Place|Lincoln|Nebraska|68517|
+Helen Ortiz|85604 Bartillon Crossing|Memphis|Tennessee|38197|
+Carolyn Gutierrez|5 Transport Street|Miami|Florida|33185|
+Thomas Martinez|705 Dennis Plaza|Port Washington|New York|11054|
+Michael Berry|783 Linden Lane|New York City|New York|10019|
+Frank Fowler|45 Bobwhite Hill|Hampton|Virginia|23663|
+Joe Armstrong|6 Northridge Drive|Scranton|Pennsylvania|18505|
+Teresa Arnold|27950 1st Terrace|Rochester|New York|14652|
+Kevin Stanley|86 Caliangt Way|Clearwater|Florida|34620|
+Debra Medina|3 Pond Drive|Cincinnati|Ohio|45243|
+Dorothy Pierce|54 American Road|Vero Beach|Florida|32964|
+James Murray|11522 Anniversary Trail|Richmond|Virginia|23213|
+Helen Riley|1 Victoria Lane|Fort Worth|Texas|76134|
+Betty Moore|81 Kedzie Pass|Grand Rapids|Michigan|49505|
+Tina Sims|1 Anzinger Junction|Phoenix|Arizona|85040|
+Antonio Shaw|00 Caliangt Street|Fort Collins|Colorado|80525|
+Carolyn Alvarez|8 Merchant Road|Oklahoma City|Oklahoma|73104|
+Dennis Hanson|375 Arkansas Alley|Jacksonville|Florida|32277|
+Arthur Alexander|17 Eagan Court|San Antonio|Texas|78255|
+Larry Simpson|785 Lake View Terrace|Saint Paul|Minnesota|55115|
+Annie Wallace|148 Grover Way|Louisville|Kentucky|40266|
+Kevin Gordon|03 Coolidge Trail|Waltham|Massachusetts|02453|
+Paul Watkins|41 Darwin Terrace|Mobile|Alabama|36670|
+Scott Ryan|88400 Thierer Alley|El Paso|Texas|79950|
+Susan Diaz|677 Waxwing Drive|Shawnee Mission|Kansas|66205|
+Earl Scott|2897 Claremont Place|Worcester|Massachusetts|01654|
+Dorothy Chapman|375 Waywood Crossing|Reading|Pennsylvania|19610|
+Clarence Greene|1 Esch Place|Memphis|Tennessee|38181|
+Anna Watkins|7 Kipling Street|Honolulu|Hawaii|96815|
+Jeremy Ryan|97710 Dennis Avenue|Rockford|Illinois|61110|
+Walter Martin|1 Wayridge Trail|Evansville|Indiana|47747|
+Ora Ione|494 N. Woodland Pvt.|HOUSTON|Texas|77302|
+Janessa Philbrick|932 S. South Rd. #189|KIRKLAND|Arizona|86332|
+Merv Eiford|3541 E. Church Ave. #779|STAMFORD|Arizona|86321|
+Fair Bash|1574 S. Maple Ln.|LUCAS|Kentucky|42156|
+Katherine Williamson|9753 Sachtjen Junction|Birmingham|Alabama|35231|
+William Lewis|40 Fuller Way|Portland|Oregon|97211|
+Andrea Howell|7 Kipling Lane|Phoenix|Arizona|85062|
+Martha Scott|14 Atwood Road|Saginaw|Michigan|48604|
+Janice Fisher|44442 Iowa Lane|Riverside|California|92513|
+Carolyn Bradley|02645 Luster Avenue|Charleston|South Carolina|29411|
+Rose Jones|80440 Thompson Plaza|South Bend|Indiana|46699|
+Nicole Mccoy|08 Stuart Terrace|Pueblo|Colorado|81015|
+Jeremy Carroll|930 Surrey Junction|Oklahoma City|Oklahoma|73135|
+Gregory Lane|760 Graceland Hill|Chicago|Illinois|60624|
+Brian Williams|9 Caliangt Circle|Syracuse|New York|13224|
+Susan Mccoy|8324 Fairfield Hill|New Orleans|Louisiana|70174|
+Nicole Sims|2271 Fieldstone Trail|Winter Haven|Florida|33884|
+Willie Mason|841 Russell Alley|San Antonio|Texas|78210|
+Lisa Dixon|356 Butterfield Park|Los Angeles|California|90005|
+Craig Carpenter|0 Comanche Drive|Huntsville|Texas|77343|
+Lori Diaz|0 Russell Court|Charleston|West Virginia|25305|
+Catherine Stevens|4 Bobwhite Center|Anderson|South Carolina|29625|
+Amy Kennedy|9857 Bultman Parkway|Cleveland|Ohio|44105|
+Louise Butler|2144 Oneill Court|El Paso|Texas|88546|
+Norma Rogers|604 Huxley Crossing|Syracuse|New York|13205|
+Angela Reid|44 Havey Crossing|Paterson|New Jersey|07522|
+Mary Mason|8 Haas Hill|Las Vegas|Nevada|89160|
+Brenda Murray|00197 Sherman Point|Newark|Delaware|19714|
+Helen Hughes|13 Maple Court|Charlotte|North Carolina|28278|
+Donald Mills|19894 Veith Pass|Fort Worth|Texas|76134|
+Richard Barnes|64 Claremont Circle|Arlington|Texas|76096|
+Walter Snyder|160 Mcguire Avenue|Seattle|Washington|98185|
+Christina Allen|61417 Cherokee Way|Waltham|Massachusetts|02453|
+Patricia Ramos|54359 Bay Park|Columbus|Ohio|43210|
+Juan Payne|03 Longview Park|Washington|District of Columbia|20319|
+Jeremy Coleman|5799 Forest Dale Point|Dayton|Ohio|45454|
+Billy Spencer|56 Gerald Lane|Mesa|Arizona|85210|
+Julia Long|837 Johnson Street|El Paso|Texas|79999|
+Carlos Smith|965 Cottonwood Alley|Odessa|Texas|79769|
+Ruth Mcdonald|0 Dakota Terrace|Dallas|Texas|75387|
+Michelle Thompson|724 Sachs Alley|Naples|Florida|34108|
+Evelyn Medina|201 Pond Road|San Diego|California|92121|
+Kevin Jones|1 Fremont Drive|Los Angeles|California|90094|
+Philip Gardner|3 Stang Plaza|New Orleans|Louisiana|70129|
+Pamela Carpenter|449 Artisan Drive|Lexington|Kentucky|40596|
+Marie Anderson|1 Northport Crossing|Little Rock|Arkansas|72231|
+Patricia Sanders|54 Westport Pass|Waco|Texas|76705|
+Kathy Hanson|6410 Merrick Road|New Orleans|Louisiana|70142|
+William Sanders|28913 Fairview Court|Evansville|Indiana|47712|
+Eric Barnes|87344 Larry Drive|Miami|Florida|33261|
+Brandon Fowler|7354 Granby Hill|Houston|Texas|77060|
+Earl Walker|260 Elgar Place|Colorado Springs|Colorado|80905|
+Frances Rice|55 Gina Street|Seattle|Washington|98195|
+Martha King|19238 Randy Park|Portsmouth|New Hampshire|00214|
+Tina Murphy|095 Anzinger Place|Utica|New York|13505|
+Ruth Gray|2 Transport Place|Tampa|Florida|33647|
+Carl Thompson|520 Hudson Crossing|Boston|Massachusetts|02104|
+Pamela Wells|2805 Mesta Lane|Norfolk|Virginia|23520|
+Kathryn Foster|6376 Thompson Park|Louisville|Kentucky|40280|
+Aaron Ortiz|4476 Petterle Lane|Metairie|Louisiana|70033|
+David Lewis|027 Park Meadow Court|Memphis|Tennessee|38150|
+Roy Edwards|13 Shasta Plaza|San Jose|California|95123|
+Lois Johnson|86263 Northfield Pass|Colorado Springs|Colorado|80910|
+Ernest Clark|68 New Castle Pass|Topeka|Kansas|66699|
+Gregory Pierce|310 Meadow Vale Center|Austin|Texas|78754|
+Jimmy White|603 Sachs Hill|Tulsa|Oklahoma|74141|
+Brenda Rice|1 Calypso Circle|Van Nuys|California|91411|
+Judith Scott|789 New Castle Plaza|Fresno|California|93762|
+Irene Tucker|70 Warrior Trail|Washington|District of Columbia|20599|
+Lillian Dunn|5778 Eliot Place|Lincoln|Nebraska|68517|
+Helen Ortiz|85604 Bartillon Crossing|Memphis|Tennessee|38197|
+Carolyn Gutierrez|5 Transport Street|Miami|Florida|33185|
+Thomas Martinez|705 Dennis Plaza|Port Washington|New York|11054|
+Michael Berry|783 Linden Lane|New York City|New York|10019|
+Frank Fowler|45 Bobwhite Hill|Hampton|Virginia|23663|
+Joe Armstrong|6 Northridge Drive|Scranton|Pennsylvania|18505|
+Teresa Arnold|27950 1st Terrace|Rochester|New York|14652|
+Kevin Stanley|86 Caliangt Way|Clearwater|Florida|34620|
+Debra Medina|3 Pond Drive|Cincinnati|Ohio|45243|
+Dorothy Pierce|54 American Road|Vero Beach|Florida|32964|
+James Murray|11522 Anniversary Trail|Richmond|Virginia|23213|
+Helen Riley|1 Victoria Lane|Fort Worth|Texas|76134|
+Betty Moore|81 Kedzie Pass|Grand Rapids|Michigan|49505|
+Tina Sims|1 Anzinger Junction|Phoenix|Arizona|85040|
+Antonio Shaw|00 Caliangt Street|Fort Collins|Colorado|80525|
+Carolyn Alvarez|8 Merchant Road|Oklahoma City|Oklahoma|73104|
+Dennis Hanson|375 Arkansas Alley|Jacksonville|Florida|32277|
+Arthur Alexander|17 Eagan Court|San Antonio|Texas|78255|
+Larry Simpson|785 Lake View Terrace|Saint Paul|Minnesota|55115|
+Annie Wallace|148 Grover Way|Louisville|Kentucky|40266|
+Kevin Gordon|03 Coolidge Trail|Waltham|Massachusetts|02453|
+Paul Watkins|41 Darwin Terrace|Mobile|Alabama|36670|
+Scott Ryan|88400 Thierer Alley|El Paso|Texas|79950|
+Susan Diaz|677 Waxwing Drive|Shawnee Mission|Kansas|66205|
+Earl Scott|2897 Claremont Place|Worcester|Massachusetts|01654|
+Dorothy Chapman|375 Waywood Crossing|Reading|Pennsylvania|19610|
+Clarence Greene|1 Esch Place|Memphis|Tennessee|38181|
+Anna Watkins|7 Kipling Street|Honolulu|Hawaii|96815|
+Jeremy Ryan|97710 Dennis Avenue|Rockford|Illinois|61110|
+Walter Martin|1 Wayridge Trail|Evansville|Indiana|47747|
