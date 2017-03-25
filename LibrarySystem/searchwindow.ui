@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>835</width>
+    <height>555</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,16 +17,16 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
-     <width>371</width>
-     <height>192</height>
+     <y>120</y>
+     <width>811</width>
+     <height>421</height>
     </rect>
    </property>
   </widget>
   <widget class="QLineEdit" name="txtSearch">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>210</x>
      <y>60</y>
      <width>281</width>
      <height>21</height>
@@ -36,7 +36,7 @@
   <widget class="QPushButton" name="btnSearch">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>490</x>
      <y>60</y>
      <width>91</width>
      <height>23</height>
@@ -49,7 +49,7 @@
   <widget class="QLabel" name="lblSearch">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>300</x>
      <y>10</y>
      <width>311</width>
      <height>31</height>
@@ -62,6 +62,58 @@
    </property>
    <property name="text">
     <string>Local Library Search</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>100</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Title</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>100</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Author</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>100</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ISBN</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>100</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string># Avail</string>
    </property>
   </widget>
  </widget>
