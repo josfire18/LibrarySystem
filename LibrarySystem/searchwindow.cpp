@@ -1,22 +1,21 @@
 #include "searchwindow.h"
 #include "ui_searchwindow.h"
 #include "QMessageBox"
-#include "iostream"
-#include "cstdlib"
-#include "fstream"
-#include "sstream"
 #include "string"
+#include "QFile"
+#include "QDebug"
 using namespace std;
 
 
-//Struct for containing the address in 5 separate parts
+/*Struct for containing the 5 separate parts of the book
 struct book{
-    string title;
-    string author;
-    string isbn;
-    string totNum;
-    string inStock;
-};
+    QString title;
+    QString author;
+    QString isbn;
+    QString totNum;
+    QString inStock;
+};*/
+struct book;
 
 SearchWindow::SearchWindow(QWidget *parent) :
     QWidget(parent),
@@ -32,36 +31,29 @@ SearchWindow::~SearchWindow()
 
 void SearchWindow::on_btnSearch_clicked()
 {
-    string bookList = "booklist.txt";
-    //Open file
-    ifstream file;
-    file.open(bookList.c_str());
-    book arr[1010];
+    QString bookList = "booklist.txt";
 
-    //Find File Size
-    int arrSize;
-    arrSize = lineCount(bookList);
-
-    if (file.is_open()) {
-        cout << endl << "File Opened Sucessfully \n" << endl;
-        string line;
-        while (file.good())
+    QString line = " ";
+    QFile inputFile(bookList);
+    if (inputFile.open(QIODevice::ReadOnly))
+    {
+        qDebug()<<"read";
+        QTextStream readIn(&inputFile);
+        while (!readIn.atEnd())
         {
-            for (int i = 1; i <= arrSize; i++) {
-                getline(file, line, '|');
-                arr[i].title = line;
-                getline(file, line, '|');
-                arr[i].author = line;
-                getline(file, line, '|');
-                arr[i].isbn = line;
-                getline(file, line, '|');
-                arr[i].totNum = line;
-                getline(file, line);
-                arr[i].inStock = line;
-            }
-        }
+            QStringList pieces = line.split("|");
+            line = readIn.readLine();
+            book temp;
+            temp.title = pieces.at(0);
+            temp.author = pieces.at(1);
+            temp.isbn = pieces.at(2);
+            temp.totNum = pieces.at(3);
+            temp.inStock = pieces.at(4);
 
-        file.close();
+            bookVector.push_back(temp);
+        }
+        inputFile.close();
+    }
     //Check if search box is empty
     if(ui->txtSearch->text() == "")
     {
