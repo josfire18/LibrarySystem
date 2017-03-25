@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "login.h"
+#include "loginpage.h"
 #include "searchwindow.h"
 
 namespace Ui {
@@ -24,7 +24,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Login* login;
+    LoginPage* login;
     SearchWindow* Search;
 };
 

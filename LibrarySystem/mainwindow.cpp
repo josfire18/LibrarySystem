@@ -23,6 +23,6 @@ void MainWindow::on_Search_clicked()
 
 void MainWindow::on_Login_clicked()
 {
-    login = new Login(this);
+    login = new LoginPage(this);
     login->show();
 }
