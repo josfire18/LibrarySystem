@@ -6,6 +6,7 @@
 #include <qfile.h>
 #include <QDir>
 #include <QCoreApplication>
+#include "authorizedwindow.h"
 using namespace std;
 
 LoginPage::LoginPage(QWidget *parent) :
@@ -73,7 +74,9 @@ void LoginPage::on_LoginButton_clicked()
         }
     }
     if(loginSuccessful){
-        this->close();
+       // this->close();
+        openAuthorizedWindow=new AuthorizedWindow();
+        openAuthorizedWindow->show();
     }
     else{
         qDebug()<<"Not the right user";

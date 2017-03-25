@@ -26,12 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     searchwindow.cpp \
-    loginpage.cpp
+    loginpage.cpp \
+    authorizedwindow.cpp
 
 HEADERS  += mainwindow.h \
     searchwindow.h \
-    loginpage.h
+    loginpage.h \
+    authorizedwindow.h
 
 FORMS    += mainwindow.ui \
     searchwindow.ui \
-    loginpage.ui
+    loginpage.ui \
+    authorizedwindow.ui

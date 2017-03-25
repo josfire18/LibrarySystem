@@ -2,6 +2,7 @@
 #define LOGINPAGE_H
 
 #include <QWidget>
+#include "authorizedwindow.h"
 
 namespace Ui {
 class LoginPage;
@@ -23,6 +24,7 @@ private slots:
 
 private:
     Ui::LoginPage *ui;
+    AuthorizedWindow* openAuthorizedWindow;
 };
 
 #endif // LOGINPAGE_H
