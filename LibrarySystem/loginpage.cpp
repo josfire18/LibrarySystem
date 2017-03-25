@@ -27,6 +27,7 @@ void LoginPage::on_CancelButton_clicked()
 
 void LoginPage::on_LoginButton_clicked()
 {
+
 #ifdef __APPLE__
      QDir bin(QCoreApplication::applicationDirPath());
      bin.cdUp();

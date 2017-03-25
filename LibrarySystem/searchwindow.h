@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QVector>
+#include <QString>
 using namespace std;
 
 namespace Ui {
@@ -27,6 +28,9 @@ public:
     };
 
     vector<book> bookVector;
+
+    //Concatenation Function
+    QString concatenate(int lineNum);
 
 
 private slots:

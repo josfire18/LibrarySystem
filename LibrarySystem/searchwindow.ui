@@ -13,16 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QTextBrowser" name="txtSearchResults">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>120</y>
-     <width>811</width>
-     <height>421</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="txtSearch">
    <property name="geometry">
     <rect>
@@ -64,7 +54,7 @@
     <string>Local Library Search</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="lblTitle">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -77,7 +67,7 @@
     <string>Title</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="lblAuthor">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -90,7 +80,7 @@
     <string>Author</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="lblISBN">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -103,7 +93,7 @@
     <string>ISBN</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="lblTotAvail">
    <property name="geometry">
     <rect>
      <x>440</x>
@@ -114,6 +104,29 @@
    </property>
    <property name="text">
     <string># Avail</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblInStock">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>100</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string># Avail</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="txtSearchResults">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>130</y>
+     <width>811</width>
+     <height>411</height>
+    </rect>
    </property>
   </widget>
  </widget>
