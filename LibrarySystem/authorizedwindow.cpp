@@ -4,6 +4,10 @@
 #include "string"
 #include "QFile"
 #include "QDebug"
+#include <QDir>
+#include <QCoreApplication>
+#include <qscrollarea.h>
+#include <QVBoxLayout>
 using namespace std;
 
 //Struct for book parts
@@ -88,17 +92,31 @@ void AuthorizedWindow::on_btnSearch_clicked()
     }
     else
     {
-        QString results = "";
+        //QString results = "";
         QString searchInput = ui->txtSearch->text();
+
+        ui->scrollArea->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOn );
+        QVBoxLayout *layout = new QVBoxLayout();
+
+        QWidget *widget = new QWidget();
+        ui->scrollArea->setWidget( widget );
+        widget->setLayout( layout );
+
+
+
         for(int i = 0; i < bookVector.size(); i++)
         {
             if(bookVector.at(i).title.contains(searchInput, Qt::CaseInsensitive))
             {
-                results.append(concatenate(i));
-                results.append("\n");
+                //results.append(concatenate(i));
+                //results.append("\n");
+                QLabel *label = new QLabel(concatenate(i));
+                layout->addWidget(label);
             }
         }
-        ui->txtSearchResults->setText(results);
+
+        //ui->txtSearchResults->setText(results);
+
 
     }
 }
