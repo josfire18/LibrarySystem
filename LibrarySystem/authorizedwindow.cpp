@@ -8,6 +8,7 @@
 #include <QCoreApplication>
 #include <qscrollarea.h>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 using namespace std;
 
 //Struct for book parts
@@ -92,31 +93,36 @@ void AuthorizedWindow::on_btnSearch_clicked()
     }
     else
     {
-        //QString results = "";
         QString searchInput = ui->txtSearch->text();
 
         ui->scrollArea->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOn );
         QVBoxLayout *layout = new QVBoxLayout();
-
         QWidget *widget = new QWidget();
         ui->scrollArea->setWidget( widget );
         widget->setLayout( layout );
-
-
 
         for(int i = 0; i < bookVector.size(); i++)
         {
             if(bookVector.at(i).title.contains(searchInput, Qt::CaseInsensitive))
             {
-                //results.append(concatenate(i));
-                //results.append("\n");
-                QLabel *label = new QLabel(concatenate(i));
-                layout->addWidget(label);
+                QHBoxLayout *hlayout=new QHBoxLayout();
+                QLabel *Titlelabel = new QLabel(bookVector.at(i).title);
+                QLabel *AuthorLabel = new QLabel(bookVector.at(i).author);
+                QLabel *ISBNLabel = new QLabel(bookVector.at(i).isbn);
+                QLabel *TotAvailLabel = new QLabel(bookVector.at(i).totNum);
+                QLabel *InStockLabel = new QLabel(bookVector.at(i).inStock);
+                Titlelabel->setFixedWidth(100);
+                Titlelabel->setToolTip(bookVector.at(i).title);
+                AuthorLabel->setFixedWidth(100);
+                AuthorLabel->setToolTip(bookVector.at(i).author);
+                hlayout->addWidget(Titlelabel);
+                hlayout->addWidget(AuthorLabel);
+                hlayout->addWidget(ISBNLabel);
+                hlayout->addWidget(TotAvailLabel);
+                hlayout->addWidget(InStockLabel);
+               // hlayout->setSpacing(100);
+                layout->addLayout(hlayout);
             }
         }
-
-        //ui->txtSearchResults->setText(results);
-
-
     }
 }
