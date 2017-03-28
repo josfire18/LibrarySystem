@@ -100,6 +100,7 @@ void AuthorizedWindow::on_btnSearch_clicked()
         QVBoxLayout *layout = new QVBoxLayout();
         QWidget *widget = new QWidget();
         ui->scrollArea->setWidget( widget );
+        layout->setAlignment(Qt::AlignTop);
         widget->setLayout( layout );
 
         for(int i = 0; i < bookVector.size(); i++)

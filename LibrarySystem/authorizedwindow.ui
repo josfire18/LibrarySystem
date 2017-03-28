@@ -38,6 +38,9 @@
    <property name="text">
     <string>Search</string>
    </property>
+   <property name="default">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLabel" name="lblTitle">
    <property name="geometry">
@@ -139,7 +142,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>794</width>
+      <width>792</width>
       <height>419</height>
      </rect>
     </property>
