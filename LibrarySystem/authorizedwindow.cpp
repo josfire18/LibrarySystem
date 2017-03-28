@@ -9,6 +9,7 @@
 #include <qscrollarea.h>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QCheckBox>
 using namespace std;
 
 //Struct for book parts
@@ -111,16 +112,18 @@ void AuthorizedWindow::on_btnSearch_clicked()
                 QLabel *ISBNLabel = new QLabel(bookVector.at(i).isbn);
                 QLabel *TotAvailLabel = new QLabel(bookVector.at(i).totNum);
                 QLabel *InStockLabel = new QLabel(bookVector.at(i).inStock);
-                Titlelabel->setFixedWidth(100);
+                Titlelabel->setFixedWidth(200);
                 Titlelabel->setToolTip(bookVector.at(i).title);
-                AuthorLabel->setFixedWidth(100);
+                AuthorLabel->setFixedWidth(150);
                 AuthorLabel->setToolTip(bookVector.at(i).author);
+                QCheckBox *checkBox=new QCheckBox();
+                checkBox->setFixedWidth(30);
+                hlayout->addWidget(checkBox);
                 hlayout->addWidget(Titlelabel);
                 hlayout->addWidget(AuthorLabel);
                 hlayout->addWidget(ISBNLabel);
                 hlayout->addWidget(TotAvailLabel);
                 hlayout->addWidget(InStockLabel);
-               // hlayout->setSpacing(100);
                 layout->addLayout(hlayout);
             }
         }

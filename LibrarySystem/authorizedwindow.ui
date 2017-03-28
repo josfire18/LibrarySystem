@@ -16,7 +16,7 @@
   <widget class="QLabel" name="lblAuthor">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>260</x>
      <y>100</y>
      <width>47</width>
      <height>13</height>
@@ -42,7 +42,7 @@
   <widget class="QLabel" name="lblTitle">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>50</x>
      <y>100</y>
      <width>47</width>
      <height>13</height>
@@ -55,7 +55,7 @@
   <widget class="QLabel" name="lblTotAvail">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>550</x>
      <y>100</y>
      <width>47</width>
      <height>13</height>
@@ -96,9 +96,9 @@
   <widget class="QLabel" name="lblInStock">
    <property name="geometry">
     <rect>
-     <x>600</x>
+     <x>670</x>
      <y>100</y>
-     <width>47</width>
+     <width>60</width>
      <height>13</height>
     </rect>
    </property>
@@ -109,7 +109,7 @@
   <widget class="QLabel" name="lblISBN">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>420</x>
      <y>100</y>
      <width>47</width>
      <height>13</height>
@@ -139,7 +139,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>792</width>
+      <width>794</width>
       <height>419</height>
      </rect>
     </property>
