@@ -9,7 +9,6 @@
 #include <qscrollarea.h>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QCheckBox>
 using namespace std;
 
 //Struct for book parts
@@ -69,7 +68,6 @@ void AuthorizedWindow::on_btnSearch_clicked()
             {
                 line = readIn.readLine();
                 QStringList pieces = line.split("|");
-                qDebug() << pieces.length();
                 line = readIn.readLine();
                 book temp;
                 temp.title = pieces.at(0);
@@ -77,7 +75,8 @@ void AuthorizedWindow::on_btnSearch_clicked()
                 temp.isbn = pieces.at(2);
                 temp.totNum = pieces.at(3);
                 temp.inStock = pieces.at(4);
-
+                temp.isSelected=false;
+                temp.checkBox=NULL;
                 bookVector.push_back(temp);
             }
             inputFile.close();
@@ -119,6 +118,7 @@ void AuthorizedWindow::on_btnSearch_clicked()
                 Titlelabel->setToolTip(bookVector.at(i).title);
                 AuthorLabel->setFixedWidth(150);
                 AuthorLabel->setToolTip(bookVector.at(i).author);
+<<<<<<< HEAD
 
                 //Create Checkboxes
                 QCheckBox *checkBox=new QCheckBox();
@@ -126,6 +126,13 @@ void AuthorizedWindow::on_btnSearch_clicked()
                 hlayout->addWidget(checkBox);
 
                 //Create Row
+=======
+                QCheckBox *TempcheckBox=new QCheckBox();
+                connect(TempcheckBox,SIGNAL(clicked(bool)),this,SLOT(on_Box_Checked()));
+                TempcheckBox->setFixedWidth(30);
+                bookVector.at(i).checkBox=TempcheckBox;
+                hlayout->addWidget(TempcheckBox);
+>>>>>>> Sam_Branch
                 hlayout->addWidget(Titlelabel);
                 hlayout->addWidget(AuthorLabel);
                 hlayout->addWidget(ISBNLabel);
@@ -133,6 +140,70 @@ void AuthorizedWindow::on_btnSearch_clicked()
                 hlayout->addWidget(InStockLabel);
                 layout->addLayout(hlayout);
             }
+        }
+    }
+}
+
+void AuthorizedWindow::on_Checkout_Button_clicked()
+{
+    for(int i = 0; i < bookVector.size(); i++){
+        if(bookVector.at(i).isSelected){
+            qDebug()<<"Selected"<<i;
+        }
+        else{
+
+        }
+    }
+}
+
+void AuthorizedWindow::on_Add_Button_clicked()
+{
+
+}
+
+void AuthorizedWindow::on_Delete_Button_clicked()
+{
+    int selected=0;
+    for(int i = 0; i < bookVector.size(); i++){
+        if(bookVector.at(i).isSelected){
+            selected++;
+        }
+    }
+    if(0==selected){
+        //Nothing Selected
+        QMessageBox *warning = new QMessageBox();
+        warning->setText("Nothing Selected");
+        warning->show();
+    }
+    else{
+        //Warn before delete
+        QMessageBox *DeleteBox = new QMessageBox();
+        QString message="Are You Sure You Wish To Delete These ";
+        message.append(QString::number(selected));
+        message.append(" Entries?");
+        DeleteBox->setText(message);
+        DeleteBox->addButton(QString("Confirm") , QMessageBox::AcceptRole);
+        DeleteBox->addButton(QString("Cancel") , QMessageBox::RejectRole);
+        DeleteBox->show();
+        if(DeleteBox->exec() == QMessageBox::RejectRole){
+            DeleteBox->close();
+        }//Cancel
+        else {
+            for(int i = 0; i < bookVector.size(); i++){
+                if(bookVector.at(i).isSelected){
+                    bookVector.erase(bookVector.begin() + i);
+                }
+            }
+        }//Confirm
+    }
+}
+
+void AuthorizedWindow::on_Box_Checked()
+{
+    qDebug()<<"Selected"<<QObject::sender();
+    for(int i = 0; i < bookVector.size(); i++){
+        if(bookVector.at(i).checkBox==QObject::sender()){
+            bookVector.at(i).isSelected=bookVector.at(i).checkBox->isChecked();
         }
     }
 }

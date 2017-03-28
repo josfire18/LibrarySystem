@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QVector>
 #include <QString>
+#include <QCheckBox>
 using namespace std;
 
 namespace Ui {
@@ -25,6 +26,8 @@ public:
         QString isbn;
         QString totNum;
         QString inStock;
+        bool isSelected;
+        QCheckBox *checkBox;
     };
 
     vector<book> bookVector;
@@ -34,6 +37,14 @@ public:
 
 private slots:
     void on_btnSearch_clicked();
+
+    void on_Checkout_Button_clicked();
+
+    void on_Add_Button_clicked();
+
+    void on_Delete_Button_clicked();
+
+    void on_Box_Checked();
 
 private:
     Ui::AuthorizedWindow *ui;
