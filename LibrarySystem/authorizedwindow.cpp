@@ -117,21 +117,14 @@ void AuthorizedWindow::on_btnSearch_clicked()
                 Titlelabel->setToolTip(bookVector.at(i).title);
                 AuthorLabel->setFixedWidth(150);
                 AuthorLabel->setToolTip(bookVector.at(i).author);
-<<<<<<< HEAD
-
                 //Create Checkboxes
-                QCheckBox *checkBox=new QCheckBox();
-                checkBox->setFixedWidth(30);
-                hlayout->addWidget(checkBox);
 
-                //Create Row
-=======
                 QCheckBox *TempcheckBox=new QCheckBox();
                 connect(TempcheckBox,SIGNAL(clicked(bool)),this,SLOT(on_Box_Checked()));
                 TempcheckBox->setFixedWidth(30);
                 bookVector.at(i).checkBox=TempcheckBox;
+
                 hlayout->addWidget(TempcheckBox);
->>>>>>> Sam_Branch
                 hlayout->addWidget(Titlelabel);
                 hlayout->addWidget(AuthorLabel);
                 hlayout->addWidget(ISBNLabel);
