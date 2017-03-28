@@ -158,6 +158,7 @@ void AuthorizedWindow::on_Delete_Button_clicked()
     }
     if(0==selected){
         //Nothing Selected
+        QMessageBox
     }
     else{
         //Warn before delete
