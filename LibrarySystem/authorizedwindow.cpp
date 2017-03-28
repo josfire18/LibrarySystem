@@ -158,6 +158,9 @@ void AuthorizedWindow::on_Delete_Button_clicked()
     }
     if(0==selected){
         //Nothing Selected
+        QMessageBox *warning = new QMessageBox();
+        warning->setText("Nothing Selected");
+        warning->show();
     }
     else{
         //Warn before delete
@@ -173,7 +176,11 @@ void AuthorizedWindow::on_Delete_Button_clicked()
             DeleteBox->close();
         }//Cancel
         else {
-
+            for(int i = 0; i < bookVector.size(); i++){
+                if(bookVector.at(i).isSelected){
+                    bookVector.erase(bookVector.begin() + i);
+                }
+            }
         }//Confirm
     }
 }
