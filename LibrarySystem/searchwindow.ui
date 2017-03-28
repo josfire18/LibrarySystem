@@ -119,15 +119,28 @@
     <string># Avail</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="txtSearchResults">
+  <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>130</y>
-     <width>811</width>
-     <height>411</height>
+     <width>821</width>
+     <height>421</height>
     </rect>
    </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>819</width>
+      <height>419</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

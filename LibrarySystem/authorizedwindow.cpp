@@ -113,12 +113,18 @@ void AuthorizedWindow::on_btnSearch_clicked()
                 QLabel *TotAvailLabel = new QLabel(bookVector.at(i).totNum);
                 QLabel *InStockLabel = new QLabel(bookVector.at(i).inStock);
                 Titlelabel->setFixedWidth(200);
+
+                //Tooltip for author and title, longer possible values
                 Titlelabel->setToolTip(bookVector.at(i).title);
                 AuthorLabel->setFixedWidth(150);
                 AuthorLabel->setToolTip(bookVector.at(i).author);
+
+                //Create Checkboxes
                 QCheckBox *checkBox=new QCheckBox();
                 checkBox->setFixedWidth(30);
                 hlayout->addWidget(checkBox);
+
+                //Create Row
                 hlayout->addWidget(Titlelabel);
                 hlayout->addWidget(AuthorLabel);
                 hlayout->addWidget(ISBNLabel);

@@ -17,7 +17,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -33,7 +33,8 @@ public:
     QLabel *lblSearch;
     QLabel *lblInStock;
     QLabel *lblISBN;
-    QTextEdit *txtSearchResults;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
 
     void setupUi(QWidget *AuthorizedWindow)
     {
@@ -42,16 +43,16 @@ public:
         AuthorizedWindow->resize(834, 562);
         lblAuthor = new QLabel(AuthorizedWindow);
         lblAuthor->setObjectName(QStringLiteral("lblAuthor"));
-        lblAuthor->setGeometry(QRect(140, 100, 47, 13));
+        lblAuthor->setGeometry(QRect(260, 100, 47, 13));
         btnSearch = new QPushButton(AuthorizedWindow);
         btnSearch->setObjectName(QStringLiteral("btnSearch"));
         btnSearch->setGeometry(QRect(480, 60, 91, 23));
         lblTitle = new QLabel(AuthorizedWindow);
         lblTitle->setObjectName(QStringLiteral("lblTitle"));
-        lblTitle->setGeometry(QRect(30, 100, 47, 13));
+        lblTitle->setGeometry(QRect(50, 100, 47, 13));
         lblTotAvail = new QLabel(AuthorizedWindow);
         lblTotAvail->setObjectName(QStringLiteral("lblTotAvail"));
-        lblTotAvail->setGeometry(QRect(430, 100, 47, 13));
+        lblTotAvail->setGeometry(QRect(550, 100, 47, 13));
         txtSearch = new QLineEdit(AuthorizedWindow);
         txtSearch->setObjectName(QStringLiteral("txtSearch"));
         txtSearch->setGeometry(QRect(200, 60, 281, 21));
@@ -63,13 +64,19 @@ public:
         lblSearch->setFont(font);
         lblInStock = new QLabel(AuthorizedWindow);
         lblInStock->setObjectName(QStringLiteral("lblInStock"));
-        lblInStock->setGeometry(QRect(600, 100, 47, 13));
+        lblInStock->setGeometry(QRect(670, 100, 60, 13));
         lblISBN = new QLabel(AuthorizedWindow);
         lblISBN->setObjectName(QStringLiteral("lblISBN"));
-        lblISBN->setGeometry(QRect(270, 100, 47, 13));
-        txtSearchResults = new QTextEdit(AuthorizedWindow);
-        txtSearchResults->setObjectName(QStringLiteral("txtSearchResults"));
-        txtSearchResults->setGeometry(QRect(10, 140, 811, 411));
+        lblISBN->setGeometry(QRect(420, 100, 47, 13));
+        scrollArea = new QScrollArea(AuthorizedWindow);
+        scrollArea->setObjectName(QStringLiteral("scrollArea"));
+        scrollArea->setGeometry(QRect(10, 130, 811, 421));
+        scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 794, 419));
+        scrollArea->setWidget(scrollAreaWidgetContents);
 
         retranslateUi(AuthorizedWindow);
 
@@ -84,7 +91,7 @@ public:
         lblTitle->setText(QApplication::translate("AuthorizedWindow", "Title", 0));
         lblTotAvail->setText(QApplication::translate("AuthorizedWindow", "# Avail", 0));
         lblSearch->setText(QApplication::translate("AuthorizedWindow", "Local Library Search", 0));
-        lblInStock->setText(QApplication::translate("AuthorizedWindow", "# Avail", 0));
+        lblInStock->setText(QApplication::translate("AuthorizedWindow", "In Stock", 0));
         lblISBN->setText(QApplication::translate("AuthorizedWindow", "ISBN", 0));
     } // retranslateUi
 

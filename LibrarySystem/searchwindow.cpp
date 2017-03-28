@@ -6,17 +6,14 @@
 #include "QDebug"
 #include <QDir>
 #include <QCoreApplication>
+#include <qscrollarea.h>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QCheckBox>
 using namespace std;
 
 
-/*Struct for containing the 5 separate parts of the book
-struct book{
-    QString title;
-    QString author;
-    QString isbn;
-    QString totNum;
-    QString inStock;
-};*/
+
 struct book;
 
 SearchWindow::SearchWindow(QWidget *parent) :
@@ -98,20 +95,45 @@ void SearchWindow::on_btnSearch_clicked()
     }
     else
     {
-        QString results = "";
         QString searchInput = ui->txtSearch->text();
+
+        ui->scrollArea->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOn );
+        QVBoxLayout *layout = new QVBoxLayout();
+        QWidget *widget = new QWidget();
+        ui->scrollArea->setWidget( widget );
+        layout->setAlignment(Qt::AlignTop);
+        widget->setLayout( layout );
+
         for(int i = 0; i < bookVector.size(); i++)
         {
             if(bookVector.at(i).title.contains(searchInput, Qt::CaseInsensitive))
             {
-                results.append(concatenate(i));
-                results.append("\n");
+                QHBoxLayout *hlayout=new QHBoxLayout();
+                QLabel *Titlelabel = new QLabel(bookVector.at(i).title);
+                QLabel *AuthorLabel = new QLabel(bookVector.at(i).author);
+                QLabel *ISBNLabel = new QLabel(bookVector.at(i).isbn);
+                QLabel *TotAvailLabel = new QLabel(bookVector.at(i).totNum);
+                QLabel *InStockLabel = new QLabel(bookVector.at(i).inStock);
+                Titlelabel->setFixedWidth(200);
+
+                //Tooltip for author and title, longer possible values
+                Titlelabel->setToolTip(bookVector.at(i).title);
+                AuthorLabel->setFixedWidth(150);
+                AuthorLabel->setToolTip(bookVector.at(i).author);
+
+                //Create Checkboxes
+                QCheckBox *checkBox=new QCheckBox();
+                checkBox->setFixedWidth(30);
+                hlayout->addWidget(checkBox);
+
+                //Create Row
+                hlayout->addWidget(Titlelabel);
+                hlayout->addWidget(AuthorLabel);
+                hlayout->addWidget(ISBNLabel);
+                hlayout->addWidget(TotAvailLabel);
+                hlayout->addWidget(InStockLabel);
+                layout->addLayout(hlayout);
             }
         }
-        ui->txtSearchResults->setText(results);
-
     }
-
-
-
 }

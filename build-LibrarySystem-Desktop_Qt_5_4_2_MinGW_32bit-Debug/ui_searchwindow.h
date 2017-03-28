@@ -17,7 +17,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -33,7 +33,8 @@ public:
     QLabel *lblISBN;
     QLabel *lblTotAvail;
     QLabel *lblInStock;
-    QTextEdit *txtSearchResults;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
 
     void setupUi(QWidget *SearchWindow)
     {
@@ -67,9 +68,14 @@ public:
         lblInStock = new QLabel(SearchWindow);
         lblInStock->setObjectName(QStringLiteral("lblInStock"));
         lblInStock->setGeometry(QRect(610, 100, 47, 13));
-        txtSearchResults = new QTextEdit(SearchWindow);
-        txtSearchResults->setObjectName(QStringLiteral("txtSearchResults"));
-        txtSearchResults->setGeometry(QRect(10, 130, 811, 411));
+        scrollArea = new QScrollArea(SearchWindow);
+        scrollArea->setObjectName(QStringLiteral("scrollArea"));
+        scrollArea->setGeometry(QRect(10, 130, 821, 421));
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 819, 419));
+        scrollArea->setWidget(scrollAreaWidgetContents);
 
         retranslateUi(SearchWindow);
 
