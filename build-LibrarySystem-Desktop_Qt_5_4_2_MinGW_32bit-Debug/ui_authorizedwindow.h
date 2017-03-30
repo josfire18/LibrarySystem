@@ -35,6 +35,9 @@ public:
     QLabel *lblISBN;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
+    QPushButton *Add_Button;
+    QPushButton *Delete_Button;
+    QPushButton *Checkout_Button;
 
     void setupUi(QWidget *AuthorizedWindow)
     {
@@ -46,7 +49,8 @@ public:
         lblAuthor->setGeometry(QRect(260, 100, 47, 13));
         btnSearch = new QPushButton(AuthorizedWindow);
         btnSearch->setObjectName(QStringLiteral("btnSearch"));
-        btnSearch->setGeometry(QRect(480, 60, 91, 23));
+        btnSearch->setGeometry(QRect(330, 60, 91, 31));
+        btnSearch->setDefault(true);
         lblTitle = new QLabel(AuthorizedWindow);
         lblTitle->setObjectName(QStringLiteral("lblTitle"));
         lblTitle->setGeometry(QRect(50, 100, 47, 13));
@@ -55,7 +59,7 @@ public:
         lblTotAvail->setGeometry(QRect(550, 100, 47, 13));
         txtSearch = new QLineEdit(AuthorizedWindow);
         txtSearch->setObjectName(QStringLiteral("txtSearch"));
-        txtSearch->setGeometry(QRect(200, 60, 281, 21));
+        txtSearch->setGeometry(QRect(40, 60, 281, 21));
         lblSearch = new QLabel(AuthorizedWindow);
         lblSearch->setObjectName(QStringLiteral("lblSearch"));
         lblSearch->setGeometry(QRect(290, 10, 311, 31));
@@ -75,8 +79,17 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 794, 419));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 792, 419));
         scrollArea->setWidget(scrollAreaWidgetContents);
+        Add_Button = new QPushButton(AuthorizedWindow);
+        Add_Button->setObjectName(QStringLiteral("Add_Button"));
+        Add_Button->setGeometry(QRect(580, 60, 113, 32));
+        Delete_Button = new QPushButton(AuthorizedWindow);
+        Delete_Button->setObjectName(QStringLiteral("Delete_Button"));
+        Delete_Button->setGeometry(QRect(700, 60, 113, 32));
+        Checkout_Button = new QPushButton(AuthorizedWindow);
+        Checkout_Button->setObjectName(QStringLiteral("Checkout_Button"));
+        Checkout_Button->setGeometry(QRect(460, 60, 113, 32));
 
         retranslateUi(AuthorizedWindow);
 
@@ -93,6 +106,9 @@ public:
         lblSearch->setText(QApplication::translate("AuthorizedWindow", "Local Library Search", 0));
         lblInStock->setText(QApplication::translate("AuthorizedWindow", "In Stock", 0));
         lblISBN->setText(QApplication::translate("AuthorizedWindow", "ISBN", 0));
+        Add_Button->setText(QApplication::translate("AuthorizedWindow", "Add", 0));
+        Delete_Button->setText(QApplication::translate("AuthorizedWindow", "Delete", 0));
+        Checkout_Button->setText(QApplication::translate("AuthorizedWindow", "Checkout", 0));
     } // retranslateUi
 
 };

@@ -46,6 +46,7 @@ public:
         LoginButton = new QPushButton(LoginPage);
         LoginButton->setObjectName(QStringLiteral("LoginButton"));
         LoginButton->setGeometry(QRect(210, 230, 113, 32));
+        LoginButton->setDefault(true);
 
         retranslateUi(LoginPage);
 
@@ -54,7 +55,7 @@ public:
 
     void retranslateUi(QWidget *LoginPage)
     {
-        LoginPage->setWindowTitle(QApplication::translate("LoginPage", "Form", 0));
+        LoginPage->setWindowTitle(QApplication::translate("LoginPage", "Employee Login", 0));
         Username->setText(QApplication::translate("LoginPage", "Username", 0));
         Password->setText(QApplication::translate("LoginPage", "Password", 0));
         CancelButton->setText(QApplication::translate("LoginPage", "Cancel", 0));

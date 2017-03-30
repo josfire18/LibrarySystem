@@ -47,6 +47,7 @@ public:
         btnSearch = new QPushButton(SearchWindow);
         btnSearch->setObjectName(QStringLiteral("btnSearch"));
         btnSearch->setGeometry(QRect(490, 60, 91, 23));
+        btnSearch->setDefault(true);
         lblSearch = new QLabel(SearchWindow);
         lblSearch->setObjectName(QStringLiteral("lblSearch"));
         lblSearch->setGeometry(QRect(300, 10, 311, 31));
