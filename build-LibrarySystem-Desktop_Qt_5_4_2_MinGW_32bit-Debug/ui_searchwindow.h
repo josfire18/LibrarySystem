@@ -56,19 +56,19 @@ public:
         lblSearch->setFont(font);
         lblTitle = new QLabel(SearchWindow);
         lblTitle->setObjectName(QStringLiteral("lblTitle"));
-        lblTitle->setGeometry(QRect(40, 100, 47, 13));
+        lblTitle->setGeometry(QRect(50, 100, 47, 13));
         lblAuthor = new QLabel(SearchWindow);
         lblAuthor->setObjectName(QStringLiteral("lblAuthor"));
-        lblAuthor->setGeometry(QRect(150, 100, 47, 13));
+        lblAuthor->setGeometry(QRect(270, 100, 47, 13));
         lblISBN = new QLabel(SearchWindow);
         lblISBN->setObjectName(QStringLiteral("lblISBN"));
-        lblISBN->setGeometry(QRect(280, 100, 47, 13));
+        lblISBN->setGeometry(QRect(420, 100, 47, 13));
         lblTotAvail = new QLabel(SearchWindow);
         lblTotAvail->setObjectName(QStringLiteral("lblTotAvail"));
-        lblTotAvail->setGeometry(QRect(440, 100, 47, 13));
+        lblTotAvail->setGeometry(QRect(520, 100, 47, 13));
         lblInStock = new QLabel(SearchWindow);
         lblInStock->setObjectName(QStringLiteral("lblInStock"));
-        lblInStock->setGeometry(QRect(610, 100, 47, 13));
+        lblInStock->setGeometry(QRect(650, 100, 47, 13));
         scrollArea = new QScrollArea(SearchWindow);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
         scrollArea->setGeometry(QRect(10, 130, 821, 421));
@@ -85,14 +85,14 @@ public:
 
     void retranslateUi(QWidget *SearchWindow)
     {
-        SearchWindow->setWindowTitle(QApplication::translate("SearchWindow", "Form", 0));
+        SearchWindow->setWindowTitle(QApplication::translate("SearchWindow", "Library Search", 0));
         btnSearch->setText(QApplication::translate("SearchWindow", "Search", 0));
         lblSearch->setText(QApplication::translate("SearchWindow", "Local Library Search", 0));
         lblTitle->setText(QApplication::translate("SearchWindow", "Title", 0));
         lblAuthor->setText(QApplication::translate("SearchWindow", "Author", 0));
         lblISBN->setText(QApplication::translate("SearchWindow", "ISBN", 0));
         lblTotAvail->setText(QApplication::translate("SearchWindow", "# Avail", 0));
-        lblInStock->setText(QApplication::translate("SearchWindow", "# Avail", 0));
+        lblInStock->setText(QApplication::translate("SearchWindow", "In Stock", 0));
     } // retranslateUi
 
 };

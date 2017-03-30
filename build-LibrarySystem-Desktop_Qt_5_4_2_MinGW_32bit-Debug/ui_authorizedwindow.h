@@ -98,7 +98,7 @@ public:
 
     void retranslateUi(QWidget *AuthorizedWindow)
     {
-        AuthorizedWindow->setWindowTitle(QApplication::translate("AuthorizedWindow", "Form", 0));
+        AuthorizedWindow->setWindowTitle(QApplication::translate("AuthorizedWindow", "Authorized Search", 0));
         lblAuthor->setText(QApplication::translate("AuthorizedWindow", "Author", 0));
         btnSearch->setText(QApplication::translate("AuthorizedWindow", "Search", 0));
         lblTitle->setText(QApplication::translate("AuthorizedWindow", "Title", 0));
