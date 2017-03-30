@@ -30,16 +30,14 @@ QString AuthorizedWindow::concatenate(int lineNum)
 {
     QString line = "";
     line = bookVector.at(lineNum).title;
-    line.append(", ");
+    line.append("|");
     line.append(bookVector.at(lineNum).author);
-    line.append(", ");
+    line.append("|");
     line.append(bookVector.at(lineNum).isbn);
-    line.append(", ");
+    line.append("|");
     line.append(bookVector.at(lineNum).totNum);
-    line.append(" | ");
+    line.append("|");
     line.append(bookVector.at(lineNum).inStock);
-    line.append(" | ");
-    line.append("\n");
     return line;
 }
 
@@ -68,7 +66,6 @@ void AuthorizedWindow::on_btnSearch_clicked()
             {
                 line = readIn.readLine();
                 QStringList pieces = line.split("|");
-                line = readIn.readLine();
                 book temp;
                 temp.title = pieces.at(0);
                 temp.author = pieces.at(1);
@@ -184,10 +181,28 @@ void AuthorizedWindow::on_Delete_Button_clicked()
         else {
             for(int i = 0; i < bookVector.size(); i++){
                 if(bookVector.at(i).isSelected){
-                    bookVector.erase(bookVector.begin() + i);
+                    if(bookVector.at(i).inStock.toInt()>=1){
+                        bookVector.at(i).totNum=QString::number(bookVector.at(i).totNum.toInt()-1);
+                        bookVector.at(i).inStock=QString::number(bookVector.at(i).inStock.toInt()-1);
+                    }
+                    else if((bookVector.at(i).inStock.toInt()==1)&&(bookVector.at(i).totNum.toInt()==1)){
+                        bookVector.erase(bookVector.begin() + i);
+                    }
                 }
             }
         }//Confirm
+        QString bookList = "booklist.txt";
+        QFile outputFile(bookList);
+        outputFile.resize(0);
+        if (outputFile.open(QIODevice::ReadWrite)){
+            QTextStream stream( &outputFile );
+            for(int i=0;i<bookVector.size();i++){
+                QString line=concatenate(i);
+                stream << line << endl;
+            }
+            outputFile.close();
+            qDebug() << "Test: write successfully";
+        }
     }
 }
 
