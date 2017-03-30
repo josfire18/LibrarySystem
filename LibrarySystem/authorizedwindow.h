@@ -5,6 +5,7 @@
 #include <QVector>
 #include <QString>
 #include <QCheckBox>
+#include "addbook.h"
 using namespace std;
 
 namespace Ui {

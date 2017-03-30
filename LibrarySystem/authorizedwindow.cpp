@@ -140,15 +140,13 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
         if(bookVector.at(i).isSelected){
             qDebug()<<"Selected"<<i;
         }
-        else{
-
-        }
     }
 }
 
 void AuthorizedWindow::on_Add_Button_clicked()
 {
-
+    AddBook *newBook=new AddBook();
+    newBook->show();
 }
 
 void AuthorizedWindow::on_Delete_Button_clicked()

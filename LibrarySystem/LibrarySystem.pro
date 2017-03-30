@@ -27,14 +27,17 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     searchwindow.cpp \
     loginpage.cpp \
-    authorizedwindow.cpp
+    authorizedwindow.cpp \
+    addbook.cpp
 
 HEADERS  += mainwindow.h \
     searchwindow.h \
     loginpage.h \
-    authorizedwindow.h
+    authorizedwindow.h \
+    addbook.h
 
 FORMS    += mainwindow.ui \
     searchwindow.ui \
     loginpage.ui \
-    authorizedwindow.ui
+    authorizedwindow.ui \
+    addbook.ui
