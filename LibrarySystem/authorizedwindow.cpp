@@ -9,6 +9,8 @@
 #include <qscrollarea.h>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QInputDialog>
+#include <QDate>
 using namespace std;
 
 //Struct for book parts
@@ -142,10 +144,117 @@ void AuthorizedWindow::on_btnSearch_clicked()
 
 void AuthorizedWindow::on_Checkout_Button_clicked()
 {
-    for(int i = 0; i < bookVector.size(); i++){
-        if(bookVector.at(i).isSelected){
-            qDebug()<<"Selected"<<i;
+    QString bookList = "Members.txt";
+    //Reading File
+
+    bool dialogResult;
+    QInputDialog *input = new QInputDialog();
+    QString card = input->getText(0, "Rename Label", "New name:", QLineEdit::Normal, "Card Number", &dialogResult);
+    input->show();
+    qDebug()<<"Card: "<<card;
+    if((card.toInt()>9999)&&(card.toInt()<100000)){
+
+        int newCheckouts=0;
+        for(int i = 0; i < bookVector.size(); i++){
+            if(bookVector.at(i).isSelected){
+                newCheckouts++;
+                qDebug()<<"Selected"<<i;
+            }
         }
+        if(newCheckouts==0){
+            //break;
+        }
+
+        vector<QString>users;
+        QString line;
+        QString cardNum="";
+        QFile inputFile(bookList);
+        if (inputFile.open(QIODevice::ReadOnly))
+        {
+            qDebug()<<"read";
+            QTextStream readIn(&inputFile);
+            while (!readIn.atEnd())
+            {
+                line = readIn.readLine();
+                users.push_back(line);
+                qDebug()<<line;
+            }
+            inputFile.close();
+            int CurrentCheckouts=-1;
+            int userIndex=-1;
+            for(int i=0;i<users.size();i++){
+                QStringList pieces = users.at(i).split("|");
+                if(pieces.at(1).toInt()==card.toInt()){
+                    qDebug()<<i;
+                    cardNum = pieces.at(1);
+                    CurrentCheckouts++;
+                    if(userIndex==-1){
+                        userIndex=i;
+                    }
+                }
+            }
+            qDebug() << "Test: Read successfully";
+            if(cardNum==""){
+                QMessageBox *WarnBox = new QMessageBox();
+                QString message="Please Enter a Valid Card Number";
+                WarnBox->setText(message);
+                WarnBox->show();
+            }
+            else{
+                QStringList pieces = users.at(userIndex).split("|");
+                int maxCheckouts=6;
+                if(pieces.at(4)=="1"){
+                    maxCheckouts=12;
+                }
+                if((CurrentCheckouts+newCheckouts)<(maxCheckouts)){
+                    for(int i = 0; i < bookVector.size(); i++){
+                        if(bookVector.at(i).isSelected){
+                            QString temp=pieces.at(0);
+                            temp.append("|");
+                            temp.append(pieces.at(1));
+                            temp.append("|");
+                            temp.append(pieces.at(2));
+                            temp.append("|");
+                            temp.append(pieces.at(3));
+                            temp.append("|");
+                            temp.append(pieces.at(4));
+                            temp.append("|");
+                            temp.append(bookVector.at(i).isbn);
+                            temp.append(";");
+                            QDate *date=new QDate();
+                            temp.append(date->currentDate().addDays(28).toString("MM-dd-yyyy"));
+                            users.push_back(temp);
+                            qDebug()<<users.at(userIndex);
+                        }
+                    }
+                    QString file = "Members.txt";
+                    QFile outputFile(file);
+                    outputFile.resize(0);
+                    if (outputFile.open(QIODevice::ReadWrite)){
+                        QTextStream stream( &outputFile );
+                        for(int i=0;i<users.size();i++){
+                            stream << users.at(i) << endl;
+                        }
+                        outputFile.close();
+                        qDebug() << "Test: write successfully";
+                    }
+                }
+                else{
+                    QMessageBox *WarnBox = new QMessageBox();
+                    QString message="User Has Exceeded Maximum Checkout Number";
+                    WarnBox->setText(message);
+                    WarnBox->show();
+                }
+            }
+        }
+
+    }
+    else{
+        QMessageBox *WarnBox = new QMessageBox();
+        QString message="Please Enter a Valid Card Number";
+        WarnBox->setText(message);
+        WarnBox->addButton(QString("OK") , QMessageBox::AcceptRole);
+        WarnBox->show();
     }
 }
 
