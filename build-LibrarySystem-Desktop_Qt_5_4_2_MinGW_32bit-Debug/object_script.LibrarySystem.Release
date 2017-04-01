@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\searchwindow.o
+./release\loginpage.o
+./release\authorizedwindow.o
+./release\editmembers.o
+./release\moc_mainwindow.o
+./release\moc_searchwindow.o
+./release\moc_loginpage.o
+./release\moc_authorizedwindow.o
+./release\moc_editmembers.o
+);

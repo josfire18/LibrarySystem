@@ -7,6 +7,7 @@
 #include <QDir>
 #include <QCoreApplication>
 #include "authorizedwindow.h"
+
 using namespace std;
 
 LoginPage::LoginPage(QWidget *parent) :
@@ -15,6 +16,8 @@ LoginPage::LoginPage(QWidget *parent) :
 {
     ui->setupUi(this);
     loginSuccessful=false;
+    ui->cmdMember->hide();
+    ui->cmdSearch->hide();
 }
 
 LoginPage::~LoginPage()
@@ -22,12 +25,7 @@ LoginPage::~LoginPage()
     delete ui;
 }
 
-void LoginPage::on_CancelButton_clicked()
-{
-        this->close();
-}
-
-void LoginPage::on_LoginButton_clicked()
+void LoginPage::on_cmdLogin_clicked()
 {
 
 #ifdef __APPLE__
@@ -37,7 +35,7 @@ void LoginPage::on_LoginButton_clicked()
      bin.cdUp();
      QDir::setCurrent(bin.absolutePath());
  #endif
-
+    ui->Username->focusWidget();
     QString uname= ui->Username->text();
     QString pwd=ui->Password->text();
     qDebug()<<"User: "<<uname<<" Pwd: "<< pwd;
@@ -74,11 +72,36 @@ void LoginPage::on_LoginButton_clicked()
         }
     }
     if(loginSuccessful){
-       // this->close();
-        openAuthorizedWindow=new AuthorizedWindow();
-        openAuthorizedWindow->show();
+       ui->cmdMember->show();
+       ui->cmdSearch->show();
     }
     else{
         qDebug()<<"Not the right user";
     }
 }
+
+void LoginPage::on_cmdSearch_clicked()
+{
+    if(loginSuccessful){
+        openAuthorizedWindow = new AuthorizedWindow();
+        openAuthorizedWindow->show();
+    }
+}
+
+void LoginPage::on_cmdMember_clicked()
+{
+    if(loginSuccessful){
+        openEditMembers = new EditMembers();
+        openEditMembers->show();
+    }
+    else{
+        qDebug()<<"Not the right user";
+    }
+}
+
+void LoginPage::on_cmdCancel_clicked()
+{
+    this->close();
+}
+
+
