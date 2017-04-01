@@ -5,7 +5,6 @@
 #include <QVector>
 #include <QString>
 #include <QCheckBox>
-#include "addbook.h"
 using namespace std;
 
 namespace Ui {
@@ -47,8 +46,15 @@ private slots:
 
     void on_Box_Checked();
 
+    void on_NewBook_Confirm_clicked();
+
+    void on_NewBook_Cancel_clicked();
+
+    void on_NewBook_ISBN_cursorPositionChanged(int arg1, int arg2);
+
 private:
     Ui::AuthorizedWindow *ui;
+    void writeToFile();
 };
 
 #endif // AUTHORIZEDWINDOW_H

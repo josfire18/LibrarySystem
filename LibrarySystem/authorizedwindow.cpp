@@ -19,6 +19,12 @@ AuthorizedWindow::AuthorizedWindow(QWidget *parent) :
     ui(new Ui::AuthorizedWindow)
 {
     ui->setupUi(this);
+    ui->NewBook_Title->hide();
+    ui->NewBook_Author->hide();
+    ui->NewBook_ISBN->hide();
+    ui->NewBook_Quantity->hide();
+    ui->NewBook_Confirm->hide();
+    ui->NewBook_Cancel->hide();
 }
 
 AuthorizedWindow::~AuthorizedWindow()
@@ -145,9 +151,15 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
 
 void AuthorizedWindow::on_Add_Button_clicked()
 {
-    AddBook *newBook=new AddBook();
-    newBook->show();
+    ui->NewBook_Title->show();
+    ui->NewBook_Author->show();
+    ui->NewBook_ISBN->show();
+    ui->NewBook_Quantity->show();
+    ui->NewBook_Confirm->show();
+    ui->NewBook_Cancel->show();
 }
+
+
 
 void AuthorizedWindow::on_Delete_Button_clicked()
 {
@@ -189,18 +201,7 @@ void AuthorizedWindow::on_Delete_Button_clicked()
                 }
             }
         }//Confirm
-        QString bookList = "booklist.txt";
-        QFile outputFile(bookList);
-        outputFile.resize(0);
-        if (outputFile.open(QIODevice::ReadWrite)){
-            QTextStream stream( &outputFile );
-            for(int i=0;i<bookVector.size();i++){
-                QString line=concatenate(i);
-                stream << line << endl;
-            }
-            outputFile.close();
-            qDebug() << "Test: write successfully";
-        }
+        this->writeToFile();
     }
 }
 
@@ -211,5 +212,71 @@ void AuthorizedWindow::on_Box_Checked()
         if(bookVector.at(i).checkBox==QObject::sender()){
             bookVector.at(i).isSelected=bookVector.at(i).checkBox->isChecked();
         }
+    }
+}
+
+void AuthorizedWindow::on_NewBook_Confirm_clicked()
+{
+    if((ui->NewBook_Quantity->displayText().toInt()>0)){
+        book temp;
+        temp.title=ui->NewBook_Title->displayText();
+        temp.author = ui->NewBook_Author->displayText();
+        temp.isbn = ui->NewBook_ISBN->displayText();
+        temp.totNum = ui->NewBook_Quantity->displayText();
+        temp.inStock = ui->NewBook_Quantity->displayText();
+        temp.isSelected=false;
+        temp.checkBox=NULL;
+        bookVector.push_back(temp);
+        ui->NewBook_Title->setText("Title");
+        ui->NewBook_Author->setText("Author");
+        ui->NewBook_ISBN->setText("ISBN");
+        ui->NewBook_Quantity->setText("Quantity");
+        this->writeToFile();
+    }
+    else{
+        QMessageBox *WarnBox = new QMessageBox();
+        QString message="Please Enter a Valid Quantity";
+        WarnBox->setText(message);
+        WarnBox->addButton(QString("OK") , QMessageBox::AcceptRole);
+        WarnBox->show();
+    }
+}
+
+void AuthorizedWindow::on_NewBook_Cancel_clicked()
+{
+    ui->NewBook_Title->setText("Title");
+    ui->NewBook_Author->setText("Author");
+    ui->NewBook_ISBN->setText("ISBN");
+    ui->NewBook_Quantity->setText("Quantity");
+    ui->NewBook_Confirm->hide();
+    ui->NewBook_Cancel->hide();
+    ui->NewBook_Title->hide();
+    ui->NewBook_Author->hide();
+    ui->NewBook_ISBN->hide();
+    ui->NewBook_Quantity->hide();
+}
+
+void AuthorizedWindow::writeToFile()
+{
+    QString bookList = "booklist.txt";
+    QFile outputFile(bookList);
+    outputFile.resize(0);
+    if (outputFile.open(QIODevice::ReadWrite)){
+        QTextStream stream( &outputFile );
+        for(int i=0;i<bookVector.size();i++){
+            QString line=concatenate(i);
+            stream << line << endl;
+        }
+        outputFile.close();
+        qDebug() << "Test: write successfully";
+    }
+}
+
+
+void AuthorizedWindow::on_NewBook_ISBN_cursorPositionChanged(int arg1, int arg2)
+{
+    if(ui->NewBook_ISBN->inputMask()==""){
+        ui->NewBook_ISBN->setInputMask("999999999-9");
+        ui->NewBook_ISBN->setCursorPosition(0);
     }
 }
