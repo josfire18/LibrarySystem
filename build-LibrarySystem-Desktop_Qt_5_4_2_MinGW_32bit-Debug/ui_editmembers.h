@@ -26,6 +26,7 @@ public:
     QPushButton *cmdListMems;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
+    QPushButton *cmdUniqueMems;
 
     void setupUi(QWidget *EditMembers)
     {
@@ -43,6 +44,9 @@ public:
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 959, 359));
         scrollArea->setWidget(scrollAreaWidgetContents);
+        cmdUniqueMems = new QPushButton(EditMembers);
+        cmdUniqueMems->setObjectName(QStringLiteral("cmdUniqueMems"));
+        cmdUniqueMems->setGeometry(QRect(140, 40, 91, 23));
 
         retranslateUi(EditMembers);
 
@@ -53,6 +57,7 @@ public:
     {
         EditMembers->setWindowTitle(QApplication::translate("EditMembers", "Form", 0));
         cmdListMems->setText(QApplication::translate("EditMembers", "List Members", 0));
+        cmdUniqueMems->setText(QApplication::translate("EditMembers", "Unique Members", 0));
     } // retranslateUi
 
 };

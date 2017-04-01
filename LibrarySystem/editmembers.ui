@@ -18,12 +18,13 @@
     <rect>
      <x>10</x>
      <y>40</y>
-     <width>75</width>
-     <height>23</height>
+     <width>81</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>List Members</string>
+    <string>List Checked
+Out Books</string>
    </property>
   </widget>
   <widget class="QScrollArea" name="scrollArea">
@@ -48,6 +49,20 @@
      </rect>
     </property>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="cmdUniqueMems">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>40</y>
+     <width>61</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Unique
+Members</string>
+   </property>
   </widget>
  </widget>
  <resources/>

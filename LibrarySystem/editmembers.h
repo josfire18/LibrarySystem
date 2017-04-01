@@ -20,6 +20,7 @@ public:
     //Struct for containing the 5 separate parts of the book
     struct member{
         QString Name;
+        QString ID;
         QString Address;
         QString Phone;
         QString Employee;
@@ -31,6 +32,8 @@ public:
 
 private slots:
     void on_cmdListMems_clicked();
+
+    void on_cmdUniqueMems_clicked();
 
 private:
     Ui::EditMembers *ui;
