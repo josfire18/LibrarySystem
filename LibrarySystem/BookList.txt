@@ -1,4 +1,3 @@
-Title|Author|ISBN|Total Available|In Stock|Num Weeks
 """I Can See You Naked"""|Ron Holf|543233347-3|4|3|2
 A First Look at the USA A Cultural Reader|Milada Broukal|254277271-1|1|0|3
 A Guide to Usage for Writersand Students in the Social Sciences|Philip and Margaret Runkel|584527911-9|5|4|1

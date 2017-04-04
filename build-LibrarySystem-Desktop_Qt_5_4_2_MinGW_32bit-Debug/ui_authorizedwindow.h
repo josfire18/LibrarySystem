@@ -44,6 +44,8 @@ public:
     QLineEdit *NewBook_Quantity;
     QPushButton *NewBook_Confirm;
     QPushButton *NewBook_Cancel;
+    QLabel *lblNumWeek;
+    QLineEdit *NewBook_Weeks;
 
     void setupUi(QWidget *AuthorizedWindow)
     {
@@ -74,7 +76,7 @@ public:
         lblSearch->setFont(font);
         lblInStock = new QLabel(AuthorizedWindow);
         lblInStock->setObjectName(QStringLiteral("lblInStock"));
-        lblInStock->setGeometry(QRect(670, 120, 60, 13));
+        lblInStock->setGeometry(QRect(630, 120, 60, 13));
         lblISBN = new QLabel(AuthorizedWindow);
         lblISBN->setObjectName(QStringLiteral("lblISBN"));
         lblISBN->setGeometry(QRect(420, 120, 47, 13));
@@ -110,10 +112,16 @@ public:
         NewBook_Quantity->setGeometry(QRect(390, 80, 113, 21));
         NewBook_Confirm = new QPushButton(AuthorizedWindow);
         NewBook_Confirm->setObjectName(QStringLiteral("NewBook_Confirm"));
-        NewBook_Confirm->setGeometry(QRect(520, 80, 113, 32));
+        NewBook_Confirm->setGeometry(QRect(660, 80, 81, 32));
         NewBook_Cancel = new QPushButton(AuthorizedWindow);
         NewBook_Cancel->setObjectName(QStringLiteral("NewBook_Cancel"));
-        NewBook_Cancel->setGeometry(QRect(650, 80, 113, 32));
+        NewBook_Cancel->setGeometry(QRect(740, 80, 71, 32));
+        lblNumWeek = new QLabel(AuthorizedWindow);
+        lblNumWeek->setObjectName(QStringLiteral("lblNumWeek"));
+        lblNumWeek->setGeometry(QRect(710, 120, 81, 16));
+        NewBook_Weeks = new QLineEdit(AuthorizedWindow);
+        NewBook_Weeks->setObjectName(QStringLiteral("NewBook_Weeks"));
+        NewBook_Weeks->setGeometry(QRect(520, 80, 113, 21));
 
         retranslateUi(AuthorizedWindow);
 
@@ -140,6 +148,8 @@ public:
         NewBook_Quantity->setText(QApplication::translate("AuthorizedWindow", "Quantity", 0));
         NewBook_Confirm->setText(QApplication::translate("AuthorizedWindow", "Confirm", 0));
         NewBook_Cancel->setText(QApplication::translate("AuthorizedWindow", "Cancel", 0));
+        lblNumWeek->setText(QApplication::translate("AuthorizedWindow", "NumWeeks", 0));
+        NewBook_Weeks->setText(QApplication::translate("AuthorizedWindow", "NumWeeks", 0));
     } // retranslateUi
 
 };
