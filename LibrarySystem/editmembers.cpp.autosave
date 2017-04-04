@@ -75,9 +75,7 @@ void EditMembers::on_cmdListMems_clicked()
         QLabel *ISBNLabel = new QLabel(memberVector.at(i).ISBN);
         QLabel *dateCheckedOutLabel = new QLabel(memberVector.at(i).dateCheckedOut);
         if(memberVector.at(i).Employee == "1")
-            QLabel *dateDueLabel = new QLabel(memberVector.at(i).dateCheckedOut);
-        else
-            QLabel *dateDueLabel = new QLabel(memberVector.at(i).dateCheckedOut + 7);
+            
 
 
         //Tooltip for author and title, longer possible values

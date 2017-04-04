@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QWidget>
@@ -27,6 +28,7 @@ public:
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QPushButton *cmdUniqueMems;
+    QLabel *label;
 
     void setupUi(QWidget *EditMembers)
     {
@@ -35,18 +37,24 @@ public:
         EditMembers->resize(988, 480);
         cmdListMems = new QPushButton(EditMembers);
         cmdListMems->setObjectName(QStringLiteral("cmdListMems"));
-        cmdListMems->setGeometry(QRect(10, 40, 81, 41));
+        cmdListMems->setGeometry(QRect(10, 90, 81, 41));
         scrollArea = new QScrollArea(EditMembers);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
-        scrollArea->setGeometry(QRect(10, 110, 961, 361));
+        scrollArea->setGeometry(QRect(10, 140, 961, 331));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 959, 359));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 959, 329));
         scrollArea->setWidget(scrollAreaWidgetContents);
         cmdUniqueMems = new QPushButton(EditMembers);
         cmdUniqueMems->setObjectName(QStringLiteral("cmdUniqueMems"));
-        cmdUniqueMems->setGeometry(QRect(100, 40, 61, 41));
+        cmdUniqueMems->setGeometry(QRect(100, 90, 81, 41));
+        label = new QLabel(EditMembers);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(400, 20, 181, 51));
+        QFont font;
+        font.setPointSize(12);
+        label->setFont(font);
 
         retranslateUi(EditMembers);
 
@@ -55,11 +63,12 @@ public:
 
     void retranslateUi(QWidget *EditMembers)
     {
-        EditMembers->setWindowTitle(QApplication::translate("EditMembers", "Form", 0));
+        EditMembers->setWindowTitle(QApplication::translate("EditMembers", "Member & Book Listings", 0));
         cmdListMems->setText(QApplication::translate("EditMembers", "List Checked\n"
 "Out Books", 0));
         cmdUniqueMems->setText(QApplication::translate("EditMembers", "Unique\n"
 "Members", 0));
+        label->setText(QApplication::translate("EditMembers", "Member & Book Listings", 0));
     } // retranslateUi
 
 };

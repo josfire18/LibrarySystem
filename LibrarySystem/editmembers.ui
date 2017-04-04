@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Member &amp; Book Listings</string>
   </property>
   <widget class="QPushButton" name="cmdListMems">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>40</y>
+     <y>90</y>
      <width>81</width>
      <height>41</height>
     </rect>
@@ -31,9 +31,9 @@ Out Books</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>110</y>
+     <y>140</y>
      <width>961</width>
-     <height>361</height>
+     <height>331</height>
     </rect>
    </property>
    <property name="widgetResizable">
@@ -45,7 +45,7 @@ Out Books</string>
       <x>0</x>
       <y>0</y>
       <width>959</width>
-      <height>359</height>
+      <height>329</height>
      </rect>
     </property>
    </widget>
@@ -54,14 +54,32 @@ Out Books</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>40</y>
-     <width>61</width>
+     <y>90</y>
+     <width>81</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>Unique
 Members</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>20</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Member &amp; Book Listings</string>
    </property>
   </widget>
  </widget>
