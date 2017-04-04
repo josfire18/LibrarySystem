@@ -5,9 +5,11 @@ INPUT(
 ./release\loginpage.o
 ./release\authorizedwindow.o
 ./release\editmembers.o
+./release\employeemainmenu.o
 ./release\moc_mainwindow.o
 ./release\moc_searchwindow.o
 ./release\moc_loginpage.o
 ./release\moc_authorizedwindow.o
 ./release\moc_editmembers.o
+./release\moc_employeemainmenu.o
 );

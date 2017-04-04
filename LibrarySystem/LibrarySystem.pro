@@ -28,16 +28,19 @@ SOURCES += main.cpp\
     searchwindow.cpp \
     loginpage.cpp \
     authorizedwindow.cpp \
-    editmembers.cpp
+    editmembers.cpp \
+    employeemainmenu.cpp
 
 HEADERS  += mainwindow.h \
     searchwindow.h \
     loginpage.h \
     authorizedwindow.h \
-    editmembers.h
+    editmembers.h \
+    employeemainmenu.h
 
 FORMS    += mainwindow.ui \
     searchwindow.ui \
     loginpage.ui \
     authorizedwindow.ui \
-    editmembers.ui
+    editmembers.ui \
+    employeemainmenu.ui

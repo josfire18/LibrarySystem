@@ -16,8 +16,6 @@ LoginPage::LoginPage(QWidget *parent) :
 {
     ui->setupUi(this);
     loginSuccessful=false;
-    ui->cmdMember->hide();
-    ui->cmdSearch->hide();
 }
 
 LoginPage::~LoginPage()
@@ -72,27 +70,11 @@ void LoginPage::on_cmdLogin_clicked()
         }
     }
     if(loginSuccessful){
-       ui->cmdMember->show();
-       ui->cmdSearch->show();
-    }
-    else{
-        qDebug()<<"Not the right user";
-    }
-}
-
-void LoginPage::on_cmdSearch_clicked()
-{
-    if(loginSuccessful){
-        openAuthorizedWindow = new AuthorizedWindow();
-        openAuthorizedWindow->show();
-    }
-}
-
-void LoginPage::on_cmdMember_clicked()
-{
-    if(loginSuccessful){
-        openEditMembers = new EditMembers();
-        openEditMembers->show();
+       openMainMenu =  new EmployeeMainMenu();
+       openMainMenu->show();
+       ui->Username->setText("Username");
+       ui->Password->setText("Password");
+       this->close();
     }
     else{
         qDebug()<<"Not the right user";

@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'loginpage.h'
+** Meta object code from reading C++ file 'employeemainmenu.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.4.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../LibrarySystem/loginpage.h"
+#include "../../LibrarySystem/employeemainmenu.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'loginpage.h' doesn't include <QObject>."
+#error "The header file 'employeemainmenu.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.4.2. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -18,29 +18,29 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_LoginPage_t {
+struct qt_meta_stringdata_EmployeeMainMenu_t {
     QByteArrayData data[4];
-    char stringdata[52];
+    char stringdata[65];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_LoginPage_t, stringdata) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_EmployeeMainMenu_t, stringdata) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_LoginPage_t qt_meta_stringdata_LoginPage = {
+static const qt_meta_stringdata_EmployeeMainMenu_t qt_meta_stringdata_EmployeeMainMenu = {
     {
-QT_MOC_LITERAL(0, 0, 9), // "LoginPage"
-QT_MOC_LITERAL(1, 10, 20), // "on_cmdCancel_clicked"
-QT_MOC_LITERAL(2, 31, 0), // ""
-QT_MOC_LITERAL(3, 32, 19) // "on_cmdLogin_clicked"
+QT_MOC_LITERAL(0, 0, 16), // "EmployeeMainMenu"
+QT_MOC_LITERAL(1, 17, 21), // "on_cmdMembers_clicked"
+QT_MOC_LITERAL(2, 39, 0), // ""
+QT_MOC_LITERAL(3, 40, 24) // "on_cmdAuthSearch_clicked"
 
     },
-    "LoginPage\0on_cmdCancel_clicked\0\0"
-    "on_cmdLogin_clicked"
+    "EmployeeMainMenu\0on_cmdMembers_clicked\0"
+    "\0on_cmdAuthSearch_clicked"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_LoginPage[] = {
+static const uint qt_meta_data_EmployeeMainMenu[] = {
 
  // content:
        7,       // revision
@@ -64,39 +64,39 @@ static const uint qt_meta_data_LoginPage[] = {
        0        // eod
 };
 
-void LoginPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void EmployeeMainMenu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        LoginPage *_t = static_cast<LoginPage *>(_o);
+        EmployeeMainMenu *_t = static_cast<EmployeeMainMenu *>(_o);
         switch (_id) {
-        case 0: _t->on_cmdCancel_clicked(); break;
-        case 1: _t->on_cmdLogin_clicked(); break;
+        case 0: _t->on_cmdMembers_clicked(); break;
+        case 1: _t->on_cmdAuthSearch_clicked(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-const QMetaObject LoginPage::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_LoginPage.data,
-      qt_meta_data_LoginPage,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+const QMetaObject EmployeeMainMenu::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_EmployeeMainMenu.data,
+      qt_meta_data_EmployeeMainMenu,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
-const QMetaObject *LoginPage::metaObject() const
+const QMetaObject *EmployeeMainMenu::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *LoginPage::qt_metacast(const char *_clname)
+void *EmployeeMainMenu::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_LoginPage.stringdata))
-        return static_cast<void*>(const_cast< LoginPage*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_EmployeeMainMenu.stringdata))
+        return static_cast<void*>(const_cast< EmployeeMainMenu*>(this));
     return QWidget::qt_metacast(_clname);
 }
 
-int LoginPage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int EmployeeMainMenu::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)

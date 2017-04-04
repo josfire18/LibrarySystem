@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
@@ -27,14 +28,13 @@ public:
     QLineEdit *Password;
     QPushButton *cmdCancel;
     QPushButton *cmdLogin;
-    QPushButton *cmdSearch;
-    QPushButton *cmdMember;
+    QLabel *label;
 
     void setupUi(QWidget *LoginPage)
     {
         if (LoginPage->objectName().isEmpty())
             LoginPage->setObjectName(QStringLiteral("LoginPage"));
-        LoginPage->resize(386, 316);
+        LoginPage->resize(386, 245);
         Username = new QLineEdit(LoginPage);
         Username->setObjectName(QStringLiteral("Username"));
         Username->setGeometry(QRect(130, 80, 113, 21));
@@ -49,12 +49,12 @@ public:
         cmdLogin->setObjectName(QStringLiteral("cmdLogin"));
         cmdLogin->setGeometry(QRect(210, 200, 113, 32));
         cmdLogin->setDefault(true);
-        cmdSearch = new QPushButton(LoginPage);
-        cmdSearch->setObjectName(QStringLiteral("cmdSearch"));
-        cmdSearch->setGeometry(QRect(50, 250, 111, 31));
-        cmdMember = new QPushButton(LoginPage);
-        cmdMember->setObjectName(QStringLiteral("cmdMember"));
-        cmdMember->setGeometry(QRect(210, 250, 111, 31));
+        label = new QLabel(LoginPage);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(130, 20, 121, 31));
+        QFont font;
+        font.setPointSize(12);
+        label->setFont(font);
 
         retranslateUi(LoginPage);
 
@@ -68,8 +68,7 @@ public:
         Password->setText(QApplication::translate("LoginPage", "Password", 0));
         cmdCancel->setText(QApplication::translate("LoginPage", "Cancel", 0));
         cmdLogin->setText(QApplication::translate("LoginPage", "Login", 0));
-        cmdSearch->setText(QApplication::translate("LoginPage", "Search Window", 0));
-        cmdMember->setText(QApplication::translate("LoginPage", "Member List", 0));
+        label->setText(QApplication::translate("LoginPage", "Employee Login", 0));
     } // retranslateUi
 
 };

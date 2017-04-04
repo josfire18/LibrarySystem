@@ -35,7 +35,7 @@ public:
         EditMembers->resize(988, 480);
         cmdListMems = new QPushButton(EditMembers);
         cmdListMems->setObjectName(QStringLiteral("cmdListMems"));
-        cmdListMems->setGeometry(QRect(10, 40, 75, 23));
+        cmdListMems->setGeometry(QRect(10, 40, 81, 41));
         scrollArea = new QScrollArea(EditMembers);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
         scrollArea->setGeometry(QRect(10, 110, 961, 361));
@@ -46,7 +46,7 @@ public:
         scrollArea->setWidget(scrollAreaWidgetContents);
         cmdUniqueMems = new QPushButton(EditMembers);
         cmdUniqueMems->setObjectName(QStringLiteral("cmdUniqueMems"));
-        cmdUniqueMems->setGeometry(QRect(140, 40, 91, 23));
+        cmdUniqueMems->setGeometry(QRect(100, 40, 61, 41));
 
         retranslateUi(EditMembers);
 
@@ -56,8 +56,10 @@ public:
     void retranslateUi(QWidget *EditMembers)
     {
         EditMembers->setWindowTitle(QApplication::translate("EditMembers", "Form", 0));
-        cmdListMems->setText(QApplication::translate("EditMembers", "List Members", 0));
-        cmdUniqueMems->setText(QApplication::translate("EditMembers", "Unique Members", 0));
+        cmdListMems->setText(QApplication::translate("EditMembers", "List Checked\n"
+"Out Books", 0));
+        cmdUniqueMems->setText(QApplication::translate("EditMembers", "Unique\n"
+"Members", 0));
     } // retranslateUi
 
 };
