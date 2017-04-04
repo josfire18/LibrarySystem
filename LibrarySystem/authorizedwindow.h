@@ -26,6 +26,7 @@ public:
         QString isbn;
         QString totNum;
         QString inStock;
+        QString numWeeks;
         bool isSelected;
         QCheckBox *checkBox;
     };

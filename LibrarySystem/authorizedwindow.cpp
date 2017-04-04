@@ -27,6 +27,7 @@ AuthorizedWindow::AuthorizedWindow(QWidget *parent) :
     ui->NewBook_Quantity->hide();
     ui->NewBook_Confirm->hide();
     ui->NewBook_Cancel->hide();
+    ui->NewBook_Weeks->hide();
 }
 
 AuthorizedWindow::~AuthorizedWindow()
@@ -46,6 +47,8 @@ QString AuthorizedWindow::concatenate(int lineNum)
     line.append(bookVector.at(lineNum).totNum);
     line.append("|");
     line.append(bookVector.at(lineNum).inStock);
+    line.append("|");
+    line.append(bookVector.at(lineNum).numWeeks);
     return line;
 }
 
@@ -80,6 +83,7 @@ void AuthorizedWindow::on_btnSearch_clicked()
                 temp.isbn = pieces.at(2);
                 temp.totNum = pieces.at(3);
                 temp.inStock = pieces.at(4);
+                temp.numWeeks=pieces.at(5);
                 temp.isSelected=false;
                 temp.checkBox=NULL;
                 bookVector.push_back(temp);
@@ -117,12 +121,14 @@ void AuthorizedWindow::on_btnSearch_clicked()
                 QLabel *ISBNLabel = new QLabel(bookVector.at(i).isbn);
                 QLabel *TotAvailLabel = new QLabel(bookVector.at(i).totNum);
                 QLabel *InStockLabel = new QLabel(bookVector.at(i).inStock);
-                Titlelabel->setFixedWidth(200);
+                QLabel *NumWeeksLabel = new QLabel(bookVector.at(i).numWeeks);
 
                 //Tooltip for author and title, longer possible values
+                Titlelabel->setFixedWidth(200);
                 Titlelabel->setToolTip(bookVector.at(i).title);
                 AuthorLabel->setFixedWidth(150);
                 AuthorLabel->setToolTip(bookVector.at(i).author);
+                ISBNLabel->setFixedWidth(120);
                 //Create Checkboxes
 
                 QCheckBox *TempcheckBox=new QCheckBox();
@@ -136,6 +142,7 @@ void AuthorizedWindow::on_btnSearch_clicked()
                 hlayout->addWidget(ISBNLabel);
                 hlayout->addWidget(TotAvailLabel);
                 hlayout->addWidget(InStockLabel);
+                hlayout->addWidget(NumWeeksLabel);
                 layout->addLayout(hlayout);
             }
         }
@@ -150,8 +157,8 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
     bool dialogResult;
     QInputDialog *input = new QInputDialog();
     QString card = input->getText(0, "Rename Label", "New name:", QLineEdit::Normal, "Card Number", &dialogResult);
-    input->show();
-    qDebug()<<"Card: "<<card;
+    //input->show();
+    qDebug()<<"Card: "<<card<<card.toInt();
     if((card.toInt()>9999)&&(card.toInt()<100000)){
 
         int newCheckouts=0;
@@ -220,11 +227,11 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                             temp.append(pieces.at(4));
                             temp.append("|");
                             temp.append(bookVector.at(i).isbn);
-                            temp.append(";");
+                            temp.append("|");
                             QDate *date=new QDate();
-                            temp.append(date->currentDate().addDays(28).toString("MM-dd-yyyy"));
+                            temp.append(date->currentDate().addDays(7*bookVector.at(i).numWeeks.toInt()).toString("MM-dd-yyyy"));
                             users.push_back(temp);
-                            qDebug()<<users.at(userIndex);
+                            qDebug()<<temp;
                         }
                     }
                     QString file = "Members.txt";
@@ -249,7 +256,7 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
         }
 
     }
-    else{
+    else if(card.toInt()!=0){
         QMessageBox *WarnBox = new QMessageBox();
         QString message="Please Enter a Valid Card Number";
         WarnBox->setText(message);
@@ -266,6 +273,7 @@ void AuthorizedWindow::on_Add_Button_clicked()
     ui->NewBook_Quantity->show();
     ui->NewBook_Confirm->show();
     ui->NewBook_Cancel->show();
+    ui->NewBook_Weeks->show();
 }
 
 
@@ -304,7 +312,7 @@ void AuthorizedWindow::on_Delete_Button_clicked()
                         bookVector.at(i).totNum=QString::number(bookVector.at(i).totNum.toInt()-1);
                         bookVector.at(i).inStock=QString::number(bookVector.at(i).inStock.toInt()-1);
                     }
-                    else if((bookVector.at(i).inStock.toInt()==1)&&(bookVector.at(i).totNum.toInt()==1)){
+                    else if((bookVector.at(i).inStock.toInt()<=1)&&(bookVector.at(i).totNum.toInt()<=1)){
                         bookVector.erase(bookVector.begin() + i);
                     }
                 }
@@ -333,6 +341,7 @@ void AuthorizedWindow::on_NewBook_Confirm_clicked()
         temp.isbn = ui->NewBook_ISBN->displayText();
         temp.totNum = ui->NewBook_Quantity->displayText();
         temp.inStock = ui->NewBook_Quantity->displayText();
+        temp.numWeeks=ui->NewBook_Weeks->displayText();
         temp.isSelected=false;
         temp.checkBox=NULL;
         bookVector.push_back(temp);
@@ -340,6 +349,7 @@ void AuthorizedWindow::on_NewBook_Confirm_clicked()
         ui->NewBook_Author->setText("Author");
         ui->NewBook_ISBN->setText("ISBN");
         ui->NewBook_Quantity->setText("Quantity");
+        ui->NewBook_Weeks->setText("NumWeeks");
         this->writeToFile();
     }
     else{
@@ -357,12 +367,14 @@ void AuthorizedWindow::on_NewBook_Cancel_clicked()
     ui->NewBook_Author->setText("Author");
     ui->NewBook_ISBN->setText("ISBN");
     ui->NewBook_Quantity->setText("Quantity");
+    ui->NewBook_Weeks->setText("NumWeeks");
     ui->NewBook_Confirm->hide();
     ui->NewBook_Cancel->hide();
     ui->NewBook_Title->hide();
     ui->NewBook_Author->hide();
     ui->NewBook_ISBN->hide();
     ui->NewBook_Quantity->hide();
+    ui->NewBook_Weeks->hide();
 }
 
 void AuthorizedWindow::writeToFile()
