@@ -185,7 +185,9 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
             while (!readIn.atEnd())
             {
                 line = readIn.readLine();
-                users.push_back(line);
+                if(line!=""){
+                    users.push_back(line);
+                }
                 qDebug()<<line;
             }
             inputFile.close();
@@ -219,7 +221,7 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                 }
                 if((CurrentCheckouts+newCheckouts)<(maxCheckouts)){
                     for(int i = 0; i < bookVector.size(); i++){
-                        if(bookVector.at(i).isSelected){
+                        if(bookVector.at(i).isSelected&&(bookVector.at(i).inStock.toInt()>0)){
                             QString temp=pieces.at(0);
                             temp.append("|");
                             temp.append(pieces.at(1));
@@ -234,10 +236,8 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                             temp.append("|");
                             QDate *date=new QDate();
                             temp.append(date->currentDate().addDays(7*bookVector.at(i).numWeeks.toInt()).toString("MM-dd-yyyy"));
-                            temp.append("\n");
                             users.push_back(temp);
-//We need to decrement the inStock value when a book is checked out
-//bookVector.push_back(bookVector.at(i).inStock - 1);
+                            bookVector.at(i).inStock=QString::number(bookVector.at(i).inStock.toInt()-1);
                             qDebug()<<temp;
                         }
                     }
@@ -259,6 +259,7 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                     WarnBox->setText(message);
                     WarnBox->show();
                 }
+                writeToFile();
             }
         }
 
