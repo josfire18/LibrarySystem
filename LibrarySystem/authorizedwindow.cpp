@@ -156,13 +156,13 @@ void AuthorizedWindow::on_btnSearch_clicked()
 
 void AuthorizedWindow::on_Checkout_Button_clicked()
 {
-    QString bookList = "Members.txt";
+    QString memberList = "Members.txt";
+    QString checkoutList="checkouts.txt";
     //Reading File
 
     bool dialogResult;
     QInputDialog *input = new QInputDialog();
-    QString card = input->getText(0, "Rename Label", "New name:", QLineEdit::Normal, "Card Number", &dialogResult);
-    //input->show();
+    QString card = input->getText(0, "Rename Label", "Card Number", QLineEdit::Normal, "", &dialogResult);
     qDebug()<<"Card: "<<card<<card.toInt();
     if((card.toInt()>9999)&&(card.toInt()<100000)){
 
@@ -178,9 +178,10 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
         }
 
         vector<QString>users;
+        vector<QString>checkouts;
         QString line;
         QString cardNum="";
-        QFile inputFile(bookList);
+        QFile inputFile(memberList);
         if (inputFile.open(QIODevice::ReadOnly))
         {
             qDebug()<<"read";
@@ -191,17 +192,15 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                 if(line!=""){
                     users.push_back(line);
                 }
-                qDebug()<<line;
+                //qDebug()<<line;
             }
             inputFile.close();
-            int CurrentCheckouts=-1;
             int userIndex=-1;
             for(int i=0;i<users.size();i++){
                 QStringList pieces = users.at(i).split("|");
                 if(pieces.at(1).toInt()==card.toInt()){
                     qDebug()<<i;
                     cardNum = pieces.at(1);
-                    CurrentCheckouts++;
                     if(userIndex==-1){
                         userIndex=i;
                     }
@@ -215,42 +214,61 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                 WarnBox->show();
             }
             else{
+
+                QFile inputFile2(checkoutList);
+                int CurrentCheckouts=0;
+                if (inputFile2.open(QIODevice::ReadOnly))
+                {
+                    qDebug()<<"read";
+                    QTextStream readIn(&inputFile2);
+                    while (!readIn.atEnd())
+                    {
+                        line = readIn.readLine();
+                        if(line!=""){
+                            checkouts.push_back(line);
+                        }
+                        //qDebug()<<line;
+                    }
+                    inputFile2.close();
+                    for(int i=0;i<checkouts.size();i++){
+                        QStringList pieces = checkouts.at(i).split("|");
+                        if(pieces.at(0).toInt()==card.toInt()){
+                            qDebug()<<i;
+                            CurrentCheckouts++;
+                        }
+                    }
+                }
+
                 QStringList pieces = users.at(userIndex).split("|");
 
                 //Checking for employee or regular checkout limit
                 int maxCheckouts=6;
-                if(pieces.at(4)=="1"){
+                if(pieces.at(4)=="1" || pieces.at(4)=="2"){
                     maxCheckouts=12;
+                    qDebug()<<"Employee"<<CurrentCheckouts;
                 }
                 if((CurrentCheckouts+newCheckouts)<(maxCheckouts)){
                     for(int i = 0; i < bookVector.size(); i++){
                         if(bookVector.at(i).isSelected&&(bookVector.at(i).inStock.toInt()>0)){
-                            QString temp=pieces.at(0);
-                            temp.append("|");
-                            temp.append(pieces.at(1));
-                            temp.append("|");
-                            temp.append(pieces.at(2));
-                            temp.append("|");
-                            temp.append(pieces.at(3));
-                            temp.append("|");
-                            temp.append(pieces.at(4));
+                            QString temp=pieces.at(1);
                             temp.append("|");
                             temp.append(bookVector.at(i).isbn);
                             temp.append("|");
                             QDate *date=new QDate();
                             temp.append(date->currentDate().addDays(7*bookVector.at(i).numWeeks.toInt()).toString("MM-dd-yyyy"));
-                            users.push_back(temp);
+                            checkouts.push_back(temp);
                             bookVector.at(i).inStock=QString::number(bookVector.at(i).inStock.toInt()-1);
                             qDebug()<<temp;
                         }
                     }
-                    QString file = "Members.txt";
+                    QString file = "Checkouts.txt";
                     QFile outputFile(file);
                     outputFile.resize(0);
                     if (outputFile.open(QIODevice::ReadWrite)){
                         QTextStream stream( &outputFile );
-                        for(int i=0;i<users.size();i++){
-                            stream << users.at(i) << endl;
+                        for(int i=0;i<checkouts.size();i++){
+                            qDebug() << checkouts.at(i);
+                            stream << checkouts.at(i) << endl;
                         }
                         outputFile.close();
                         qDebug() << "Test: write successfully";
