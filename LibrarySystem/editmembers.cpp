@@ -14,11 +14,17 @@ EditMembers::EditMembers(QWidget *parent) :
     ui(new Ui::EditMembers)
 {
     ui->setupUi(this);
+    this->isManager=false;
 }
 
 EditMembers::~EditMembers()
 {
     delete ui;
+}
+
+void EditMembers::setManager(bool manager)
+{
+    this->isManager=manager;
 }
 
 void EditMembers::on_cmdListMems_clicked()

@@ -30,6 +30,7 @@ public:
 
     vector<member> memberVector;
 
+    void setManager(bool manager);
 private slots:
     void on_cmdListMems_clicked();
 
@@ -37,6 +38,7 @@ private slots:
 
 private:
     Ui::EditMembers *ui;
+    bool isManager;
 };
 
 #endif // EDITMEMBERS_H

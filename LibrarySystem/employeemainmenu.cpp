@@ -22,6 +22,7 @@ void EmployeeMainMenu::setManager(bool manager)
 void EmployeeMainMenu::on_cmdMembers_clicked()
 {
     openEditMembers = new EditMembers();
+    openEditMembers->setManager(isManager);
     openEditMembers->show();
 }
 
