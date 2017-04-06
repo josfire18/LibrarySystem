@@ -61,37 +61,9 @@ void AuthorizedWindow::on_btnSearch_clicked()
     bin.cdUp();
     QDir::setCurrent(bin.absolutePath());
 #endif
-    QString bookList = "booklist.txt";
+    QString bookList = "Booklist.txt";
 
     QString line = " ";
-
-    //Reading File
-    if(bookVector.size() == 0)
-    {
-        QFile inputFile(bookList);
-        if (inputFile.open(QIODevice::ReadOnly))
-        {
-            qDebug()<<"read";
-            QTextStream readIn(&inputFile);
-            while (!readIn.atEnd())
-            {
-                line = readIn.readLine();
-                QStringList pieces = line.split("|");
-                book temp;
-                temp.title = pieces.at(0);
-                temp.author = pieces.at(1);
-                temp.isbn = pieces.at(2);
-                temp.totNum = pieces.at(3);
-                temp.inStock = pieces.at(4);
-                temp.numWeeks=pieces.at(5);
-                temp.isSelected=false;
-                temp.checkBox=NULL;
-                bookVector.push_back(temp);
-            }
-            inputFile.close();
-            qDebug() << "Test: Read successfully";
-        }
-    }
 
     //Check if search box is empty
     if(ui->txtSearch->text() == "")
@@ -102,6 +74,36 @@ void AuthorizedWindow::on_btnSearch_clicked()
     }
     else
     {
+        //Reading File
+        if(bookVector.size() == 0)
+        {
+            QFile inputFile(bookList);
+            if (inputFile.open(QIODevice::ReadOnly))
+            {
+                qDebug()<<"read";
+                QTextStream readIn(&inputFile);
+                while (!readIn.atEnd())
+                {
+                    line = readIn.readLine();
+                    QStringList pieces = line.split("|");
+                    book temp;
+                    temp.title = pieces.at(0);
+                    temp.author = pieces.at(1);
+                    temp.isbn = pieces.at(2);
+                    temp.totNum = pieces.at(3);
+                    temp.inStock = pieces.at(4);
+// ERROR CODE HERE //
+                    temp.numWeeks= pieces.at(5);
+/*/////////////////*/
+                    temp.isSelected=false;
+                    temp.checkBox=NULL;
+                    bookVector.push_back(temp);
+                }
+                inputFile.close();
+                qDebug() << "Test: Read successfully";
+            }
+        }
+
         QString searchInput = ui->txtSearch->text();
 
         ui->scrollArea->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOn );

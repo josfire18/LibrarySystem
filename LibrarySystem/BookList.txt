@@ -1,4 +1,3 @@
-"""I Can See You Naked"""|Ron Holf|543233347-3|4|3|2
 A First Look at the USA A Cultural Reader|Milada Broukal|254277271-1|1|0|3
 A Guide to Usage for Writersand Students in the Social Sciences|Philip and Margaret Runkel|584527911-9|5|4|1
 A History of English Utilitarianism|Ernst Albee|972221611-2|5|4|3
@@ -71,6 +70,7 @@ Homer|George Steiner|104407109-5|5|4|1
 Homer and the Heroic Age|J.V. Luce|319483146-1|1|0|3
 Homer: The Odyssey|Jasper Griffin|543644130-0|2|1|4
 Hoosier College Verse|Hoosier College|463653370-4|4|3|4
+I Can See You Naked|Ron Holf|543233347-3|4|3|2
 Ice and Snow|W.D. Kingery|064494233-9|3|2|4
 Indirections: Shakesphere and the Art of Illusion|Anthony B. Dawson|762632961-9|1|0|1
 It all Started with Columbus|Richard Armour|590628634-9|2|1|4
