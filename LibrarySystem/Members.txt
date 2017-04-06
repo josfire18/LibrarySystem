@@ -1,2 +1,111 @@
-Sam|12345|555 Middle Of Nowhere Lane, Fort Wayne, IN 46808|(260)-443-6518|1||
-Joey|54321|1 University Avenue, Angola, IN 46703|(574)-903-3053|0||
+Joey Rockwood|12345|1 University Ave, Trine University, Angola, IN 46703|(574)903-3053|1|
+Not Joey Rockwood|54321|2 University Ave, Not Trine University, Angola, IN 46703|(575)904-3054|0|
+Sam Stein|11111|something|(403)342-2323|1|
+Judith|Price|62784|4 Packers Way|234-(174)317-2535|0
+Doris|Romero|55134|121 Maywood Center|62-(745)492-8973|1
+Ronald|Lane|35728|9 Golf Crossing|234-(536)733-1393|0
+John|Burke|20396|954 Talisman Point|7-(417)223-8023|0
+Cynthia|Richards|28801|10 Drewry Trail|994-(384)341-4229|1
+Angela|Hayes|92975|5859 Vahlen Crossing|977-(248)474-6613|0
+Amy|Chapman|31600|348 Carpenter Circle|62-(336)671-4962|0
+Denise|Ramirez|74728|98 Anderson Parkway|232-(145)587-2508|0
+Jeffrey|Scott|79994|39236 Saint Paul Avenue|64-(812)313-2517|0
+Wanda|Powell|63772|04532 Westerfield Place|86-(142)231-6045|0
+Ronald|Ferguson|13497|42 Pond Point|63-(868)504-2886|0
+Gerald|Garza|95443|9 Green Ridge Circle|55-(140)305-2570|0
+Jimmy|Adams|20112|71 Donald Hill|86-(138)273-8716|1
+Joshua|Wilson|92721|22871 Merchant Lane|86-(749)161-3491|0
+Ronald|Ortiz|25033|0247 Novick Place|86-(846)994-1219|0
+Martha|Kelly|15675|36327 Waxwing Pass|234-(758)713-6075|1
+Amanda|Ray|23153|0523 Lakewood Drive|62-(185)825-8554|0
+Gloria|Morgan|86937|3539 Randy Circle|965-(511)479-7299|1
+Ralph|Henderson|31093|0 Lien Crossing|62-(562)577-9453|1
+Edward|Taylor|81899|5 Johnson Street|53-(340)536-9046|0
+Jacqueline|Dixon|43973|72 Anderson Drive|86-(579)912-8000|0
+Cheryl|Reyes|38469|26 Amoth Alley|55-(916)619-5870|0
+Sandra|Jacobs|96631|60 Muir Crossing|86-(191)257-4543|1
+Harry|Day|71621|89 Trailsway Terrace|7-(591)559-6624|1
+Sara|Bryant|71543|23 Killdeer Terrace|386-(296)681-9602|1
+Timothy|Wallace|50480|06550 Stang Lane|86-(507)472-5423|1
+Larry|Hamilton|82408|073 Eagle Crest Crossing|27-(691)337-4353|0
+Harold|Garcia|72289|8662 Artisan Street|420-(833)328-3497|0
+Phillip|Butler|63372|5 Dunning Way|7-(942)188-4753|1
+Henry|Smith|45421|38631 Jenna Park|62-(545)368-2962|0
+Sean|Thomas|66989|6 David Center|86-(293)144-2816|0
+Teresa|Welch|97437|7 Artisan Way|86-(267)678-2830|1
+Clarence|Adams|22221|9401 Quincy Point|62-(140)495-2992|1
+Christopher|Hayes|26482|89 Maryland Crossing|86-(716)921-5948|1
+Willie|Gonzales|78743|33 Bobwhite Avenue|84-(435)563-2326|0
+Carolyn|Ryan|54986|83 Randy Plaza|86-(810)702-7509|0
+Elizabeth|Cole|20578|242 Chive Terrace|86-(147)979-8930|1
+Virginia|Wagner|70356|145 Prentice Way|420-(970)473-0888|0
+Todd|Hughes|69490|02877 Express Drive|221-(815)743-1443|0
+Brian|Alexander|46822|5 Birchwood Plaza|86-(367)594-3284|1
+Bobby|Ward|45273|55 High Crossing Lane|62-(331)278-7691|0
+Bonnie|Harvey|43882|85040 Erie Way|54-(414)992-9394|1
+Betty|Kennedy|56632|4306 Portage Plaza|63-(917)144-4217|0
+Anthony|Gonzales|44483|355 Thompson Parkway|255-(525)431-1962|0
+Mary|Hanson|59261|5225 John Wall Park|86-(202)434-6485|1
+Norma|Hughes|72339|68636 Upham Lane|357-(765)421-2107|1
+Diana|Ortiz|78137|80 Delladonna Terrace|55-(632)655-6483|1
+Robert|Peters|95857|4419 Jana Alley|27-(957)863-3064|0
+Frank|Larson|49836|28 Scofield Plaza|686-(510)369-8903|1
+Julia|Scott|22503|3396 Ryan Road|86-(132)328-7690|0
+Diana|Banks|83263|22 Claremont Road|380-(813)156-8256|0
+Charles|Sullivan|12333|7 Hovde Trail|7-(494)196-4163|1
+Robert|Franklin|85741|7390 Anhalt Circle|57-(225)816-9851|1
+Janet|Ortiz|21655|02992 Jackson Road|86-(366)603-9660|0
+Lawrence|Holmes|95043|0188 Forster Crossing|62-(311)879-7262|0
+Philip|Wallace|47142|4271 Becker Way|62-(408)217-7842|0
+Denise|Peters|14220|95093 Merrick Pass|86-(604)452-2519|0
+Albert|Andrews|43943|00742 David Road|51-(607)237-3686|1
+Christopher|Weaver|48195|57 Everett Alley|86-(698)628-9818|0
+Harry|Oliver|37056|9 Pine View Point|86-(425)401-2946|1
+Scott|Patterson|18824|2 Manley Crossing|62-(543)232-0636|1
+Elizabeth|Arnold|90457|30501 Karstens Pass|1-(711)757-3067|0
+Ann|Anderson|94162|1225 Sullivan Lane|95-(264)139-0092|0
+Marilyn|Hayes|53056|8 La Follette Pass|63-(160)748-1719|0
+Phillip|Hanson|26097|430 Harbort Park|55-(345)742-2058|0
+Tina|Nelson|65507|067 Summit Lane|51-(423)113-6243|0
+Willie|Meyer|84531|7 Crownhardt Hill|7-(926)264-4728|1
+Theresa|Jacobs|42738|2211 Manitowish Terrace|66-(753)768-2667|1
+Judy|Bailey|24765|311 Marquette Park|86-(755)736-9359|0
+Donald|Hanson|59454|53312 Golf Center|387-(979)940-1536|1
+Christina|Cunningham|35294|8736 Portage Crossing|237-(503)333-9693|1
+Jose|Marshall|83945|8595 Bay Parkway|86-(346)824-9560|0
+Carolyn|Murphy|10649|8 Steensland Park|66-(428)299-8351|1
+Deborah|Murphy|24225|5 Carberry Point|62-(687)567-9017|1
+Carl|West|29354|97 Main Hill|61-(983)235-6382|1
+Roy|Barnes|95078|67034 Bunker Hill Junction|7-(106)365-1579|1
+Sharon|Howell|15940|8 North Trail|86-(134)898-2514|1
+Susan|Jacobs|53528|07394 Everett Parkway|61-(161)920-6900|0
+Samuel|Chapman|50946|73 Ludington Avenue|86-(597)371-7321|1
+Tina|Ford|92160|8016 Forest Run Alley|86-(525)852-5989|0
+Martin|Gray|61565|6535 Rutledge Pass|7-(141)837-9272|1
+Angela|Black|26990|353 Arapahoe Trail|86-(502)592-6010|1
+Ruby|Jordan|89725|80 7th Plaza|420-(865)463-9069|0
+Louise|Duncan|92972|1 Summer Ridge Court|86-(268)208-2124|0
+Andrea|Porter|47629|3762 Butterfield Pass|30-(372)399-8713|1
+Nicole|Roberts|43300|09304 Rusk Crossing|46-(578)905-2738|0
+Phyllis|Fuller|33083|6 Sunbrook Hill|52-(336)104-6692|1
+Martha|Wagner|89340|9 Messerschmidt Hill|57-(427)640-7975|1
+Richard|Moreno|45249|1198 Ryan Park|63-(895)990-7398|1
+Willie|Woods|60823|92 Elgar Street|970-(258)439-5668|0
+Rose|Garza|31564|666 Stone Corner Place|1-(646)844-4168|0
+Rebecca|Kim|71138|0 Truax Way|92-(489)474-9041|0
+Janice|Bowman|61850|118 Center Point|63-(727)974-4920|0
+Gary|Gutierrez|25679|708 Mayfield Way|51-(117)528-1991|1
+Lori|Allen|38565|61 Moulton Alley|86-(721)115-2288|0
+Terry|Fields|40049|3718 Shoshone Crossing|66-(267)407-8197|1
+Cynthia|Richardson|24698|7 Golden Leaf Trail|62-(797)980-7961|0
+Jeremy|Jordan|85809|98373 Haas Place|351-(705)340-9426|0
+Amanda|Morales|69978|2408 Mifflin Parkway|86-(633)407-2086|0
+Joseph|Sanders|12129|2 Duke Crossing|45-(876)276-4381|0
+Carolyn|Williamson|50921|7834 Mandrake Parkway|351-(742)732-0312|1
+Heather|Butler|83136|1 Superior Court|880-(939)220-6544|0
+Patrick|Ward|60072|45158 Granby Hill|420-(908)548-1639|1
+Katherine|Harper|92046|6581 Emmet Way|36-(217)310-6539|0
+Carolyn|Grant|73478|356 Morrow Circle|48-(996)771-3134|1
+Timothy|Reed|69214|4 Kinsman Parkway|55-(869)552-8702|0
+Jesse|Bennett|69216|16919 Riverside Plaza|86-(840)369-1380|1
+
