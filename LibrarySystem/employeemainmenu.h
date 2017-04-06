@@ -16,7 +16,7 @@ class EmployeeMainMenu : public QWidget
 public:
     explicit EmployeeMainMenu(QWidget *parent = 0);
     ~EmployeeMainMenu();
-
+    void setManager(bool manager);
 private slots:
 
 
@@ -30,6 +30,8 @@ private:
     EditMembers* openEditMembers;
 
     AuthorizedWindow* openAuthWindow;
+
+    bool isManager;
 };
 
 #endif // EMPLOYEEMAINMENU_H

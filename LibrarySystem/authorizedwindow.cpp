@@ -21,6 +21,7 @@ AuthorizedWindow::AuthorizedWindow(QWidget *parent) :
     ui(new Ui::AuthorizedWindow)
 {
     ui->setupUi(this);
+    this->isManager=false;
     ui->NewBook_Title->hide();
     ui->NewBook_Author->hide();
     ui->NewBook_ISBN->hide();
@@ -28,6 +29,8 @@ AuthorizedWindow::AuthorizedWindow(QWidget *parent) :
     ui->NewBook_Confirm->hide();
     ui->NewBook_Cancel->hide();
     ui->NewBook_Weeks->hide();
+    ui->Add_Button->hide();
+    ui->Delete_Button->hide();
 }
 
 AuthorizedWindow::~AuthorizedWindow()
@@ -407,5 +410,14 @@ void AuthorizedWindow::on_NewBook_ISBN_cursorPositionChanged(int arg1, int arg2)
     if(ui->NewBook_ISBN->inputMask()==""){
         ui->NewBook_ISBN->setInputMask("999999999-9");
         ui->NewBook_ISBN->setCursorPosition(0);
+    }
+}
+
+void AuthorizedWindow::setManager(bool manager)
+{
+    this->isManager=manager;
+    if(isManager){
+        ui->Add_Button->show();
+        ui->Delete_Button->show();
     }
 }

@@ -40,6 +40,7 @@ void LoginPage::on_cmdLogin_clicked()
 
     vector<QString> Users;
     vector<QString> pwds;
+    vector<QString> mgrs;
 
     QString logins="login.txt";
     QString Credentials;
@@ -50,18 +51,25 @@ void LoginPage::on_cmdLogin_clicked()
         while (!in.atEnd())
         {
             Credentials = in.readLine();
-            QString tempUsr= Credentials.split(" ").first();
-            QString tempPwd= Credentials.split(" ").last();
+            QStringList pieces = Credentials.split(" ");
+            QString tempUsr= pieces.at(0);
+            QString tempPwd= pieces.at(1);
+            QString tempMgr= pieces.at(2);
             Users.push_back(tempUsr);
             pwds.push_back(tempPwd);
+            mgrs.push_back(tempMgr);
         }
         inputFile.close();
     }
+    bool isManager=false;
     for(int i=0;i<Users.size();i++){
         if(Users.at(i)==uname){
             if(pwds.at(i)==pwd){
                 loginSuccessful=true;
                 qDebug()<<"Login Successful";
+                if(mgrs.at(i).toInt()==2){
+                    isManager=true;
+                }
                 break;
             }
             else{
@@ -71,6 +79,7 @@ void LoginPage::on_cmdLogin_clicked()
     }
     if(loginSuccessful){
        openMainMenu =  new EmployeeMainMenu();
+       openMainMenu->setManager(isManager);
        openMainMenu->show();
        ui->Username->setText("Username");
        ui->Password->setText("Password");

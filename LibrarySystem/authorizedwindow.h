@@ -33,6 +33,7 @@ public:
 
     vector<book> bookVector;
 
+    void setManager(bool manager);
     //Concatenation Function
     QString concatenate(int lineNum);
 
@@ -56,6 +57,7 @@ private slots:
 private:
     Ui::AuthorizedWindow *ui;
     void writeToFile();
+    bool isManager;
 };
 
 #endif // AUTHORIZEDWINDOW_H

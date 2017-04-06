@@ -6,11 +6,17 @@ EmployeeMainMenu::EmployeeMainMenu(QWidget *parent) :
     ui(new Ui::EmployeeMainMenu)
 {
     ui->setupUi(this);
+    isManager=false;
 }
 
 EmployeeMainMenu::~EmployeeMainMenu()
 {
     delete ui;
+}
+
+void EmployeeMainMenu::setManager(bool manager)
+{
+    this->isManager=manager;
 }
 
 void EmployeeMainMenu::on_cmdMembers_clicked()
@@ -22,5 +28,6 @@ void EmployeeMainMenu::on_cmdMembers_clicked()
 void EmployeeMainMenu::on_cmdAuthSearch_clicked()
 {
     openAuthWindow = new AuthorizedWindow();
+    openAuthWindow->setManager(isManager);
     openAuthWindow->show();
 }
