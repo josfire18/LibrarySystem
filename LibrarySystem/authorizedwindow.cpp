@@ -211,6 +211,8 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
             }
             else{
                 QStringList pieces = users.at(userIndex).split("|");
+
+                //Checking for employee or regular checkout limit
                 int maxCheckouts=6;
                 if(pieces.at(4)=="1"){
                     maxCheckouts=12;
@@ -232,7 +234,10 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                             temp.append("|");
                             QDate *date=new QDate();
                             temp.append(date->currentDate().addDays(7*bookVector.at(i).numWeeks.toInt()).toString("MM-dd-yyyy"));
+                            temp.append("\n");
                             users.push_back(temp);
+//We need to decrement the inStock value when a book is checked out
+//bookVector.push_back(bookVector.at(i).inStock - 1);
                             qDebug()<<temp;
                         }
                     }
