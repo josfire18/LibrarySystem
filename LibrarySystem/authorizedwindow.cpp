@@ -95,9 +95,7 @@ void AuthorizedWindow::on_btnSearch_clicked()
                     temp.isbn = pieces.at(2);
                     temp.totNum = pieces.at(3);
                     temp.inStock = pieces.at(4);
-// ERROR CODE HERE //
                     temp.numWeeks= pieces.at(5);
-/*/////////////////*/
                     temp.isSelected=false;
                     temp.checkBox=NULL;
                     bookVector.push_back(temp);
@@ -233,7 +231,7 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                     for(int i=0;i<checkouts.size();i++){
                         QStringList pieces = checkouts.at(i).split("|");
                         if(pieces.at(0).toInt()==card.toInt()){
-                            qDebug()<<i;
+                            qDebug()<<i<<pieces.at(1);
                             CurrentCheckouts++;
                         }
                     }
@@ -245,9 +243,9 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                 int maxCheckouts=6;
                 if(pieces.at(4)=="1" || pieces.at(4)=="2"){
                     maxCheckouts=12;
-                    qDebug()<<"Employee"<<CurrentCheckouts;
+                    qDebug()<<"Employee"<<CurrentCheckouts<<newCheckouts;
                 }
-                if((CurrentCheckouts+newCheckouts)<(maxCheckouts)){
+                if((CurrentCheckouts+newCheckouts)<=(maxCheckouts)){
                     for(int i = 0; i < bookVector.size(); i++){
                         if(bookVector.at(i).isSelected&&(bookVector.at(i).inStock.toInt()>0)){
                             QString temp=pieces.at(1);
@@ -259,6 +257,10 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                             checkouts.push_back(temp);
                             bookVector.at(i).inStock=QString::number(bookVector.at(i).inStock.toInt()-1);
                             qDebug()<<temp;
+                        }
+                        if(bookVector.at(i).checkBox!=NULL&&bookVector.at(i).checkBox->isChecked()){
+                            bookVector.at(i).checkBox->setChecked(false);
+                            bookVector.at(i).isSelected=false;
                         }
                     }
                     QString file = "Checkouts.txt";
@@ -279,6 +281,13 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                     QString message="User Has Exceeded Maximum Checkout Number";
                     WarnBox->setText(message);
                     WarnBox->show();
+
+                    for(int i = 0; i < bookVector.size(); i++){
+                        if(bookVector.at(i).checkBox!=NULL&&bookVector.at(i).checkBox->isChecked()){
+                            bookVector.at(i).checkBox->setChecked(false);
+                            bookVector.at(i).isSelected=false;
+                        }
+                    }
                 }
                 writeToFile();
             }
