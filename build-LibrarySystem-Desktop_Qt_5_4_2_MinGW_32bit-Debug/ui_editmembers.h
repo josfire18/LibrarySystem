@@ -34,6 +34,10 @@ public:
     QLabel *label_4;
     QLabel *label_5;
     QLabel *label_6;
+    QLabel *lblCheckoutID;
+    QLabel *lblCheckoutISBN;
+    QLabel *lblCheckoutDueDate;
+    QPushButton *cmdReturn;
 
     void setupUi(QWidget *EditMembers)
     {
@@ -62,19 +66,39 @@ public:
         label->setFont(font);
         label_2 = new QLabel(EditMembers);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(20, 110, 47, 13));
+        label_2->setEnabled(true);
+        label_2->setGeometry(QRect(60, 110, 47, 13));
         label_3 = new QLabel(EditMembers);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(130, 110, 47, 13));
+        label_3->setEnabled(true);
+        label_3->setGeometry(QRect(140, 110, 47, 13));
         label_4 = new QLabel(EditMembers);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(260, 110, 47, 13));
+        label_4->setEnabled(true);
+        label_4->setGeometry(QRect(230, 110, 47, 13));
         label_5 = new QLabel(EditMembers);
         label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setEnabled(true);
         label_5->setGeometry(QRect(410, 110, 47, 13));
         label_6 = new QLabel(EditMembers);
         label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setEnabled(true);
         label_6->setGeometry(QRect(560, 110, 47, 13));
+        lblCheckoutID = new QLabel(EditMembers);
+        lblCheckoutID->setObjectName(QStringLiteral("lblCheckoutID"));
+        lblCheckoutID->setEnabled(true);
+        lblCheckoutID->setGeometry(QRect(60, 110, 16, 16));
+        lblCheckoutISBN = new QLabel(EditMembers);
+        lblCheckoutISBN->setObjectName(QStringLiteral("lblCheckoutISBN"));
+        lblCheckoutISBN->setEnabled(true);
+        lblCheckoutISBN->setGeometry(QRect(120, 110, 47, 13));
+        lblCheckoutDueDate = new QLabel(EditMembers);
+        lblCheckoutDueDate->setObjectName(QStringLiteral("lblCheckoutDueDate"));
+        lblCheckoutDueDate->setEnabled(true);
+        lblCheckoutDueDate->setGeometry(QRect(220, 110, 47, 13));
+        cmdReturn = new QPushButton(EditMembers);
+        cmdReturn->setObjectName(QStringLiteral("cmdReturn"));
+        cmdReturn->setGeometry(QRect(190, 60, 75, 41));
 
         retranslateUi(EditMembers);
 
@@ -94,6 +118,11 @@ public:
         label_4->setText(QApplication::translate("EditMembers", "Address", 0));
         label_5->setText(QApplication::translate("EditMembers", "Phone", 0));
         label_6->setText(QApplication::translate("EditMembers", "Employee", 0));
+        lblCheckoutID->setText(QApplication::translate("EditMembers", "ID", 0));
+        lblCheckoutISBN->setText(QApplication::translate("EditMembers", "ISBN", 0));
+        lblCheckoutDueDate->setText(QApplication::translate("EditMembers", "Due Date", 0));
+        cmdReturn->setText(QApplication::translate("EditMembers", "Return\n"
+"Books", 0));
     } // retranslateUi
 
 };

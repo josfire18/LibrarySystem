@@ -14,6 +14,15 @@ EditMembers::EditMembers(QWidget *parent) :
     ui(new Ui::EditMembers)
 {
     ui->setupUi(this);
+    ui->lblCheckoutDueDate->hide();
+    ui->lblCheckoutID->hide();
+    ui->lblCheckoutISBN->hide();
+    ui->label_2->hide();
+    ui->label_3->hide();
+    ui->label_4->hide();
+    ui->label_5->hide();
+    ui->label_6->hide();
+    ui->cmdReturn->hide();
     this->isManager=false;
 }
 
@@ -29,17 +38,30 @@ void EditMembers::setManager(bool manager)
 
 void EditMembers::on_cmdListMems_clicked()
 {
-    QString memberList = "Members.txt";
+    QString checkoutList = "Checkouts.txt";
 
     QString line = " ";
 
+    //Hide Unique Mem Labels/Show Checkout items
+    ui->label_2->hide();
+    ui->label_3->hide();
+    ui->label_4->hide();
+    ui->label_5->hide();
+    ui->label_6->hide();
+
+    ui->lblCheckoutDueDate->show();
+    ui->lblCheckoutID->show();
+    ui->lblCheckoutISBN->show();
+    ui->cmdReturn->show();
+
+
     //Reading File
-    if(memberVector.size() == 0)
+    if(checkoutVector.size() == 0)
     {
-        QFile inputFile(memberList);
+        QFile inputFile(checkoutList);
         if (inputFile.open(QIODevice::ReadOnly))
         {
-            qDebug()<<"read";
+            qDebug()<<"read file";
             QTextStream readIn(&inputFile);
             while (!readIn.atEnd())
             {
@@ -47,15 +69,10 @@ void EditMembers::on_cmdListMems_clicked()
                 QStringList pieces = line.split("|");
                 qDebug() << pieces.length();
                 member temp;
-                temp.Name = pieces.at(0);
-                temp.ID = pieces.at(1);
-                temp.Address = pieces.at(2);
-                temp.Phone = pieces.at(3);
-                temp.Employee = pieces.at(4);
-                temp.ISBN = pieces.at(5);
-                temp.dateCheckedOut = pieces.at(6);
-
-                memberVector.push_back(temp);
+                temp.ID = pieces.at(0);
+                temp.ISBN = pieces.at(1);
+                temp.dueDate = pieces.at(2);
+                checkoutVector.push_back(temp);
             }
             inputFile.close();
             qDebug() << "Test: Read successfully";
@@ -70,48 +87,30 @@ void EditMembers::on_cmdListMems_clicked()
     layout->setAlignment(Qt::AlignTop);
     widget->setLayout( layout );
 
-    for(int i = 0; i < memberVector.size(); i++)
+    for(int i = 0; i < checkoutVector.size(); i++)
     {
         QHBoxLayout *hlayout=new QHBoxLayout();
-        QLabel *Namelabel = new QLabel(memberVector.at(i).Name);
-        QLabel *IDlabel = new QLabel(memberVector.at(i).ID);
-        QLabel *AddressLabel = new QLabel(memberVector.at(i).Address);
-        QLabel *PhoneLabel = new QLabel(memberVector.at(i).Phone);
-        QLabel *EmployeeLabel = new QLabel(memberVector.at(i).Employee);
-        QLabel *ISBNLabel = new QLabel(memberVector.at(i).ISBN);
-        QLabel *dateCheckedOutLabel = new QLabel(memberVector.at(i).dateCheckedOut);
-        if(memberVector.at(i).Employee == "1")
+        QLabel *IDlabel = new QLabel(checkoutVector.at(i).ID);
+        QLabel *ISBNLabel = new QLabel(checkoutVector.at(i).ISBN);
+        QLabel *dueDateLabel = new QLabel(checkoutVector.at(i).dueDate);
 
-
-
-        //Tooltip for author and title, longer possible values
-        Namelabel->setToolTip(memberVector.at(i).Name);
-        Namelabel->setFixedWidth(100);
-        IDlabel->setFixedWidth(70);
-        AddressLabel->setFixedWidth(300);
-        PhoneLabel->setFixedWidth(100);
-        EmployeeLabel->setFixedWidth(10);
-        ISBNLabel->setFixedWidth(80);
-        dateCheckedOutLabel->setFixedWidth(50);
-        AddressLabel->setToolTip(memberVector.at(i).Address);
+        //set widths of layouts
+        IDlabel->setFixedWidth(50);
+        ISBNLabel->setFixedWidth(85);
+        dueDateLabel->setFixedWidth(60);
 
         //Create Checkboxes
         QCheckBox *checkBox=new QCheckBox();
         checkBox->setFixedWidth(30);
         hlayout->addWidget(checkBox);
 
-        if(memberVector.at(i).ISBN != "")
+        if(checkoutVector.at(i).ID != "")
         {
             //Create Row
-            hlayout->addWidget(Namelabel);
             hlayout->addWidget(IDlabel);
-            hlayout->addWidget(AddressLabel);
-            hlayout->addWidget(PhoneLabel);
-            hlayout->addWidget(EmployeeLabel);
             hlayout->addWidget(ISBNLabel);
-            hlayout->addWidget(dateCheckedOutLabel);
+            hlayout->addWidget(dueDateLabel);;
             layout->addLayout(hlayout);
-
         }
 
     }
@@ -122,6 +121,17 @@ void EditMembers::on_cmdUniqueMems_clicked()
     QString memberList = "Members.txt";
 
     QString line = " ";
+
+    //Hide Unique Mem Labels/Show Checkout items
+    ui->label_2->show();
+    ui->label_3->show();
+    ui->label_4->show();
+    ui->label_5->show();
+    ui->label_6->show();
+
+    ui->lblCheckoutDueDate->hide();
+    ui->lblCheckoutID->hide();
+    ui->lblCheckoutISBN->hide();
 
     //Reading File
     if(memberVector.size() == 0)
@@ -142,9 +152,6 @@ void EditMembers::on_cmdUniqueMems_clicked()
                 temp.Address = pieces.at(2);
                 temp.Phone = pieces.at(3);
                 temp.Employee = pieces.at(4);
-                temp.ISBN = pieces.at(5);
-                temp.dateCheckedOut = pieces.at(6);
-
                 memberVector.push_back(temp);
             }
             inputFile.close();
@@ -171,8 +178,6 @@ void EditMembers::on_cmdUniqueMems_clicked()
         QLabel *AddressLabel = new QLabel(memberVector.at(i).Address);
         QLabel *PhoneLabel = new QLabel(memberVector.at(i).Phone);
         QLabel *EmployeeLabel = new QLabel(memberVector.at(i).Employee);
-        QLabel *ISBNLabel = new QLabel(memberVector.at(i).ISBN);
-        QLabel *dateCheckedOutLabel = new QLabel(memberVector.at(i).dateCheckedOut);
 
 
 
@@ -180,11 +185,9 @@ void EditMembers::on_cmdUniqueMems_clicked()
         Namelabel->setToolTip(memberVector.at(i).Name);
         Namelabel->setFixedWidth(100);
         IDlabel->setFixedWidth(70);
-        AddressLabel->setFixedWidth(300);
-        PhoneLabel->setFixedWidth(100);
+        AddressLabel->setFixedWidth(150);
+        PhoneLabel->setFixedWidth(160);
         EmployeeLabel->setFixedWidth(10);
-        ISBNLabel->setFixedWidth(80);
-        dateCheckedOutLabel->setFixedWidth(50);
         AddressLabel->setToolTip(memberVector.at(i).Address);
 
         //Create Checkboxes
@@ -212,4 +215,9 @@ void EditMembers::on_cmdUniqueMems_clicked()
             layout->addLayout(hlayout);
         }
     }
+}
+
+void EditMembers::on_cmdReturn_clicked()
+{
+
 }

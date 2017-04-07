@@ -1,44 +1,44 @@
 A First Look at the USA A Cultural Reader|Milada Broukal|254277271-1|1|0|3
-A Guide to Usage for Writersand Students in the Social Sciences|Philip and Margaret Runkel|584527911-9|5|4|1
-A History of English Utilitarianism|Ernst Albee|972221611-2|5|4|3
-A History of Europe|J.M. Roberts|763889812-5|4|3|1
-A History of Genetic Psycholgy|Robert E. Grinder|578979118-2|3|2|1
-A History of Greek Literature|Albin Lesky|668524827-0|3|2|4
+A Guide to Usage for Writersand Students in the Social Sciences|Philip and Margaret Runkel|584527911-9|5|2|1
+A History of English Utilitarianism|Ernst Albee|972221611-2|5|3|3
+A History of Europe|J.M. Roberts|763889812-5|4|2|1
+A History of Genetic Psycholgy|Robert E. Grinder|578979118-2|3|1|1
+A History of Greek Literature|Albin Lesky|668524827-0|3|1|4
 A History of Philosophy in America& vol. I|Elizabeth Flower and Murray G. Murphey|237516161-0|2|1|4
 A History of Philosophy in America& vol. II|Elizabeth Flower and Murray G. Murphey|874299306-7|5|4|1
 A History of Western Morals|Crane Briton|742653613-0|1|0|4
-A Primer Of Freudian Psychology|Calvin S. Hall|279052912-4|2|1|4
-A Religious History of the American People|Sydney E. Ahlstrom|437584395-0|3|2|1
-A Reporter's Life|Walter Cronkite|403912085-X|5|4|3
+A Primer Of Freudian Psychology|Calvin S. Hall|279052912-4|2|0|4
+A Religious History of the American People|Sydney E. Ahlstrom|437584395-0|3|1|1
+A Reporter's Life|Walter Cronkite|403912085-X|5|3|3
 A Season In The Congo|Aime Cesaire|476894042-0|5|4|2
-After Virtue|Alasdair MacIntyre|799282649-3|4|3|2
+After Virtue|Alasdair MacIntyre|799282649-3|4|2|2
 Age Of Reason|Crane Briton|842642144-X|2|1|2
 Air Spy: The Story of Photo Intelligence in World War II|Constance Babington-Smith|591932023-0|1|0|4
-Alfred Schultz Phenomenology and Social Relations|Helmut R. Wagner|746991784-5|4|3|1
+Alfred Schultz Phenomenology and Social Relations|Helmut R. Wagner|746991784-5|4|2|1
 All About the USA|Milada Broukal|743323436-5|3|2|3
 An Abridgement of The Secret Doctrine|H.P. Blavatsky|805768776-2|3|2|4
 An Existentialist Aesthetic|Eugene F. Kaelin|531303237-2|2|1|3
 An Existentialist Ethics|Hazel E. Barnes|122844555-9|1|0|1
 An Introduction to Surrealism|J.H. Matthews|923305007-6|5|4|1
-Anthology of Japanese Literature|Donald Keene|742445890-6|3|2|1
+Anthology of Japanese Literature|Donald Keene|742445890-6|3|0|1
 Anton Chekhov|Donald Rayfield|040729409-0|5|4|1
 Authority of Language|James and Leslie Milroy|664591430-X|4|3|4
-Behaviorism and Phenomenology|T. W. Wann|035700044-7|2|1|1
+Behaviorism and Phenomenology|T. W. Wann|035700044-7|2|0|1
 Being and Nothingness|Jean-Paul Sartre|288305164-X|5|4|3
 Benedtto Croce|Aestheic|923332092-8|1|0|1
-Berkeley|G.J. Warncock|075959217-9|3|2|4
+Berkeley|G.J. Warncock|075959217-9|3|1|4
 Beyond IQ|Robert J. Sternberg|873132781-8|2|1|3
 Beyond Nhilism|Fred H. Willhoite Jr.|802496050-8|3|2|3
 Biography: Fiction& Fact and Form|Ira Bruce Nadel|052104543-6|1|0|4
 Composition Research|Janice M. Lauer and J. William Asher|860965905-4|5|4|3
 Creativity and Innovation|John W. Haefele|462663842-2|4|3|1
-Desert Saints|Nels Anderson|661569061-6|4|3|2
-Devotions Upon Emergent Occasions|Elizabeth Savage|094371143-6|4|3|2
+Desert Saints|Nels Anderson|661569061-6|4|2|2
+Devotions Upon Emergent Occasions|Elizabeth Savage|094371143-6|4|2|2
 Dictionary of Classical Mythology|Robert E. Bell|603520074-5|1|0|2
 Dictionary of Medieval Civilization|Joseph Dahmus|105953991-8|2|1|4
 Dissemination|Jacques Derrida|991010820-8|3|2|1
-Dr. Ida: The Story of Dr. Ida Scudder of Vellore|Dorothy Clarke Wilson|123818879-6|2|1|4
-Encounters With The Future|Marvin Cetron and T. O'Toole|206730798-3|5|4|1
+Dr. Ida: The Story of Dr. Ida Scudder of Vellore|Dorothy Clarke Wilson|123818879-6|2|0|4
+Encounters With The Future|Marvin Cetron and T. O'Toole|206730798-3|5|3|1
 Encyclopedia Of Mormonism Volume I|Daniel H. Ludlow|330393214-X|1|0|2
 Encyclopedia Of Mormonism Volume II|Daniel H. Ludlow|915785252-9|3|2|2
 Encyclopedia Of Mormonism Volume III|Daniel H. Ludlow|892302473-2|3|2|3
@@ -57,7 +57,7 @@ Get Going With Grammar|Jenifer Meldrum and Barbara Reimer|333454300-5|5|4|3
 Greek Tradgedy: A Literary Study|H.D.F. Kitto|129378039-1|2|1|3
 Handbook of Human intelligence|Robert J. Sternberg|092089280-9|3|2|2
 Handbook of Infant Development|Joy d. Osofsky|057551116-8|1|0|3
-Handbook of The Psychology of Aging|Birren Schaie|975740990-1|4|3|3
+Handbook of The Psychology of Aging|Birren Schaie|975740990-1|4|2|3
 Henry Fielding and the Dry Mock|George R. Levine|325311087-7|5|4|4
 Henry J. Heinz: A Biography|E.D. McCafferty|996767635-3|1|0|4
 Henry Ward Beecher|Clifford E. Clark|712051626-4|1|0|3
@@ -109,15 +109,15 @@ Philosophy|Bertrand Russell|047251310-9|3|2|1
 Philosophy of Bertrand Russell|Paul Schilpp|116666740-5|2|1|4
 Pilitzer Prize Editorials|WM. David Sloan|868066805-2|1|0|3
 Play& Dreams and Imitation in Childhood|Jean Piaget|134672781-3|2|1|4
-Profiles in Ethnology|Elman R. Service|886506967-8|3|2|3
+Profiles in Ethnology|Elman R. Service|886506967-8|3|1|3
 Psycho-Cybernetics|Maxwell Maltz|716405539-4|5|4|3
 Psychoanalytic Theories of Personality|Gerald S. Blum|707172086-X|2|1|4
 Psychocybernetics|Maxwell Maltz|400044825-0|1|0|4
-Psychology Evaluation of Children's Human Figure Drawing|Elizabeth Koppitz|919927016-1|4|3|4
-Psychology of Personality: Reading in Theory|William S. Sahakian|780222697-X|3|2|4
+Psychology Evaluation of Children's Human Figure Drawing|Elizabeth Koppitz|919927016-1|4|2|4
+Psychology of Personality: Reading in Theory|William S. Sahakian|780222697-X|3|1|4
 Rational Man|Henry B. Veatch|948953335-1|1|0|3
 Reading Extra|Liz Driscoll|460287334-0|1|0|4
-Reading Modern Poetry: A Critical Anthology|Paul Engle and Warren Carrier|779316186-6|4|3|2
+Reading Modern Poetry: A Critical Anthology|Paul Engle and Warren Carrier|779316186-6|4|2|2
 Reasons and Morals|John Wilson|837359810-3|1|0|1
 Reconstruction in Philosophy|John Dewey|036699109-4|1|0|4
 Red Blood & Black Ink|David Dary|523030944-X|5|4|1

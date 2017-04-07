@@ -25,16 +25,22 @@ public:
         QString Phone;
         QString Employee;
         QString ISBN;
-        QString dateCheckedOut;
+        QString dueDate;
     };
 
+
+
     vector<member> memberVector;
+    vector<member> checkoutVector;
+
 
     void setManager(bool manager);
 private slots:
     void on_cmdListMems_clicked();
 
     void on_cmdUniqueMems_clicked();
+
+    void on_cmdReturn_clicked();
 
 private:
     Ui::EditMembers *ui;

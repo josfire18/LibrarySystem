@@ -83,9 +83,12 @@ Members</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>60</x>
      <y>110</y>
      <width>47</width>
      <height>13</height>
@@ -96,9 +99,12 @@ Members</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>140</x>
      <y>110</y>
      <width>47</width>
      <height>13</height>
@@ -109,9 +115,12 @@ Members</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>230</x>
      <y>110</y>
      <width>47</width>
      <height>13</height>
@@ -122,6 +131,9 @@ Members</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -135,6 +147,9 @@ Members</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>560</x>
@@ -145,6 +160,68 @@ Members</string>
    </property>
    <property name="text">
     <string>Employee</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblCheckoutID">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>110</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ID</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblCheckoutISBN">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>110</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ISBN</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblCheckoutDueDate">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>110</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Due Date</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cmdReturn">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>60</y>
+     <width>75</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Return
+Books</string>
    </property>
   </widget>
  </widget>
