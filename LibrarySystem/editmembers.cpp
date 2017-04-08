@@ -191,6 +191,7 @@ void EditMembers::on_cmdUniqueMems_clicked()
                 temp.Phone = pieces.at(3);
                 temp.Employee = pieces.at(4);
                 temp.checked = false;
+                temp.checkBox = NULL;
                 memberVector.push_back(temp);
             }
             inputFile.close();
@@ -231,8 +232,10 @@ void EditMembers::on_cmdUniqueMems_clicked()
 
         //Create Checkboxes
         QCheckBox *checkBox=new QCheckBox();
+        connect(checkBox,SIGNAL(clicked(bool)),this,SLOT(on_Checked_Box()));
         checkBox->setFixedWidth(30);
         hlayout->addWidget(checkBox);
+        memberVector.at(i).checkBox=checkBox;
 
         //Create Row
         bool exists = false;
@@ -259,65 +262,65 @@ void EditMembers::on_cmdUniqueMems_clicked()
 void EditMembers::on_cmdReturn_clicked()
 {
     if(bookVector.size() == 0)
+    {
+        QString bookList = "Booklist.txt";
+        QString line = " ";
+        QFile inputFile(bookList);
+        if (inputFile.open(QIODevice::ReadOnly))
         {
-            QString bookList = "Booklist.txt";
-            QString line = " ";
-            QFile inputFile(bookList);
-            if (inputFile.open(QIODevice::ReadOnly))
+            qDebug()<<"read";
+            QTextStream readIn(&inputFile);
+            while (!readIn.atEnd())
             {
-                qDebug()<<"read";
-                QTextStream readIn(&inputFile);
-                while (!readIn.atEnd())
-                {
-                    line = readIn.readLine();
-                    QStringList pieces = line.split("|");
-                    book temp;
-                    temp.title = pieces.at(0);
-                    temp.author = pieces.at(1);
-                    temp.isbn = pieces.at(2);
-                    temp.totNum = pieces.at(3);
-                    temp.inStock = pieces.at(4);
-                    temp.numWeeks= pieces.at(5);
-                    temp.isSelected=false;
-                    temp.checkBox=NULL;
-                    bookVector.push_back(temp);
-                }
-                inputFile.close();
-                qDebug() << "Test: Read successfully";
+                line = readIn.readLine();
+                QStringList pieces = line.split("|");
+                book temp;
+                temp.title = pieces.at(0);
+                temp.author = pieces.at(1);
+                temp.isbn = pieces.at(2);
+                temp.totNum = pieces.at(3);
+                temp.inStock = pieces.at(4);
+                temp.numWeeks= pieces.at(5);
+                temp.isSelected=false;
+                temp.checkBox=NULL;
+                bookVector.push_back(temp);
             }
+            inputFile.close();
+            qDebug() << "Test: Read successfully";
         }
+    }
 
-        for (int i=(checkoutVector.size()-1);i>=0;i--){
-            qDebug()<<i<< "CheckVec"<<checkoutVector.size();
-            if(checkoutVector.at(i).checked){
-                qDebug()<<"Selected";
-                for(int j = 0; j < bookVector.size(); j++){
-                    if(checkoutVector.at(i).ISBN==bookVector.at(j).isbn){
-                        bookVector.at(j).inStock=QString::number(bookVector.at(j).inStock.toInt()+1);
-                        if(bookVector.at(j).checkBox!=NULL&&bookVector.at(j).checkBox->isChecked()){
-                            bookVector.at(j).checkBox->setChecked(false);
-                            bookVector.at(j).isSelected=false;
-                        }
+    for (int i=(checkoutVector.size()-1);i>=0;i--){
+        qDebug()<<i<< "CheckVec"<<checkoutVector.size();
+        if(checkoutVector.at(i).checked){
+            qDebug()<<"Selected";
+            for(int j = 0; j < bookVector.size(); j++){
+                if(checkoutVector.at(i).ISBN==bookVector.at(j).isbn){
+                    bookVector.at(j).inStock=QString::number(bookVector.at(j).inStock.toInt()+1);
+                    if(bookVector.at(j).checkBox!=NULL&&bookVector.at(j).checkBox->isChecked()){
+                        bookVector.at(j).checkBox->setChecked(false);
+                        bookVector.at(j).isSelected=false;
                     }
                 }
-                checkoutVector.erase(checkoutVector.begin() + i);
-
-                QString file = "Checkouts.txt";
-                QFile outputFile(file);
-                outputFile.resize(0);
-                if (outputFile.open(QIODevice::ReadWrite)){
-                    QTextStream stream( &outputFile );
-                    for(int i=0;i<checkoutVector.size();i++){
-                        qDebug() << checkoutVector.at(i).ISBN;
-                        stream << checkoutVector.at(i).ID<<"|"<<checkoutVector.at(i).ISBN<<"|"<<checkoutVector.at(i).dueDate << endl;
-                    }
-                    outputFile.close();
-                    qDebug() << "Test: write successfully To Checkouts";
-                }
-                writeToFile();
             }
+            checkoutVector.erase(checkoutVector.begin() + i);
+
+            QString file = "Checkouts.txt";
+            QFile outputFile(file);
+            outputFile.resize(0);
+            if (outputFile.open(QIODevice::ReadWrite)){
+                QTextStream stream( &outputFile );
+                for(int i=0;i<checkoutVector.size();i++){
+                    qDebug() << checkoutVector.at(i).ISBN;
+                    stream << checkoutVector.at(i).ID<<"|"<<checkoutVector.at(i).ISBN<<"|"<<checkoutVector.at(i).dueDate << endl;
+                }
+                outputFile.close();
+                qDebug() << "Test: write successfully To Checkouts";
+            }
+            writeToFile();
         }
-        this->on_cmdListMems_clicked();
+    }
+    this->on_cmdListMems_clicked();
 }
 
 void EditMembers::on_Box_Checked()
@@ -333,6 +336,7 @@ void EditMembers::on_Box_Checked()
 
 void EditMembers::on_cmdEditMem_clicked()
 {
+    this->on_cmdUniqueMems_clicked();
     ui->txtName->show();
     ui->txtID->show();
     ui->txtAddress->show();
@@ -344,7 +348,6 @@ void EditMembers::on_cmdEditMem_clicked()
 
     //Disable other buttons until edit is confirmed or cancelled
     ui->cmdListMems->setEnabled(false);
-    ui->cmdUniqueMems->setEnabled(false);
     ui->cmdReturn->setEnabled(false);
 }
 
@@ -381,16 +384,32 @@ void EditMembers::on_cmdConfirm_clicked()
     else
     {
         //Successfully entered data
-        member newMember;
 
-        //Read in data to member object to be pushed
-        newMember.Name = ui->txtName->text();
-        newMember.ID = ui->txtID->text();
-        newMember.Address = ui->txtAddress->text();
-        newMember.Phone = ui->txtPhone->text();
-        newMember.Employee = ui->txtEmployee->text();
-        memberVector.push_back(newMember);
+        bool editExisting = false;
+        for(int k = 0; k < memberVector.size();k++)
+        {
+            if(memberVector.at(k).checked == true)
+            {
+                editExisting = true;
+                memberVector.at(k).Name = ui->txtName->text();
+                memberVector.at(k).ID = ui->txtID->text();
+                memberVector.at(k).Address = ui->txtAddress->text();
+                memberVector.at(k).Phone = ui->txtPhone->text();
+                memberVector.at(k).Employee = ui->txtEmployee->text();
+            }
+        }
+        if(editExisting == false)
+        {
+            member newMember;
 
+            //Read in data to a new member object to be pushed
+            newMember.Name = ui->txtName->text();
+            newMember.ID = ui->txtID->text();
+            newMember.Address = ui->txtAddress->text();
+            newMember.Phone = ui->txtPhone->text();
+            newMember.Employee = ui->txtEmployee->text();
+            memberVector.push_back(newMember);
+        }
         ui->txtName->hide();
         ui->txtID->hide();
         ui->txtAddress->hide();
@@ -399,11 +418,26 @@ void EditMembers::on_cmdConfirm_clicked()
         ui->cmdConfirm->hide();
         ui->cmdCancelEdit->hide();
 
+        //Write changes to file
+        QString file = "Members.txt";
+        QFile outputFile(file);
+        outputFile.resize(0);
+        if (outputFile.open(QIODevice::ReadWrite)){
+            QTextStream stream( &outputFile );
+            for(int i=0;i<memberVector.size();i++){
+                qDebug() << memberVector.at(i).ISBN;
+                stream << memberVector.at(i).Name<<"|"<<memberVector.at(i).ID<<"|"<<memberVector.at(i).Address<<"|"<<memberVector.at(i).Phone<<"|"<<memberVector.at(i).Employee<< endl;
+            }
+            outputFile.close();
+            qDebug() << "Test: write successfully To members";
+        }
         //Enable other buttons
         ui->cmdListMems->setEnabled(true);
         ui->cmdUniqueMems->setEnabled(true);
         ui->cmdReturn->setEnabled(true);
 
+        //Refresh list
+        this->on_cmdUniqueMems_clicked();
     }
 }
 
@@ -425,10 +459,20 @@ void EditMembers::on_cmdCancelEdit_clicked()
 
 void EditMembers::on_Checked_Box()
 {
-    qDebug()<<"Selected"<<QObject::sender();
+    qDebug()<<"Selected the member "<<QObject::sender();
     for(int i = 0; i < memberVector.size(); i++){
         if(memberVector.at(i).checkBox==QObject::sender()){
             memberVector.at(i).checked=memberVector.at(i).checkBox->isChecked();
+            ui->txtName->setText(memberVector.at(i).Name);
+            ui->txtID->setText(memberVector.at(i).ID);
+            ui->txtAddress->setText(memberVector.at(i).Address);
+            ui->txtPhone->setText(memberVector.at(i).Phone);
+            ui->txtEmployee->setText(memberVector.at(i).Employee);
+        }
+        else
+        {
+            memberVector.at(i).checkBox->setChecked(false);
+            memberVector.at(i).checked = false;
         }
     }
 }
