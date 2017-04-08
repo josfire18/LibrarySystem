@@ -590,11 +590,12 @@ void EditMembers::on_cmdDelete_clicked()
                     qDebug() << "Test: Read successfully";
                 }
 
-                for(int i = 0; i < loginList.size(); i++)
+                for(int j = 0; j < loginList.size(); j++)
                 {
-                    if(loginList.at(i).split(" ").first() == memberVector.at(i).ID)
+                    //qDebug()<<loginList.at(j).split(" ").first()<<memberVector.at(i).ID;
+                    if(loginList.at(j).split(" ").first() == memberVector.at(i).ID)
                     {
-                        loginList.erase(loginList.begin()+i);
+                        loginList.erase(loginList.begin()+j);
                     }
                 }
 
