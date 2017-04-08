@@ -7,6 +7,7 @@
 #include <QFile>
 #include <QDebug>
 #include <QLabel>
+#include <QMessageBox>
 using namespace std;
 
 EditMembers::EditMembers(QWidget *parent) :
@@ -23,6 +24,16 @@ EditMembers::EditMembers(QWidget *parent) :
     ui->label_5->hide();
     ui->label_6->hide();
     ui->cmdReturn->hide();
+
+    //edit members buttons - hide by default
+    ui->txtName->hide();
+    ui->txtID->hide();
+    ui->txtAddress->hide();
+    ui->txtPhone->hide();
+    ui->txtEmployee->hide();
+    ui->cmdConfirm->hide();
+    ui->cmdCancelEdit->hide();
+
     this->isManager=false;
 }
 
@@ -101,8 +112,10 @@ void EditMembers::on_cmdListMems_clicked()
 
         //Create Checkboxes
         QCheckBox *checkBox=new QCheckBox();
+        connect(checkBox,SIGNAL(clicked(bool)),this,SLOT(on_Box_Checked()));
         checkBox->setFixedWidth(30);
         hlayout->addWidget(checkBox);
+        memberVector.at(i).checkBox=checkBox;
 
         if(checkoutVector.at(i).ID != "")
         {
@@ -132,6 +145,7 @@ void EditMembers::on_cmdUniqueMems_clicked()
     ui->lblCheckoutDueDate->hide();
     ui->lblCheckoutID->hide();
     ui->lblCheckoutISBN->hide();
+    ui->cmdReturn->hide();
 
     //Reading File
     if(memberVector.size() == 0)
@@ -152,6 +166,7 @@ void EditMembers::on_cmdUniqueMems_clicked()
                 temp.Address = pieces.at(2);
                 temp.Phone = pieces.at(3);
                 temp.Employee = pieces.at(4);
+                temp.checked = false;
                 memberVector.push_back(temp);
             }
             inputFile.close();
@@ -220,4 +235,106 @@ void EditMembers::on_cmdUniqueMems_clicked()
 void EditMembers::on_cmdReturn_clicked()
 {
 
+}
+
+void EditMembers::on_cmdEditMem_clicked()
+{
+    ui->txtName->show();
+    ui->txtID->show();
+    ui->txtAddress->show();
+    ui->txtPhone->show();
+    ui->txtEmployee->show();
+    ui->cmdConfirm->show();
+    ui->cmdCancelEdit->show();
+    ui->cmdReturn->hide();
+
+    //Disable other buttons until edit is confirmed or cancelled
+    ui->cmdListMems->setEnabled(false);
+    ui->cmdUniqueMems->setEnabled(false);
+    ui->cmdReturn->setEnabled(false);
+}
+
+void EditMembers::on_cmdConfirm_clicked()
+{
+    QMessageBox editMemberWarning;
+
+    //error check for filled  txtboxes
+    if(ui->txtAddress->text() == "Address" ||ui->txtAddress->text() == "")
+    {
+        editMemberWarning.setText("Please enter your address");
+        editMemberWarning.exec();
+    }
+    else if(ui->txtEmployee->text() == "Employee" ||ui->txtEmployee->text() == "")
+    {
+        editMemberWarning.setText("Please enter your Employee/Member status");
+        editMemberWarning.exec();
+    }
+    else if(ui->txtID->text() == "ID" || ui->txtID->text() == "")
+    {
+        editMemberWarning.setText("Please enter your ID");
+        editMemberWarning.exec();
+    }
+    else if(ui->txtName->text() == "Name" || ui->txtName->text() == "")
+    {
+        editMemberWarning.setText("Please enter your Name");
+        editMemberWarning.exec();
+    }
+    else if(ui->txtPhone->text() == "Phone" ||ui->txtPhone->text() == "")
+    {
+        editMemberWarning.setText("Please enter your Phone Number");
+        editMemberWarning.exec();
+    }
+    else
+    {
+        //Successfully entered data
+        member newMember;
+
+        //Read in data to member object to be pushed
+        newMember.Name = ui->txtName->text();
+        newMember.ID = ui->txtID->text();
+        newMember.Address = ui->txtAddress->text();
+        newMember.Phone = ui->txtPhone->text();
+        newMember.Employee = ui->txtEmployee->text();
+        memberVector.push_back(newMember);
+
+        ui->txtName->hide();
+        ui->txtID->hide();
+        ui->txtAddress->hide();
+        ui->txtPhone->hide();
+        ui->txtEmployee->hide();
+        ui->cmdConfirm->hide();
+        ui->cmdCancelEdit->hide();
+
+        //Enable other buttons
+        ui->cmdListMems->setEnabled(true);
+        ui->cmdUniqueMems->setEnabled(true);
+        ui->cmdReturn->setEnabled(true);
+
+    }
+}
+
+void EditMembers::on_cmdCancelEdit_clicked()
+{
+    //Enable other buttons
+    ui->cmdListMems->setEnabled(true);
+    ui->cmdUniqueMems->setEnabled(true);
+    ui->cmdReturn->setEnabled(true);
+
+    ui->txtName->hide();
+    ui->txtID->hide();
+    ui->txtAddress->hide();
+    ui->txtPhone->hide();
+    ui->txtEmployee->hide();
+    ui->cmdConfirm->hide();
+    ui->cmdCancelEdit->hide();
+}
+
+void EditMembers::on_Checked_Box()
+{
+    qDebug()<<"Selected"<<QObject::sender();
+    for(int i = 0; i < memberVector.size(); i++){
+        if(memberVector.at(i).checkBox==QObject::sender()){
+            memberVector.at(i).checked=memberVector.at(i).checkBox->isChecked();
+        }
+    }
 }

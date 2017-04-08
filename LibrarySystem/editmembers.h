@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QVector>
 #include <QString>
+#include <QCheckBox>
 using namespace std;
 namespace Ui {
 class EditMembers;
@@ -26,6 +27,8 @@ public:
         QString Employee;
         QString ISBN;
         QString dueDate;
+        bool checked;
+        QCheckBox *checkBox;
     };
 
 
@@ -41,6 +44,14 @@ private slots:
     void on_cmdUniqueMems_clicked();
 
     void on_cmdReturn_clicked();
+
+    void on_cmdEditMem_clicked();
+
+    void on_cmdConfirm_clicked();
+
+    void on_cmdCancelEdit_clicked();
+
+    void on_Checked_Box();
 
 private:
     Ui::EditMembers *ui;

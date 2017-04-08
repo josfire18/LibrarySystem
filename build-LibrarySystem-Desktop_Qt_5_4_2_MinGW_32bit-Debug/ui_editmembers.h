@@ -15,6 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QWidget>
@@ -38,6 +39,14 @@ public:
     QLabel *lblCheckoutISBN;
     QLabel *lblCheckoutDueDate;
     QPushButton *cmdReturn;
+    QPushButton *cmdEditMem;
+    QLineEdit *txtName;
+    QLineEdit *txtID;
+    QLineEdit *txtAddress;
+    QLineEdit *txtPhone;
+    QLineEdit *txtEmployee;
+    QPushButton *cmdConfirm;
+    QPushButton *cmdCancelEdit;
 
     void setupUi(QWidget *EditMembers)
     {
@@ -98,7 +107,31 @@ public:
         lblCheckoutDueDate->setGeometry(QRect(220, 110, 47, 13));
         cmdReturn = new QPushButton(EditMembers);
         cmdReturn->setObjectName(QStringLiteral("cmdReturn"));
-        cmdReturn->setGeometry(QRect(190, 60, 75, 41));
+        cmdReturn->setGeometry(QRect(270, 60, 71, 41));
+        cmdEditMem = new QPushButton(EditMembers);
+        cmdEditMem->setObjectName(QStringLiteral("cmdEditMem"));
+        cmdEditMem->setGeometry(QRect(190, 60, 71, 41));
+        txtName = new QLineEdit(EditMembers);
+        txtName->setObjectName(QStringLiteral("txtName"));
+        txtName->setGeometry(QRect(400, 70, 91, 20));
+        txtID = new QLineEdit(EditMembers);
+        txtID->setObjectName(QStringLiteral("txtID"));
+        txtID->setGeometry(QRect(490, 70, 91, 20));
+        txtAddress = new QLineEdit(EditMembers);
+        txtAddress->setObjectName(QStringLiteral("txtAddress"));
+        txtAddress->setGeometry(QRect(580, 70, 91, 20));
+        txtPhone = new QLineEdit(EditMembers);
+        txtPhone->setObjectName(QStringLiteral("txtPhone"));
+        txtPhone->setGeometry(QRect(670, 70, 91, 20));
+        txtEmployee = new QLineEdit(EditMembers);
+        txtEmployee->setObjectName(QStringLiteral("txtEmployee"));
+        txtEmployee->setGeometry(QRect(760, 70, 91, 20));
+        cmdConfirm = new QPushButton(EditMembers);
+        cmdConfirm->setObjectName(QStringLiteral("cmdConfirm"));
+        cmdConfirm->setGeometry(QRect(850, 70, 75, 23));
+        cmdCancelEdit = new QPushButton(EditMembers);
+        cmdCancelEdit->setObjectName(QStringLiteral("cmdCancelEdit"));
+        cmdCancelEdit->setGeometry(QRect(850, 100, 75, 23));
 
         retranslateUi(EditMembers);
 
@@ -123,6 +156,15 @@ public:
         lblCheckoutDueDate->setText(QApplication::translate("EditMembers", "Due Date", 0));
         cmdReturn->setText(QApplication::translate("EditMembers", "Return\n"
 "Books", 0));
+        cmdEditMem->setText(QApplication::translate("EditMembers", "Edit\n"
+"Members", 0));
+        txtName->setText(QApplication::translate("EditMembers", "Name", 0));
+        txtID->setText(QApplication::translate("EditMembers", "ID", 0));
+        txtAddress->setText(QApplication::translate("EditMembers", "Address", 0));
+        txtPhone->setText(QApplication::translate("EditMembers", "Phone", 0));
+        txtEmployee->setText(QApplication::translate("EditMembers", "Employee", 0));
+        cmdConfirm->setText(QApplication::translate("EditMembers", "Confirm", 0));
+        cmdCancelEdit->setText(QApplication::translate("EditMembers", "Cancel", 0));
     } // retranslateUi
 
 };
