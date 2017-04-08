@@ -69,6 +69,8 @@ private slots:
     void on_Box_Checked();
     void on_cmdDelete_clicked();
 
+    void on_txtEmployee_textChanged(const QString &arg1);
+
 private:
     Ui::EditMembers *ui;
     void writeToFile();

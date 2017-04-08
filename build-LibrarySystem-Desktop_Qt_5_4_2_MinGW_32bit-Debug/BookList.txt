@@ -146,7 +146,7 @@ The Age Of Reason|Leo Weinstein|377242611-5|4|3|2
 The Age of Structuralism|Edith Kurzweil|881919827-4|5|4|3
 The Antecedents of Self-esteem|Stanley Coopersmith|269692608-5|3|2|3
 The Art of Literature|Arthur Schopenhauer|758176660-8|3|2|3
-The Birth Of Civilization in the Near East|Henri Frankfort|210848004-8|5|4|3
+The Birth Of Civilization in the Near East|Henri Frankfort|210848004-8|5|5|3
 The Book of F|David Rosenberg|035519741-3|2|1|2
 The Burning Fountain|Philip Wheelwright|639757271-4|5|4|1
 The Cambridge History of Later Greek and Medieval Philosophy|A.H. Armstrong|414296911-0|2|1|4

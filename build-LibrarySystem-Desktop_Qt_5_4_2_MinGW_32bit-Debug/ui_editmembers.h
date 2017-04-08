@@ -48,6 +48,8 @@ public:
     QPushButton *cmdConfirm;
     QPushButton *cmdCancelEdit;
     QPushButton *cmdDelete;
+    QLineEdit *txtPassword;
+    QLabel *lblPassword;
 
     void setupUi(QWidget *EditMembers)
     {
@@ -89,7 +91,7 @@ public:
         label_5 = new QLabel(EditMembers);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setEnabled(true);
-        label_5->setGeometry(QRect(410, 120, 47, 13));
+        label_5->setGeometry(QRect(400, 120, 47, 13));
         label_6 = new QLabel(EditMembers);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setEnabled(true);
@@ -136,6 +138,13 @@ public:
         cmdDelete = new QPushButton(EditMembers);
         cmdDelete->setObjectName(QStringLiteral("cmdDelete"));
         cmdDelete->setGeometry(QRect(850, 120, 75, 23));
+        txtPassword = new QLineEdit(EditMembers);
+        txtPassword->setObjectName(QStringLiteral("txtPassword"));
+        txtPassword->setGeometry(QRect(490, 90, 91, 20));
+        txtPassword->setEchoMode(QLineEdit::Password);
+        lblPassword = new QLabel(EditMembers);
+        lblPassword->setObjectName(QStringLiteral("lblPassword"));
+        lblPassword->setGeometry(QRect(400, 90, 61, 16));
 
         retranslateUi(EditMembers);
 
@@ -170,6 +179,7 @@ public:
         cmdConfirm->setText(QApplication::translate("EditMembers", "Confirm", 0));
         cmdCancelEdit->setText(QApplication::translate("EditMembers", "Cancel", 0));
         cmdDelete->setText(QApplication::translate("EditMembers", "Delete", 0));
+        lblPassword->setText(QApplication::translate("EditMembers", "Password", 0));
     } // retranslateUi
 
 };

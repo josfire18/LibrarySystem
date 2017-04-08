@@ -30,7 +30,11 @@ EditMembers::EditMembers(QWidget *parent) :
     ui->label_5->hide();
     ui->label_6->hide();
     ui->cmdReturn->hide();
+    ui->cmdEditMem->hide();
+    ui->txtPassword->hide();
+    ui->lblPassword->hide();
 
+    qDebug() << "Mid Editmem Constructor";
     //edit members buttons - hide by default
     ui->txtName->hide();
     ui->txtID->hide();
@@ -42,6 +46,7 @@ EditMembers::EditMembers(QWidget *parent) :
     ui->cmdDelete->hide();
 
     this->isManager=false;
+    qDebug() << "End editmem constructor";
 }
 
 EditMembers::~EditMembers()
@@ -69,6 +74,10 @@ QString EditMembers::concatenate(int lineNum)
 void EditMembers::setManager(bool manager)
 {
     this->isManager=manager;
+    if(isManager == true)
+    {
+        ui->cmdEditMem->show();
+    }
 }
 
 void EditMembers::on_cmdListMems_clicked()
@@ -420,6 +429,8 @@ void EditMembers::on_cmdConfirm_clicked()
         ui->cmdConfirm->hide();
         ui->cmdCancelEdit->hide();
         ui->cmdDelete->hide();
+        ui->txtPassword->hide();
+        ui->lblPassword->hide();
 
         //Write changes to file
         QString file = "Members.txt";
@@ -434,6 +445,59 @@ void EditMembers::on_cmdConfirm_clicked()
             outputFile.close();
             qDebug() << "Test: write successfully To members";
         }
+        if(ui->txtEmployee->text() == "1" ||ui->txtEmployee->text() == "2")
+        {
+            QVector<QString> loginList;
+            QString filename = "login.txt";
+            QString line = " ";
+
+            //Read from login for authentication
+            QFile inputFile(filename);
+            if (inputFile.open(QIODevice::ReadOnly))
+            {
+                qDebug()<<"read file";
+                QTextStream readIn(&inputFile);
+                while (!readIn.atEnd())
+                {
+                    line = readIn.readLine();
+                    loginList.push_back(line);
+                }
+                inputFile.close();
+                qDebug() << "Test: Read successfully";
+            }
+
+            //Check for preexisting logins
+            QString temp = "";
+            temp.append(ui->txtID->text());
+            temp.append(" ");
+            temp.append(ui->txtPassword->text());
+            temp.append(" ");
+            temp.append(ui->txtEmployee->text());
+
+            for(int i = 0; i < loginList.size(); i++)
+            {
+                if(loginList.at(i).split(" ").first() == ui->txtID->text())
+                {
+                    loginList.erase(loginList.begin()+i);
+                }
+            }
+                loginList.push_back(temp);
+
+            //Write from login for authentication
+            QString file = "login.txt";
+            QFile outputFile(file);
+            outputFile.resize(0);
+            if (outputFile.open(QIODevice::ReadWrite)){
+                QTextStream stream( &outputFile );
+                for(int i=0;i<loginList.size();i++){
+                    qDebug() << loginList.at(i);
+                    stream << loginList.at(i) << endl;
+                }
+                outputFile.close();
+                qDebug() << "Test: write successfully To members";
+            }
+        }
+
         //Enable other buttons
         ui->cmdListMems->setEnabled(true);
         ui->cmdUniqueMems->setEnabled(true);
@@ -459,6 +523,8 @@ void EditMembers::on_cmdCancelEdit_clicked()
     ui->cmdConfirm->hide();
     ui->cmdCancelEdit->hide();
     ui->cmdDelete->hide();
+    ui->txtPassword->hide();
+    ui->lblPassword->hide();
 }
 
 void EditMembers::on_Checked_Box()
@@ -502,7 +568,52 @@ void EditMembers::on_cmdDelete_clicked()
 {
     for(int i = 0; i < memberVector.size(); i++){
         if(memberVector.at(i).checked == true)
+        {
+            if(memberVector.at(i).Employee == "1" || memberVector.at(i).Employee == "2")
+            {
+                QVector<QString> loginList;
+                QString filename = "login.txt";
+                QString line = " ";
+
+                //Read from login for authentication
+                QFile inputFile(filename);
+                if (inputFile.open(QIODevice::ReadOnly))
+                {
+                    qDebug()<<"read file";
+                    QTextStream readIn(&inputFile);
+                    while (!readIn.atEnd())
+                    {
+                        line = readIn.readLine();
+                        loginList.push_back(line);
+                    }
+                    inputFile.close();
+                    qDebug() << "Test: Read successfully";
+                }
+
+                for(int i = 0; i < loginList.size(); i++)
+                {
+                    if(loginList.at(i).split(" ").first() == memberVector.at(i).ID)
+                    {
+                        loginList.erase(loginList.begin()+i);
+                    }
+                }
+
+                //Write from login for authentication
+                QString file = "login.txt";
+                QFile outputFile(file);
+                outputFile.resize(0);
+                if (outputFile.open(QIODevice::ReadWrite)){
+                    QTextStream stream( &outputFile );
+                    for(int i=0;i<loginList.size();i++){
+                        qDebug() << loginList.at(i);
+                        stream << loginList.at(i) << endl;
+                    }
+                    outputFile.close();
+                    qDebug() << "Test: write successfully To members";
+                }
+            }
             memberVector.erase(memberVector.begin() + i);
+        }
     }
 
     //Write Delete to File
@@ -521,4 +632,18 @@ void EditMembers::on_cmdDelete_clicked()
 
     //Refresh list
     this->on_cmdUniqueMems_clicked();
+}
+
+void EditMembers::on_txtEmployee_textChanged(const QString &arg1)
+{
+    if(ui->txtEmployee->text() == "1" || ui->txtEmployee->text() == "2")
+    {
+        ui->txtPassword->show();
+        ui->lblPassword->show();
+    }
+    else
+    {
+        ui->txtPassword->hide();
+        ui->lblPassword->hide();
+    }
 }

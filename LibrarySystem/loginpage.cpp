@@ -51,6 +51,7 @@ void LoginPage::on_cmdLogin_clicked()
         while (!in.atEnd())
         {
             Credentials = in.readLine();
+            qDebug() << Credentials;
             QStringList pieces = Credentials.split(" ");
             QString tempUsr= pieces.at(0);
             QString tempPwd= pieces.at(1);
@@ -77,12 +78,14 @@ void LoginPage::on_cmdLogin_clicked()
             }
         }
     }
+    qDebug() << "Before successful Check";
     if(loginSuccessful){
        openMainMenu =  new EmployeeMainMenu();
        openMainMenu->setManager(isManager);
        openMainMenu->show();
        ui->Username->setText("Username");
        ui->Password->setText("Password");
+       qDebug() << "login closing...";
        this->close();
     }
     else{

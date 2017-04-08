@@ -19,16 +19,18 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Search_clicked()
 {
-    if(Search==NULL){
-        Search = new SearchWindow();
+    if(Search!=NULL){
+        delete Search;
     }
+    Search = new SearchWindow();
     Search->show();
 }
 
 void MainWindow::on_Login_clicked()
 {
-    if(login==NULL){
-        login = new LoginPage();
+    if(login!=NULL){
+        delete login;
     }
+    login = new LoginPage();
     login->show();
 }
