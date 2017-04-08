@@ -8,6 +8,12 @@
 #include <QDebug>
 #include <QLabel>
 #include <QMessageBox>
+#include <QDir>
+#include <QCoreApplication>
+#include <qscrollarea.h>
+#include <QInputDialog>
+#include <QDate>
+
 using namespace std;
 
 EditMembers::EditMembers(QWidget *parent) :
@@ -40,6 +46,23 @@ EditMembers::EditMembers(QWidget *parent) :
 EditMembers::~EditMembers()
 {
     delete ui;
+}
+
+QString EditMembers::concatenate(int lineNum)
+{
+    QString line = "";
+    line = bookVector.at(lineNum).title;
+    line.append("|");
+    line.append(bookVector.at(lineNum).author);
+    line.append("|");
+    line.append(bookVector.at(lineNum).isbn);
+    line.append("|");
+    line.append(bookVector.at(lineNum).totNum);
+    line.append("|");
+    line.append(bookVector.at(lineNum).inStock);
+    line.append("|");
+    line.append(bookVector.at(lineNum).numWeeks);
+    return line;
 }
 
 void EditMembers::setManager(bool manager)
@@ -78,11 +101,12 @@ void EditMembers::on_cmdListMems_clicked()
             {
                 line = readIn.readLine();
                 QStringList pieces = line.split("|");
-                qDebug() << pieces.length();
+                //qDebug() << pieces.length();
                 member temp;
                 temp.ID = pieces.at(0);
                 temp.ISBN = pieces.at(1);
                 temp.dueDate = pieces.at(2);
+                temp.checked=false;
                 checkoutVector.push_back(temp);
             }
             inputFile.close();
@@ -115,7 +139,7 @@ void EditMembers::on_cmdListMems_clicked()
         connect(checkBox,SIGNAL(clicked(bool)),this,SLOT(on_Box_Checked()));
         checkBox->setFixedWidth(30);
         hlayout->addWidget(checkBox);
-        memberVector.at(i).checkBox=checkBox;
+        checkoutVector.at(i).checkBox=checkBox;
 
         if(checkoutVector.at(i).ID != "")
         {
@@ -234,7 +258,77 @@ void EditMembers::on_cmdUniqueMems_clicked()
 
 void EditMembers::on_cmdReturn_clicked()
 {
+    if(bookVector.size() == 0)
+        {
+            QString bookList = "Booklist.txt";
+            QString line = " ";
+            QFile inputFile(bookList);
+            if (inputFile.open(QIODevice::ReadOnly))
+            {
+                qDebug()<<"read";
+                QTextStream readIn(&inputFile);
+                while (!readIn.atEnd())
+                {
+                    line = readIn.readLine();
+                    QStringList pieces = line.split("|");
+                    book temp;
+                    temp.title = pieces.at(0);
+                    temp.author = pieces.at(1);
+                    temp.isbn = pieces.at(2);
+                    temp.totNum = pieces.at(3);
+                    temp.inStock = pieces.at(4);
+                    temp.numWeeks= pieces.at(5);
+                    temp.isSelected=false;
+                    temp.checkBox=NULL;
+                    bookVector.push_back(temp);
+                }
+                inputFile.close();
+                qDebug() << "Test: Read successfully";
+            }
+        }
 
+        for (int i=(checkoutVector.size()-1);i>=0;i--){
+            qDebug()<<i<< "CheckVec"<<checkoutVector.size();
+            if(checkoutVector.at(i).checked){
+                qDebug()<<"Selected";
+                for(int j = 0; j < bookVector.size(); j++){
+                    if(checkoutVector.at(i).ISBN==bookVector.at(j).isbn){
+                        bookVector.at(j).inStock=QString::number(bookVector.at(j).inStock.toInt()+1);
+                        if(bookVector.at(j).checkBox!=NULL&&bookVector.at(j).checkBox->isChecked()){
+                            bookVector.at(j).checkBox->setChecked(false);
+                            bookVector.at(j).isSelected=false;
+                        }
+                    }
+                }
+                checkoutVector.erase(checkoutVector.begin() + i);
+
+                QString file = "Checkouts.txt";
+                QFile outputFile(file);
+                outputFile.resize(0);
+                if (outputFile.open(QIODevice::ReadWrite)){
+                    QTextStream stream( &outputFile );
+                    for(int i=0;i<checkoutVector.size();i++){
+                        qDebug() << checkoutVector.at(i).ISBN;
+                        stream << checkoutVector.at(i).ID<<"|"<<checkoutVector.at(i).ISBN<<"|"<<checkoutVector.at(i).dueDate << endl;
+                    }
+                    outputFile.close();
+                    qDebug() << "Test: write successfully To Checkouts";
+                }
+                writeToFile();
+            }
+        }
+        this->on_cmdListMems_clicked();
+}
+
+void EditMembers::on_Box_Checked()
+{
+    qDebug()<<"Selected"<<QObject::sender();
+    for(int i = 0; i < checkoutVector.size(); i++){
+        if(checkoutVector.at(i).checkBox==QObject::sender()){
+            qDebug()<<"CheckVec Select";
+            checkoutVector.at(i).checked=checkoutVector.at(i).checkBox->isChecked();
+        }
+    }
 }
 
 void EditMembers::on_cmdEditMem_clicked()
@@ -336,5 +430,22 @@ void EditMembers::on_Checked_Box()
         if(memberVector.at(i).checkBox==QObject::sender()){
             memberVector.at(i).checked=memberVector.at(i).checkBox->isChecked();
         }
+    }
+}
+
+
+void EditMembers::writeToFile()
+{
+    QString bookList = "booklist.txt";
+    QFile outputFile(bookList);
+    outputFile.resize(0);
+    if (outputFile.open(QIODevice::ReadWrite)){
+        QTextStream stream( &outputFile );
+        for(int i=0;i<bookVector.size();i++){
+            QString line=concatenate(i);
+            stream << line << endl;
+        }
+        outputFile.close();
+        qDebug() << "Test: write successfully";
     }
 }

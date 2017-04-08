@@ -301,6 +301,7 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
         WarnBox->addButton(QString("OK") , QMessageBox::AcceptRole);
         WarnBox->show();
     }
+    this->on_btnSearch_clicked();
 }
 
 void AuthorizedWindow::on_Add_Button_clicked()

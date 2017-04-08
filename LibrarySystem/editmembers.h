@@ -32,9 +32,22 @@ public:
     };
 
 
+    struct book{
+        QString title;
+        QString author;
+        QString isbn;
+        QString totNum;
+        QString inStock;
+        QString numWeeks;
+        bool isSelected;
+        QCheckBox *checkBox;
+    };
+
 
     vector<member> memberVector;
     vector<member> checkoutVector;
+    vector<book> bookVector;
+    QString concatenate(int lineNum);
 
 
     void setManager(bool manager);
@@ -53,8 +66,10 @@ private slots:
 
     void on_Checked_Box();
 
+    void on_Box_Checked();
 private:
     Ui::EditMembers *ui;
+    void writeToFile();
     bool isManager;
 };
 
