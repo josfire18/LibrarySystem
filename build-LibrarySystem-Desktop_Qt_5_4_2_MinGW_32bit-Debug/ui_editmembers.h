@@ -47,6 +47,7 @@ public:
     QLineEdit *txtEmployee;
     QPushButton *cmdConfirm;
     QPushButton *cmdCancelEdit;
+    QPushButton *cmdDelete;
 
     void setupUi(QWidget *EditMembers)
     {
@@ -58,11 +59,11 @@ public:
         cmdListMems->setGeometry(QRect(10, 60, 81, 41));
         scrollArea = new QScrollArea(EditMembers);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
-        scrollArea->setGeometry(QRect(10, 140, 961, 331));
+        scrollArea->setGeometry(QRect(10, 150, 961, 321));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 959, 329));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 959, 319));
         scrollArea->setWidget(scrollAreaWidgetContents);
         cmdUniqueMems = new QPushButton(EditMembers);
         cmdUniqueMems->setObjectName(QStringLiteral("cmdUniqueMems"));
@@ -76,35 +77,35 @@ public:
         label_2 = new QLabel(EditMembers);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setEnabled(true);
-        label_2->setGeometry(QRect(60, 110, 47, 13));
+        label_2->setGeometry(QRect(60, 120, 47, 13));
         label_3 = new QLabel(EditMembers);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setEnabled(true);
-        label_3->setGeometry(QRect(140, 110, 47, 13));
+        label_3->setGeometry(QRect(140, 120, 47, 13));
         label_4 = new QLabel(EditMembers);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setEnabled(true);
-        label_4->setGeometry(QRect(230, 110, 47, 13));
+        label_4->setGeometry(QRect(230, 120, 47, 13));
         label_5 = new QLabel(EditMembers);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setEnabled(true);
-        label_5->setGeometry(QRect(410, 110, 47, 13));
+        label_5->setGeometry(QRect(410, 120, 47, 13));
         label_6 = new QLabel(EditMembers);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setEnabled(true);
-        label_6->setGeometry(QRect(560, 110, 47, 13));
+        label_6->setGeometry(QRect(560, 120, 47, 13));
         lblCheckoutID = new QLabel(EditMembers);
         lblCheckoutID->setObjectName(QStringLiteral("lblCheckoutID"));
         lblCheckoutID->setEnabled(true);
-        lblCheckoutID->setGeometry(QRect(60, 110, 16, 16));
+        lblCheckoutID->setGeometry(QRect(60, 120, 16, 16));
         lblCheckoutISBN = new QLabel(EditMembers);
         lblCheckoutISBN->setObjectName(QStringLiteral("lblCheckoutISBN"));
         lblCheckoutISBN->setEnabled(true);
-        lblCheckoutISBN->setGeometry(QRect(120, 110, 47, 13));
+        lblCheckoutISBN->setGeometry(QRect(120, 120, 47, 13));
         lblCheckoutDueDate = new QLabel(EditMembers);
         lblCheckoutDueDate->setObjectName(QStringLiteral("lblCheckoutDueDate"));
         lblCheckoutDueDate->setEnabled(true);
-        lblCheckoutDueDate->setGeometry(QRect(220, 110, 47, 13));
+        lblCheckoutDueDate->setGeometry(QRect(220, 120, 47, 13));
         cmdReturn = new QPushButton(EditMembers);
         cmdReturn->setObjectName(QStringLiteral("cmdReturn"));
         cmdReturn->setGeometry(QRect(270, 60, 71, 41));
@@ -113,25 +114,28 @@ public:
         cmdEditMem->setGeometry(QRect(190, 60, 71, 41));
         txtName = new QLineEdit(EditMembers);
         txtName->setObjectName(QStringLiteral("txtName"));
-        txtName->setGeometry(QRect(400, 70, 91, 20));
+        txtName->setGeometry(QRect(400, 60, 91, 20));
         txtID = new QLineEdit(EditMembers);
         txtID->setObjectName(QStringLiteral("txtID"));
-        txtID->setGeometry(QRect(490, 70, 91, 20));
+        txtID->setGeometry(QRect(490, 60, 91, 20));
         txtAddress = new QLineEdit(EditMembers);
         txtAddress->setObjectName(QStringLiteral("txtAddress"));
-        txtAddress->setGeometry(QRect(580, 70, 91, 20));
+        txtAddress->setGeometry(QRect(580, 60, 91, 20));
         txtPhone = new QLineEdit(EditMembers);
         txtPhone->setObjectName(QStringLiteral("txtPhone"));
-        txtPhone->setGeometry(QRect(670, 70, 91, 20));
+        txtPhone->setGeometry(QRect(670, 60, 91, 20));
         txtEmployee = new QLineEdit(EditMembers);
         txtEmployee->setObjectName(QStringLiteral("txtEmployee"));
-        txtEmployee->setGeometry(QRect(760, 70, 91, 20));
+        txtEmployee->setGeometry(QRect(760, 60, 91, 20));
         cmdConfirm = new QPushButton(EditMembers);
         cmdConfirm->setObjectName(QStringLiteral("cmdConfirm"));
-        cmdConfirm->setGeometry(QRect(850, 70, 75, 23));
+        cmdConfirm->setGeometry(QRect(850, 60, 75, 23));
         cmdCancelEdit = new QPushButton(EditMembers);
         cmdCancelEdit->setObjectName(QStringLiteral("cmdCancelEdit"));
-        cmdCancelEdit->setGeometry(QRect(850, 100, 75, 23));
+        cmdCancelEdit->setGeometry(QRect(850, 90, 75, 23));
+        cmdDelete = new QPushButton(EditMembers);
+        cmdDelete->setObjectName(QStringLiteral("cmdDelete"));
+        cmdDelete->setGeometry(QRect(850, 120, 75, 23));
 
         retranslateUi(EditMembers);
 
@@ -165,6 +169,7 @@ public:
         txtEmployee->setText(QApplication::translate("EditMembers", "Employee", 0));
         cmdConfirm->setText(QApplication::translate("EditMembers", "Confirm", 0));
         cmdCancelEdit->setText(QApplication::translate("EditMembers", "Cancel", 0));
+        cmdDelete->setText(QApplication::translate("EditMembers", "Delete", 0));
     } // retranslateUi
 
 };

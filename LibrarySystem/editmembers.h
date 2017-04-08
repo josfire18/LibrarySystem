@@ -67,6 +67,8 @@ private slots:
     void on_Checked_Box();
 
     void on_Box_Checked();
+    void on_cmdDelete_clicked();
+
 private:
     Ui::EditMembers *ui;
     void writeToFile();

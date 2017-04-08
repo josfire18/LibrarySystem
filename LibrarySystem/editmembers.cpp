@@ -39,6 +39,7 @@ EditMembers::EditMembers(QWidget *parent) :
     ui->txtEmployee->hide();
     ui->cmdConfirm->hide();
     ui->cmdCancelEdit->hide();
+    ui->cmdDelete->hide();
 
     this->isManager=false;
 }
@@ -344,6 +345,7 @@ void EditMembers::on_cmdEditMem_clicked()
     ui->txtEmployee->show();
     ui->cmdConfirm->show();
     ui->cmdCancelEdit->show();
+    ui->cmdDelete->show();
     ui->cmdReturn->hide();
 
     //Disable other buttons until edit is confirmed or cancelled
@@ -417,6 +419,7 @@ void EditMembers::on_cmdConfirm_clicked()
         ui->txtEmployee->hide();
         ui->cmdConfirm->hide();
         ui->cmdCancelEdit->hide();
+        ui->cmdDelete->hide();
 
         //Write changes to file
         QString file = "Members.txt";
@@ -455,6 +458,7 @@ void EditMembers::on_cmdCancelEdit_clicked()
     ui->txtEmployee->hide();
     ui->cmdConfirm->hide();
     ui->cmdCancelEdit->hide();
+    ui->cmdDelete->hide();
 }
 
 void EditMembers::on_Checked_Box()
@@ -492,4 +496,29 @@ void EditMembers::writeToFile()
         outputFile.close();
         qDebug() << "Test: write successfully";
     }
+}
+
+void EditMembers::on_cmdDelete_clicked()
+{
+    for(int i = 0; i < memberVector.size(); i++){
+        if(memberVector.at(i).checked == true)
+            memberVector.erase(memberVector.begin() + i);
+    }
+
+    //Write Delete to File
+    QString file = "Members.txt";
+    QFile outputFile(file);
+    outputFile.resize(0);
+    if (outputFile.open(QIODevice::ReadWrite)){
+        QTextStream stream( &outputFile );
+        for(int i=0;i<memberVector.size();i++){
+            qDebug() << memberVector.at(i).ISBN;
+            stream << memberVector.at(i).Name<<"|"<<memberVector.at(i).ID<<"|"<<memberVector.at(i).Address<<"|"<<memberVector.at(i).Phone<<"|"<<memberVector.at(i).Employee<< endl;
+        }
+        outputFile.close();
+        qDebug() << "Test: write successfully To members";
+    }
+
+    //Refresh list
+    this->on_cmdUniqueMems_clicked();
 }
