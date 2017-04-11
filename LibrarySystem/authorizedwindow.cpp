@@ -163,7 +163,7 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
 
     bool dialogResult;
     QInputDialog *input = new QInputDialog();
-    QString card = input->getText(0, "Rename Label", "Card Number", QLineEdit::Normal, "", &dialogResult);
+    QString card = input->getText(0, "Checkout", "Card Number", QLineEdit::Normal, "", &dialogResult);
     qDebug()<<"Card: "<<card<<card.toInt();
     if((card.toInt()>9999)&&(card.toInt()<100000)){
 

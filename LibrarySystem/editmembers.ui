@@ -170,12 +170,12 @@ Members</string>
     <rect>
      <x>60</x>
      <y>120</y>
-     <width>16</width>
+     <width>100</width>
      <height>13</height>
     </rect>
    </property>
    <property name="text">
-    <string>ID</string>
+    <string>Checked out by</string>
    </property>
   </widget>
   <widget class="QLabel" name="lblCheckoutISBN">
@@ -184,7 +184,7 @@ Members</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>220</x>
      <y>120</y>
      <width>47</width>
      <height>13</height>
@@ -200,7 +200,7 @@ Members</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>320</x>
      <y>120</y>
      <width>55</width>
      <height>13</height>
@@ -241,9 +241,9 @@ Members</string>
   <widget class="QLineEdit" name="txtName">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>390</x>
      <y>50</y>
-     <width>91</width>
+     <width>101</width>
      <height>20</height>
     </rect>
    </property>
@@ -256,7 +256,7 @@ Members</string>
     <rect>
      <x>490</x>
      <y>50</y>
-     <width>91</width>
+     <width>51</width>
      <height>20</height>
     </rect>
    </property>
@@ -267,9 +267,9 @@ Members</string>
   <widget class="QLineEdit" name="txtAddress">
    <property name="geometry">
     <rect>
-     <x>580</x>
+     <x>540</x>
      <y>50</y>
-     <width>91</width>
+     <width>141</width>
      <height>20</height>
     </rect>
    </property>
@@ -280,9 +280,9 @@ Members</string>
   <widget class="QLineEdit" name="txtPhone">
    <property name="geometry">
     <rect>
-     <x>670</x>
+     <x>680</x>
      <y>50</y>
-     <width>91</width>
+     <width>101</width>
      <height>20</height>
     </rect>
    </property>
@@ -293,9 +293,9 @@ Members</string>
   <widget class="QLineEdit" name="txtEmployee">
    <property name="geometry">
     <rect>
-     <x>760</x>
+     <x>780</x>
      <y>50</y>
-     <width>91</width>
+     <width>71</width>
      <height>20</height>
     </rect>
    </property>
@@ -358,7 +358,7 @@ Members</string>
   <widget class="QLabel" name="lblPassword">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>420</x>
      <y>80</y>
      <width>61</width>
      <height>16</height>

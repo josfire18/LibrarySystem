@@ -140,9 +140,14 @@ void EditMembers::on_cmdListMems_clicked()
         QLabel *dueDateLabel = new QLabel(checkoutVector.at(i).dueDate);
 
         //set widths of layouts
-        IDlabel->setFixedWidth(50);
-        ISBNLabel->setFixedWidth(85);
+        IDlabel->setFixedWidth(150);
+        ISBNLabel->setFixedWidth(100);
         dueDateLabel->setFixedWidth(60);
+        QDate date;
+        qDebug()<<"date"<<date.fromString(checkoutVector.at(i).dueDate,"MM-dd-yyyy");
+        if(date.currentDate().operator >(date.fromString(checkoutVector.at(i).dueDate,"MM-dd-yyyy"))){
+            dueDateLabel->setStyleSheet("QLabel {background-color:red}");
+        }
 
         //Create Checkboxes
         QCheckBox *checkBox=new QCheckBox();
@@ -228,7 +233,6 @@ void EditMembers::on_cmdUniqueMems_clicked()
         QLabel *AddressLabel = new QLabel(memberVector.at(i).Address);
         QLabel *PhoneLabel = new QLabel(memberVector.at(i).Phone);
         QLabel *EmployeeLabel = new QLabel(memberVector.at(i).Employee);
-
 
 
         //Tooltip for author and title, longer possible values
@@ -637,7 +641,7 @@ void EditMembers::on_cmdDelete_clicked()
 
 void EditMembers::on_txtEmployee_textChanged(const QString &arg1)
 {
-    if(ui->txtEmployee->text() == "1" || ui->txtEmployee->text() == "2")
+    if((ui->txtEmployee->text() == "1" || ui->txtEmployee->text() == "2")&&!ui->cmdConfirm->isHidden())
     {
         ui->txtPassword->show();
         ui->lblPassword->show();

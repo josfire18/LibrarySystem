@@ -239,7 +239,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Quantity</string>
+    <string>Owned</string>
    </property>
   </widget>
   <widget class="QPushButton" name="NewBook_Confirm">
@@ -291,7 +291,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>NumWeeks</string>
+    <string>Checkout Length</string>
    </property>
   </widget>
  </widget>
