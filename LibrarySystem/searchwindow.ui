@@ -60,7 +60,7 @@
   <widget class="QLabel" name="lblTitle">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>60</x>
      <y>100</y>
      <width>47</width>
      <height>13</height>
@@ -73,7 +73,7 @@
   <widget class="QLabel" name="lblAuthor">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>260</x>
      <y>100</y>
      <width>47</width>
      <height>13</height>
@@ -99,22 +99,22 @@
   <widget class="QLabel" name="lblTotAvail">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>550</x>
      <y>100</y>
      <width>47</width>
      <height>13</height>
     </rect>
    </property>
    <property name="text">
-    <string># Avail</string>
+    <string>Owned</string>
    </property>
   </widget>
   <widget class="QLabel" name="lblInStock">
    <property name="geometry">
     <rect>
-     <x>650</x>
+     <x>630</x>
      <y>100</y>
-     <width>47</width>
+     <width>55</width>
      <height>13</height>
     </rect>
    </property>
@@ -127,7 +127,7 @@
     <rect>
      <x>10</x>
      <y>130</y>
-     <width>821</width>
+     <width>810</width>
      <height>421</height>
     </rect>
    </property>
@@ -139,11 +139,24 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>819</width>
+      <width>808</width>
       <height>419</height>
      </rect>
     </property>
    </widget>
+  </widget>
+  <widget class="QLabel" name="lblNumWeek">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>100</y>
+     <width>110</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Checkout Length</string>
+   </property>
   </widget>
  </widget>
  <resources/>

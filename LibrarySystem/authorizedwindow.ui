@@ -65,7 +65,7 @@
     </rect>
    </property>
    <property name="text">
-    <string># Avail</string>
+    <string>Owned</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txtSearch">
@@ -127,7 +127,7 @@
     <rect>
      <x>10</x>
      <y>140</y>
-     <width>811</width>
+     <width>810</width>
      <height>411</height>
     </rect>
    </property>
@@ -142,7 +142,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>794</width>
+      <width>793</width>
       <height>409</height>
      </rect>
     </property>
@@ -273,12 +273,12 @@
     <rect>
      <x>710</x>
      <y>120</y>
-     <width>81</width>
-     <height>16</height>
+     <width>120</width>
+     <height>13</height>
     </rect>
    </property>
    <property name="text">
-    <string>NumWeeks</string>
+    <string>Checkout Length</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="NewBook_Weeks">

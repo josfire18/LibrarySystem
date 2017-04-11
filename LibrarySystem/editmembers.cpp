@@ -233,9 +233,9 @@ void EditMembers::on_cmdUniqueMems_clicked()
 
         //Tooltip for author and title, longer possible values
         Namelabel->setToolTip(memberVector.at(i).Name);
-        Namelabel->setFixedWidth(100);
+        Namelabel->setFixedWidth(200);
         IDlabel->setFixedWidth(70);
-        AddressLabel->setFixedWidth(150);
+        AddressLabel->setFixedWidth(350);
         PhoneLabel->setFixedWidth(160);
         EmployeeLabel->setFixedWidth(10);
         AddressLabel->setToolTip(memberVector.at(i).Address);

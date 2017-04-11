@@ -11,9 +11,6 @@
 #include <QHBoxLayout>
 #include <QCheckBox>
 using namespace std;
-
-
-
 struct book;
 
 SearchWindow::SearchWindow(QWidget *parent) :
@@ -26,23 +23,6 @@ SearchWindow::SearchWindow(QWidget *parent) :
 SearchWindow::~SearchWindow()
 {
     delete ui;
-}
-
-QString SearchWindow::concatenate(int lineNum)
-{
-    QString line = "";
-    line = bookVector.at(lineNum).title;
-    line.append(", ");
-    line.append(bookVector.at(lineNum).author);
-    line.append(", ");
-    line.append(bookVector.at(lineNum).isbn);
-    line.append(", ");
-    line.append(bookVector.at(lineNum).totNum);
-    line.append(" | ");
-    line.append(bookVector.at(lineNum).inStock);
-    line.append(" | ");
-    line.append("\n");
-    return line;
 }
 
 void SearchWindow::on_btnSearch_clicked()
@@ -78,7 +58,7 @@ void SearchWindow::on_btnSearch_clicked()
                 temp.isbn = pieces.at(2);
                 temp.totNum = pieces.at(3);
                 temp.inStock = pieces.at(4);
-
+                temp.numWeeks= pieces.at(5);
                 bookVector.push_back(temp);
             }
             inputFile.close();
@@ -114,12 +94,18 @@ void SearchWindow::on_btnSearch_clicked()
                 QLabel *ISBNLabel = new QLabel(bookVector.at(i).isbn);
                 QLabel *TotAvailLabel = new QLabel(bookVector.at(i).totNum);
                 QLabel *InStockLabel = new QLabel(bookVector.at(i).inStock);
+                QLabel *NumWeeksLabel = new QLabel(bookVector.at(i).numWeeks);
                 Titlelabel->setFixedWidth(200);
 
                 //Tooltip for author and title, longer possible values
+                Titlelabel->setFixedWidth(200);
                 Titlelabel->setToolTip(bookVector.at(i).title);
                 AuthorLabel->setFixedWidth(150);
                 AuthorLabel->setToolTip(bookVector.at(i).author);
+                ISBNLabel->setFixedWidth(140);
+                TotAvailLabel->setFixedWidth(80);
+                InStockLabel->setFixedWidth(80);
+                NumWeeksLabel->setFixedWidth(40);
 
                 //Create Checkboxes
                 QCheckBox *checkBox=new QCheckBox();
@@ -132,6 +118,7 @@ void SearchWindow::on_btnSearch_clicked()
                 hlayout->addWidget(ISBNLabel);
                 hlayout->addWidget(TotAvailLabel);
                 hlayout->addWidget(InStockLabel);
+                hlayout->addWidget(NumWeeksLabel);
                 layout->addLayout(hlayout);
             }
         }

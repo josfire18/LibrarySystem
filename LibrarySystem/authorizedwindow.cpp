@@ -131,9 +131,12 @@ void AuthorizedWindow::on_btnSearch_clicked()
                 Titlelabel->setToolTip(bookVector.at(i).title);
                 AuthorLabel->setFixedWidth(150);
                 AuthorLabel->setToolTip(bookVector.at(i).author);
-                ISBNLabel->setFixedWidth(120);
-                //Create Checkboxes
+                ISBNLabel->setFixedWidth(140);
+                TotAvailLabel->setFixedWidth(80);
+                InStockLabel->setFixedWidth(80);
+                NumWeeksLabel->setFixedWidth(40);
 
+                //Create Checkboxes
                 QCheckBox *TempcheckBox=new QCheckBox();
                 connect(TempcheckBox,SIGNAL(clicked(bool)),this,SLOT(on_Box_Checked()));
                 TempcheckBox->setFixedWidth(30);

@@ -25,13 +25,10 @@ public:
         QString isbn;
         QString totNum;
         QString inStock;
+        QString numWeeks;
     };
 
     vector<book> bookVector;
-
-    //Concatenation Function
-    QString concatenate(int lineNum);
-
 
 private slots:
     void on_btnSearch_clicked();
