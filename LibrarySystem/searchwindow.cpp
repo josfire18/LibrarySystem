@@ -3,7 +3,7 @@
 #include "QMessageBox"
 #include "string"
 #include "QFile"
-#include "QDebug"
+#include "qDebug"
 #include <QDir>
 #include <QCoreApplication>
 #include <qscrollarea.h>
@@ -44,13 +44,13 @@ void SearchWindow::on_btnSearch_clicked()
         QFile inputFile(bookList);
         if (inputFile.open(QIODevice::ReadOnly))
         {
-            qDebug()<<"read";
+            //qDebug()<<"read";
             QTextStream readIn(&inputFile);
             while (!readIn.atEnd())
             {
                 line = readIn.readLine();
                 QStringList pieces = line.split("|");
-                qDebug() << pieces.length();
+                //qDebug() << pieces.length();
                 line = readIn.readLine();
                 book temp;
                 temp.title = pieces.at(0);
@@ -62,7 +62,7 @@ void SearchWindow::on_btnSearch_clicked()
                 bookVector.push_back(temp);
             }
             inputFile.close();
-            qDebug() << "Test: Read successfully";
+            //qDebug() << "Test: Read successfully";
         }
     }
 

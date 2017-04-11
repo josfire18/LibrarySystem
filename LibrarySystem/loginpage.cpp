@@ -1,7 +1,7 @@
 #include "loginpage.h"
 #include "ui_loginpage.h"
 #include <qstring.h>
-#include <qdebug.h>
+#include <qDebug.h>
 #include <vector>
 #include <qfile.h>
 #include <QDir>
@@ -36,7 +36,7 @@ void LoginPage::on_cmdLogin_clicked()
     ui->Username->focusWidget();
     QString uname= ui->Username->text();
     QString pwd=ui->Password->text();
-    qDebug()<<"User: "<<uname<<" Pwd: "<< pwd;
+    //qDebug()<<"User: "<<uname<<" Pwd: "<< pwd;
 
     vector<QString> Users;
     vector<QString> pwds;
@@ -46,12 +46,12 @@ void LoginPage::on_cmdLogin_clicked()
     QString Credentials;
     QFile inputFile(logins);
     if (inputFile.open(QIODevice::ReadOnly)){
-        qDebug()<<"read";
+        //qDebug()<<"read";
         QTextStream in(&inputFile);
         while (!in.atEnd())
         {
             Credentials = in.readLine();
-            qDebug() << Credentials;
+            //qDebug() << Credentials;
             QStringList pieces = Credentials.split(" ");
             QString tempUsr= pieces.at(0);
             QString tempPwd= pieces.at(1);
@@ -67,29 +67,29 @@ void LoginPage::on_cmdLogin_clicked()
         if(Users.at(i)==uname){
             if(pwds.at(i)==pwd){
                 loginSuccessful=true;
-                qDebug()<<"Login Successful";
+                //qDebug()<<"Login Successful";
                 if(mgrs.at(i).toInt()==2){
                     isManager=true;
                 }
                 break;
             }
             else{
-                qDebug()<<"Password Wrong";
+                //qDebug()<<"Password Wrong";
             }
         }
     }
-    qDebug() << "Before successful Check";
+    //qDebug() << "Before successful Check";
     if(loginSuccessful){
        openMainMenu =  new EmployeeMainMenu();
        openMainMenu->setManager(isManager);
        openMainMenu->show();
        ui->Username->setText("Username");
        ui->Password->setText("Password");
-       qDebug() << "login closing...";
+       //qDebug() << "login closing...";
        this->close();
     }
     else{
-        qDebug()<<"Not the right user";
+        //qDebug()<<"Not the right user";
     }
 }
 

@@ -1,6 +1,6 @@
 #include "employeemainmenu.h"
 #include "ui_employeemainmenu.h"
-#include "QDebug"
+#include "qDebug"
 
 EmployeeMainMenu::EmployeeMainMenu(QWidget *parent) :
     QWidget(parent),

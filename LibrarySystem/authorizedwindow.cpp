@@ -3,7 +3,7 @@
 #include "QMessageBox"
 #include "string"
 #include "QFile"
-#include "QDebug"
+#include "qDebug"
 #include <QDir>
 #include <QCoreApplication>
 #include <qscrollarea.h>
@@ -83,7 +83,7 @@ void AuthorizedWindow::on_btnSearch_clicked()
             QFile inputFile(bookList);
             if (inputFile.open(QIODevice::ReadOnly))
             {
-                qDebug()<<"read";
+                //qDebug()<<"read";
                 QTextStream readIn(&inputFile);
                 while (!readIn.atEnd())
                 {
@@ -101,7 +101,7 @@ void AuthorizedWindow::on_btnSearch_clicked()
                     bookVector.push_back(temp);
                 }
                 inputFile.close();
-                qDebug() << "Test: Read successfully";
+                //qDebug() << "Test: Read successfully";
             }
         }
 
@@ -164,14 +164,14 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
     bool dialogResult;
     QInputDialog *input = new QInputDialog();
     QString card = input->getText(0, "Checkout", "Card Number", QLineEdit::Normal, "", &dialogResult);
-    qDebug()<<"Card: "<<card<<card.toInt();
+    //qDebug()<<"Card: "<<card<<card.toInt();
     if((card.toInt()>9999)&&(card.toInt()<100000)){
 
         int newCheckouts=0;
         for(int i = 0; i < bookVector.size(); i++){
             if(bookVector.at(i).isSelected){
                 newCheckouts++;
-                qDebug()<<"Selected"<<i;
+                //qDebug()<<"Selected"<<i;
             }
         }
         if(newCheckouts==0){
@@ -185,7 +185,7 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
         QFile inputFile(memberList);
         if (inputFile.open(QIODevice::ReadOnly))
         {
-            qDebug()<<"read";
+            //qDebug()<<"read";
             QTextStream readIn(&inputFile);
             while (!readIn.atEnd())
             {
@@ -193,21 +193,21 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                 if(line!=""){
                     users.push_back(line);
                 }
-                //qDebug()<<line;
+                ////qDebug()<<line;
             }
             inputFile.close();
             int userIndex=-1;
             for(int i=0;i<users.size();i++){
                 QStringList pieces = users.at(i).split("|");
                 if(pieces.at(1).toInt()==card.toInt()){
-                    qDebug()<<i;
+                    //qDebug()<<i;
                     cardNum = pieces.at(1);
                     if(userIndex==-1){
                         userIndex=i;
                     }
                 }
             }
-            qDebug() << "Test: Read successfully";
+            //qDebug() << "Test: Read successfully";
             if(cardNum==""){
                 QMessageBox *WarnBox = new QMessageBox();
                 QString message="Please Enter a Valid Card Number";
@@ -220,7 +220,7 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                 int CurrentCheckouts=0;
                 if (inputFile2.open(QIODevice::ReadOnly))
                 {
-                    qDebug()<<"read";
+                    //qDebug()<<"read";
                     QTextStream readIn(&inputFile2);
                     while (!readIn.atEnd())
                     {
@@ -228,13 +228,13 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                         if(line!=""){
                             checkouts.push_back(line);
                         }
-                        //qDebug()<<line;
+                        ////qDebug()<<line;
                     }
                     inputFile2.close();
                     for(int i=0;i<checkouts.size();i++){
                         QStringList pieces = checkouts.at(i).split("|");
                         if(pieces.at(0).toInt()==card.toInt()){
-                            qDebug()<<i<<pieces.at(1);
+                            //qDebug()<<i<<pieces.at(1);
                             CurrentCheckouts++;
                         }
                     }
@@ -246,7 +246,7 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                 int maxCheckouts=6;
                 if(pieces.at(4)=="1" || pieces.at(4)=="2"){
                     maxCheckouts=12;
-                    qDebug()<<"Employee"<<CurrentCheckouts<<newCheckouts;
+                    //qDebug()<<"Employee"<<CurrentCheckouts<<newCheckouts;
                 }
                 if((CurrentCheckouts+newCheckouts)<=(maxCheckouts)){
                     for(int i = 0; i < bookVector.size(); i++){
@@ -259,7 +259,7 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                             temp.append(date->currentDate().addDays(7*bookVector.at(i).numWeeks.toInt()).toString("MM-dd-yyyy"));
                             checkouts.push_back(temp);
                             bookVector.at(i).inStock=QString::number(bookVector.at(i).inStock.toInt()-1);
-                            qDebug()<<temp;
+                            //qDebug()<<temp;
                         }
                         if(bookVector.at(i).checkBox!=NULL&&bookVector.at(i).checkBox->isChecked()){
                             bookVector.at(i).checkBox->setChecked(false);
@@ -272,11 +272,11 @@ void AuthorizedWindow::on_Checkout_Button_clicked()
                     if (outputFile.open(QIODevice::ReadWrite)){
                         QTextStream stream( &outputFile );
                         for(int i=0;i<checkouts.size();i++){
-                            qDebug() << checkouts.at(i);
+                            //qDebug() << checkouts.at(i);
                             stream << checkouts.at(i) << endl;
                         }
                         outputFile.close();
-                        qDebug() << "Test: write successfully";
+                        //qDebug() << "Test: write successfully";
                     }
                 }
                 else{
@@ -366,7 +366,7 @@ void AuthorizedWindow::on_Delete_Button_clicked()
 
 void AuthorizedWindow::on_Box_Checked()
 {
-    qDebug()<<"Selected"<<QObject::sender();
+    //qDebug()<<"Selected"<<QObject::sender();
     for(int i = 0; i < bookVector.size(); i++){
         if(bookVector.at(i).checkBox==QObject::sender()){
             bookVector.at(i).isSelected=bookVector.at(i).checkBox->isChecked();
@@ -431,7 +431,7 @@ void AuthorizedWindow::writeToFile()
             stream << line << endl;
         }
         outputFile.close();
-        qDebug() << "Test: write successfully";
+        //qDebug() << "Test: write successfully";
     }
 }
 

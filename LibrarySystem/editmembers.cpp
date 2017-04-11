@@ -5,7 +5,7 @@
 #include <QCheckBox>
 #include <QVector>
 #include <QFile>
-#include <QDebug>
+#include <qDebug>
 #include <QLabel>
 #include <QMessageBox>
 #include <QDir>
@@ -34,7 +34,7 @@ EditMembers::EditMembers(QWidget *parent) :
     ui->txtPassword->hide();
     ui->lblPassword->hide();
 
-    qDebug() << "Mid Editmem Constructor";
+    //qDebug() << "Mid Editmem Constructor";
     //edit members buttons - hide by default
     ui->txtName->hide();
     ui->txtID->hide();
@@ -46,7 +46,7 @@ EditMembers::EditMembers(QWidget *parent) :
     ui->cmdDelete->hide();
 
     this->isManager=false;
-    qDebug() << "End editmem constructor";
+    //qDebug() << "End editmem constructor";
 }
 
 EditMembers::~EditMembers()
@@ -105,13 +105,13 @@ void EditMembers::on_cmdListMems_clicked()
         QFile inputFile(checkoutList);
         if (inputFile.open(QIODevice::ReadOnly))
         {
-            qDebug()<<"read file";
+            //qDebug()<<"read file";
             QTextStream readIn(&inputFile);
             while (!readIn.atEnd())
             {
                 line = readIn.readLine();
                 QStringList pieces = line.split("|");
-                //qDebug() << pieces.length();
+                ////qDebug() << pieces.length();
                 member temp;
                 temp.ID = pieces.at(0);
                 temp.ISBN = pieces.at(1);
@@ -120,7 +120,7 @@ void EditMembers::on_cmdListMems_clicked()
                 checkoutVector.push_back(temp);
             }
             inputFile.close();
-            qDebug() << "Test: Read successfully";
+            //qDebug() << "Test: Read successfully";
         }
     }
 
@@ -144,7 +144,7 @@ void EditMembers::on_cmdListMems_clicked()
         ISBNLabel->setFixedWidth(100);
         dueDateLabel->setFixedWidth(60);
         QDate date;
-        qDebug()<<"date"<<date.fromString(checkoutVector.at(i).dueDate,"MM-dd-yyyy");
+        //qDebug()<<"date"<<date.fromString(checkoutVector.at(i).dueDate,"MM-dd-yyyy");
         if(date.currentDate().operator >(date.fromString(checkoutVector.at(i).dueDate,"MM-dd-yyyy"))){
             dueDateLabel->setStyleSheet("QLabel {background-color:red}");
         }
@@ -192,13 +192,13 @@ void EditMembers::on_cmdUniqueMems_clicked()
         QFile inputFile(memberList);
         if (inputFile.open(QIODevice::ReadOnly))
         {
-            qDebug()<<"read";
+            //qDebug()<<"read";
             QTextStream readIn(&inputFile);
             while (!readIn.atEnd())
             {
                 line = readIn.readLine();
                 QStringList pieces = line.split("|");
-                qDebug() << pieces.length();
+                //qDebug() << pieces.length();
                 member temp;
                 temp.Name = pieces.at(0);
                 temp.ID = pieces.at(1);
@@ -210,7 +210,7 @@ void EditMembers::on_cmdUniqueMems_clicked()
                 memberVector.push_back(temp);
             }
             inputFile.close();
-            qDebug() << "Test: Read successfully";
+            //qDebug() << "Test: Read successfully";
         }
     }
 
@@ -282,7 +282,7 @@ void EditMembers::on_cmdReturn_clicked()
         QFile inputFile(bookList);
         if (inputFile.open(QIODevice::ReadOnly))
         {
-            qDebug()<<"read";
+            //qDebug()<<"read";
             QTextStream readIn(&inputFile);
             while (!readIn.atEnd())
             {
@@ -300,14 +300,14 @@ void EditMembers::on_cmdReturn_clicked()
                 bookVector.push_back(temp);
             }
             inputFile.close();
-            qDebug() << "Test: Read successfully";
+            //qDebug() << "Test: Read successfully";
         }
     }
 
     for (int i=(checkoutVector.size()-1);i>=0;i--){
-        qDebug()<<i<< "CheckVec"<<checkoutVector.size();
+        //qDebug()<<i<< "CheckVec"<<checkoutVector.size();
         if(checkoutVector.at(i).checked){
-            qDebug()<<"Selected";
+            //qDebug()<<"Selected";
             for(int j = 0; j < bookVector.size(); j++){
                 if(checkoutVector.at(i).ISBN==bookVector.at(j).isbn){
                     bookVector.at(j).inStock=QString::number(bookVector.at(j).inStock.toInt()+1);
@@ -325,11 +325,11 @@ void EditMembers::on_cmdReturn_clicked()
             if (outputFile.open(QIODevice::ReadWrite)){
                 QTextStream stream( &outputFile );
                 for(int i=0;i<checkoutVector.size();i++){
-                    qDebug() << checkoutVector.at(i).ISBN;
+                    //qDebug() << checkoutVector.at(i).ISBN;
                     stream << checkoutVector.at(i).ID<<"|"<<checkoutVector.at(i).ISBN<<"|"<<checkoutVector.at(i).dueDate << endl;
                 }
                 outputFile.close();
-                qDebug() << "Test: write successfully To Checkouts";
+                //qDebug() << "Test: write successfully To Checkouts";
             }
             writeToFile();
         }
@@ -339,10 +339,10 @@ void EditMembers::on_cmdReturn_clicked()
 
 void EditMembers::on_Box_Checked()
 {
-    qDebug()<<"Selected"<<QObject::sender();
+    //qDebug()<<"Selected"<<QObject::sender();
     for(int i = 0; i < checkoutVector.size(); i++){
         if(checkoutVector.at(i).checkBox==QObject::sender()){
-            qDebug()<<"CheckVec Select";
+            //qDebug()<<"CheckVec Select";
             checkoutVector.at(i).checked=checkoutVector.at(i).checkBox->isChecked();
         }
     }
@@ -443,11 +443,11 @@ void EditMembers::on_cmdConfirm_clicked()
         if (outputFile.open(QIODevice::ReadWrite)){
             QTextStream stream( &outputFile );
             for(int i=0;i<memberVector.size();i++){
-                qDebug() << memberVector.at(i).ISBN;
+                //qDebug() << memberVector.at(i).ISBN;
                 stream << memberVector.at(i).Name<<"|"<<memberVector.at(i).ID<<"|"<<memberVector.at(i).Address<<"|"<<memberVector.at(i).Phone<<"|"<<memberVector.at(i).Employee<< endl;
             }
             outputFile.close();
-            qDebug() << "Test: write successfully To members";
+            //qDebug() << "Test: write successfully To members";
         }
         if(ui->txtEmployee->text() == "1" ||ui->txtEmployee->text() == "2")
         {
@@ -459,7 +459,7 @@ void EditMembers::on_cmdConfirm_clicked()
             QFile inputFile(filename);
             if (inputFile.open(QIODevice::ReadOnly))
             {
-                qDebug()<<"read file";
+                //qDebug()<<"read file";
                 QTextStream readIn(&inputFile);
                 while (!readIn.atEnd())
                 {
@@ -467,7 +467,7 @@ void EditMembers::on_cmdConfirm_clicked()
                     loginList.push_back(line);
                 }
                 inputFile.close();
-                qDebug() << "Test: Read successfully";
+                //qDebug() << "Test: Read successfully";
             }
 
             //Check for preexisting logins
@@ -494,11 +494,11 @@ void EditMembers::on_cmdConfirm_clicked()
             if (outputFile.open(QIODevice::ReadWrite)){
                 QTextStream stream( &outputFile );
                 for(int i=0;i<loginList.size();i++){
-                    qDebug() << loginList.at(i);
+                    //qDebug() << loginList.at(i);
                     stream << loginList.at(i) << endl;
                 }
                 outputFile.close();
-                qDebug() << "Test: write successfully To members";
+                //qDebug() << "Test: write successfully To members";
             }
         }
 
@@ -533,7 +533,7 @@ void EditMembers::on_cmdCancelEdit_clicked()
 
 void EditMembers::on_Checked_Box()
 {
-    qDebug()<<"Selected the member "<<QObject::sender();
+    //qDebug()<<"Selected the member "<<QObject::sender();
     for(int i = 0; i < memberVector.size(); i++){
         if(memberVector.at(i).checkBox==QObject::sender()){
             memberVector.at(i).checked=memberVector.at(i).checkBox->isChecked();
@@ -564,7 +564,7 @@ void EditMembers::writeToFile()
             stream << line << endl;
         }
         outputFile.close();
-        qDebug() << "Test: write successfully";
+        //qDebug() << "Test: write successfully";
     }
 }
 
@@ -583,7 +583,7 @@ void EditMembers::on_cmdDelete_clicked()
                 QFile inputFile(filename);
                 if (inputFile.open(QIODevice::ReadOnly))
                 {
-                    qDebug()<<"read file";
+                    //qDebug()<<"read file";
                     QTextStream readIn(&inputFile);
                     while (!readIn.atEnd())
                     {
@@ -591,12 +591,12 @@ void EditMembers::on_cmdDelete_clicked()
                         loginList.push_back(line);
                     }
                     inputFile.close();
-                    qDebug() << "Test: Read successfully";
+                    //qDebug() << "Test: Read successfully";
                 }
 
                 for(int j = 0; j < loginList.size(); j++)
                 {
-                    //qDebug()<<loginList.at(j).split(" ").first()<<memberVector.at(i).ID;
+                    ////qDebug()<<loginList.at(j).split(" ").first()<<memberVector.at(i).ID;
                     if(loginList.at(j).split(" ").first() == memberVector.at(i).ID)
                     {
                         loginList.erase(loginList.begin()+j);
@@ -610,11 +610,11 @@ void EditMembers::on_cmdDelete_clicked()
                 if (outputFile.open(QIODevice::ReadWrite)){
                     QTextStream stream( &outputFile );
                     for(int i=0;i<loginList.size();i++){
-                        qDebug() << loginList.at(i);
+                        //qDebug() << loginList.at(i);
                         stream << loginList.at(i) << endl;
                     }
                     outputFile.close();
-                    qDebug() << "Test: write successfully To members";
+                    //qDebug() << "Test: write successfully To members";
                 }
             }
             memberVector.erase(memberVector.begin() + i);
@@ -628,11 +628,11 @@ void EditMembers::on_cmdDelete_clicked()
     if (outputFile.open(QIODevice::ReadWrite)){
         QTextStream stream( &outputFile );
         for(int i=0;i<memberVector.size();i++){
-            qDebug() << memberVector.at(i).ISBN;
+            //qDebug() << memberVector.at(i).ISBN;
             stream << memberVector.at(i).Name<<"|"<<memberVector.at(i).ID<<"|"<<memberVector.at(i).Address<<"|"<<memberVector.at(i).Phone<<"|"<<memberVector.at(i).Employee<< endl;
         }
         outputFile.close();
-        qDebug() << "Test: write successfully To members";
+        //qDebug() << "Test: write successfully To members";
     }
 
     //Refresh list
